@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    width: 100vw;
+    height: 200px;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.anchors {
+    display: flex;
+    flex-direction: row;
+    margin-right: 80px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header > img {
+    height: 60px;
+    width: auto;
+    margin: 70px;
+}
+
+.anchor {
+    color: rgb(209, 201, 255);
+    width: 130px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.6s;
+    text-align: center;
+}
+
+.anchor:hover {
+    color: white;
+}
+
+.body {
+    color: white;
+    height: fit-content;
+    font-size: 30px;
+}
+
+video {
+    border-radius: 16px;
+}
+
+.slider {
+    display: flex;
+    position: absolute;
+    margin-right: 80px;
+    width: 130px;
+    height: 50px;
+    background-color: #030e22;
+    -webkit-mask: linear-gradient(white, transparent);
+    backface-visibility: hidden;
+    cursor: pointer;
+    pointer-events: none;
+}
