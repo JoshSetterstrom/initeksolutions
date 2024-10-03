@@ -79,7 +79,7 @@ export default function Main() {
 		const windowMaxScroll = bodyRef.current.clientHeight - vh.clientHeight;
 		
 		const handleScroll = () => {
-			setSliderPos(`${(530 - (anchors.clientWidth - 120) * (window.scrollY / windowMaxScroll))}px`)
+			setSliderPos(`${(520 - (anchors.clientWidth - 130) * (window.scrollY / windowMaxScroll))}px`)
 		}
 
 		document.addEventListener('scroll', handleScroll)

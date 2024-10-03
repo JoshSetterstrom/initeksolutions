@@ -49,8 +49,9 @@ video {
     margin-right: 80px;
     width: 130px;
     height: 50px;
-    background-color: #030e22;
-    -webkit-mask: linear-gradient(white, transparent);
+    background: rgb(3,14,34);
+    background: radial-gradient(circle, rgba(3,14,34,1) 27%, rgba(3,14,34,0.2455357142857143) 100%);
+    opacity: 0.5;
     backface-visibility: hidden;
     cursor: pointer;
     pointer-events: none;
