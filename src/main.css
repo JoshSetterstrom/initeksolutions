@@ -1,4 +1,5 @@
 .header {
+    z-index: 2;
     display: flex;
     width: 100vw;
     height: 200px;
@@ -37,6 +38,7 @@
     color: white;
     height: fit-content;
     font-size: 30px;
+    overflow-x: hidden;
 }
 
 video {
@@ -55,4 +57,74 @@ video {
     backface-visibility: hidden;
     cursor: pointer;
     pointer-events: none;
+}
+
+.bodyitem {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    /* justify-content: center; */
+}
+
+.canvas-img {
+    width: 3000px;
+    height: 100%;
+    display: flex;
+    margin-top: 0px;
+}
+
+.canvas-cover {
+    z-index: 1;
+    width: 100vw;
+    display: flex;
+    position: absolute;
+    height: 600px;
+}
+
+.canvas-cover.top {
+    background: linear-gradient(180deg, rgba(3,14,34,1) 27%, rgba(3,14,34,0.2455357142857143) 100%);
+}
+
+.canvas-cover.bot {
+    top: 35vh;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 27%, rgba(0,0,0,1) 100%);
+}
+
+.canvas-cover.left {
+    /* top: 10vh; */
+    height: 100vh;
+    background: linear-gradient(260deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 80%);
+}
+
+.textarea {
+    font-family: 'Hind Guntur';
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    margin-top: 45vh;
+    line-height: 1;
+    width: 100%;
+}
+.textarea.col {
+    flex-direction: column;
+}
+
+.home-title {
+    margin: 0 0 30px 140px;
+    font-size: 38px;
+}
+.home-title::after {
+    content: 'INC';
+    font-size: 12px;
+    margin-left: 3px;
+}
+
+.home-content {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 100%;
+    font-size: 18px;
+    width: 600px;
+    margin-left: 140px;
 }
