@@ -1,13 +1,17 @@
 import './main.css';
-import logo from './assets/initekd.png';
+import logo from './assets/initek.png';
 import canvas from './assets/home_canvas.jpg';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import starFront from './assets/start_front.jpg';
+import startBack from './assets/start_back.jpg';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 
 export default function Main() {
-	const [sliderPos, setSliderPos] = useState('530px');
+	const [sliderPos, setSliderPos] = useState('400px');
 	const [canvasMargin, setCanvasMargin] = useState(0);
-	const [canvasBackground, setCanvasBackground] = useState(90)
+	const [canvasBackground, setCanvasBackground] = useState(90);
+	const [page1textarea, setPage1textarea] = useState(1);
+	const [page2textarea, setPage2textarea] = useState({opacity: 0, left: -160});
 
 	const bodyRef = useRef(null);
 	const sliderRef = useRef(null);
@@ -21,10 +25,10 @@ export default function Main() {
 					<div className='canvas-cover bot' style={{background: `linear-gradient(180deg, rgba(255,255,255,0) 27%, rgba(0,0,0,1) ${canvasBackground}%)`}}/>
 					<div className='canvas-cover left'/>
 					<img className='canvas-img' src={canvas} style={{marginTop: `${canvasMargin}px`}} alt="canvas"/>
-					<div className='textarea col'>
+					<div className='textarea col' style={{opacity: page1textarea}}>
 						<div className='home-title'>INITEK SOLUTIONS</div>
-						<div className='home-content'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, we aim to deliver cost-effective and efficient options to meet your communication and networking needs.</div>
-						<div style={{fontSize: 20, marginLeft: 140, marginTop: 40, color: "blue"}}>Book a consultation</div>
+						<div className='home-content'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</div>
+						<div className='book-button'>Book a consultation</div>
 					</div>
 				</>
 			)
@@ -32,22 +36,27 @@ export default function Main() {
 		{
 			anchor: "About us",
 			render: (
-				<>
-				<div style={{backgroundColor: 'black'}}></div>
-				Initek Solutions
-					{/* <h2 style={{display: 'flex', justifyContent: 'center', margin: 0}}>Initek Solutions</h2> */}
-					{/* <div style={{display: 'flex', justifyContent: 'space-between'}}>
-						<p>We provide a wide range of voice, data, and networking solutions, for any sized business. Our goal is to provide cost effective and resourceful solutions for all your communications and networking demands.</p>
-						<p>Our technicians understand that providing quality and effective service and support are essential in keeping our valued customers. Initek Solutions is diverse in providing support for nearly all systems and business demands.</p>
-					</div> */}
-				</>
+				<div className='textarea col' style={{textAlign: 'end'}}>
+					<div style={{...page2textarea, display: 'flex', flexDirection: 'column', position: 'relative', width: '50vw'}}>
+						<div style={{marginBottom: 30, fontSize: 40}}>About us</div>
+						<div style={{marginLeft: 130, fontSize: 22, whiteSpace: 'pre-line'}}>
+							At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands. Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. Providing efficient and effective voice and data solutions to your organization is crucial in today's society. 
+							<br/><br/>
+							Contact our service professionals to discuss how Initek can provide better solutions for your organization.						
+						</div>
+					</div>
+				</div>
 			)
 		},
 		{
 			anchor: "Services",
 			render: (
-				<>
-				Services
+				<div 
+					// style={{background: 'radial-gradient(circle, rgba(255,255,255,1) 66%, rgba(3,14,34,0) 100%)'}}
+				>
+				<img src={startBack} style={{display: 'flex', position: 'absolute', height: '120vh', opacity: 1}}/>
+				<img src={starFront} style={{opacity: 0.2}}/>
+				{/* Services */}
 					{/* <h2 style={{display: 'flex', justifyContent: 'center'}}>Services</h2> */}
 					{/* <div style={{display: 'flex', justifyContent: 'space-between'}}>
 						<div>
@@ -65,25 +74,17 @@ export default function Main() {
 							</ol>
 						</div>
 					</div> */}
-				</>
+				</div>
 			)
 		},
 		{
 			anchor: "Contact",
 			render: (
 				<>
-					Contact
+					{/* Contact */}
 				</>
 			)
-		},
-		{
-			anchor: "Consultation",
-			render: (
-				<>
-					Consultation
-				</>
-			)
-		},
+		}
 	];
 	
 	
@@ -91,19 +92,31 @@ export default function Main() {
 		const anchors = document.getElementsByClassName('anchors')[0];
 		const vh = document.getElementsByClassName('bodyitem')[0];
 		const windowMaxScroll = bodyRef.current.clientHeight - vh.clientHeight;
-
-		let scrollY = window.scrollY;
 		
 		const handleAnchorScroll = () => {
-			setSliderPos(`${(520 - (anchors.clientWidth - 130) * (window.scrollY / windowMaxScroll))}px`);
+			setSliderPos(`${(390 - (anchors.clientWidth - 130) * (window.scrollY / windowMaxScroll))}px`);
 		};
 
 		const handleCanvasScroll = e => {
+			const position = window.scrollY/window.innerHeight
+
 			setCanvasMargin(window.scrollY * -0.3);
-			setCanvasBackground(90 - ((window.scrollY/window.innerHeight)*0.22)*100)
+			setCanvasBackground(90 - (position*0.22)*100);
+			setPage1textarea(1-position*1.6);
 
-			scrollY = window.scrollY;
+			if (position > 0.5 && position < 1) {
+				const change = (position-0.5)*2;
+				const left = -160+change*140;
+				
+				setPage2textarea(page2textarea => ({...page2textarea, opacity: change, left: left > -60 ? -60 : left}))
+			}
 
+			if (position > 1) {
+				const change = (position-1.5)/-0.5;
+				const left = -160+change*140;
+
+				setPage2textarea(page2textarea => ({...page2textarea, opacity: change, left: left > -60 ? -60 : left}))
+			}
 
 		}
 
@@ -139,27 +152,20 @@ export default function Main() {
 		</div>
 	));
 
-	const header = (
-		<div className="header">
-			<img src={logo} alt="logo"/>
-			<div className='anchors'>
-				{contents.map((content, i) => createAnchor(content.anchor, i))}	
-				<div className='slider' ref={sliderRef} style={{marginRight: sliderPos}}/>
-			</div>
-		</div>
-	)
-	
-
-	const render = (
-		<div className='body' ref={bodyRef}>
-			{renderPages}
-		</div>
-	);
-
 	return (
 		<>
-			{header}
-			{render}
+			<div className="header">
+				<img src={logo} alt="logo"/>
+				<div className='anchors'>
+					{contents.map((content, i) => createAnchor(content.anchor, i))}	
+					<div className='slider' ref={sliderRef} style={{marginRight: sliderPos}}/>
+				</div>
+			</div>
+
+			<div className='body' ref={bodyRef}>
+				<div className='divider'/>
+				{renderPages}
+			</div>
 		</>
 	)
 }

@@ -22,7 +22,7 @@
 }
 
 .anchor {
-    color: rgb(209, 201, 255);
+    color: #d1c9ff;
     width: 130px;
     font-size: 22px;
     cursor: pointer;
@@ -45,13 +45,27 @@ video {
     border-radius: 16px;
 }
 
+.book-button {
+    font-size: 20px; 
+    margin-left: 130px; 
+    margin-top: 40px;
+    color: #a696ff;
+    transition: color 0.4s;
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px;
+}
+
+.book-button:hover {
+    color: white;
+}
+
 .slider {
     display: flex;
     position: absolute;
     margin-right: 80px;
     width: 130px;
     height: 50px;
-    background: rgb(3,14,34);
     background: radial-gradient(circle, rgba(3,14,34,1) 27%, rgba(3,14,34,0.2455357142857143) 100%);
     opacity: 0.5;
     backface-visibility: hidden;
@@ -63,12 +77,12 @@ video {
     display: flex;
     height: 100vh;
     width: 100vw;
-    /* justify-content: center; */
+    overflow: hidden;
 }
 
 .canvas-img {
     width: 3000px;
-    height: 100%;
+    height: 110%;
     display: flex;
     margin-top: 0px;
 }
@@ -82,16 +96,15 @@ video {
 }
 
 .canvas-cover.top {
-    background: linear-gradient(180deg, rgba(3,14,34,1) 27%, rgba(3,14,34,0.2455357142857143) 100%);
+    background: linear-gradient(180deg, rgba(3,14,34,1) 27%, rgba(3,14,34,0) 100%);
 }
 
 .canvas-cover.bot {
-    top: 35vh;
+    top: calc(100vh - 600px);
     background: linear-gradient(180deg, rgba(255,255,255,0) 27%, rgba(0,0,0,1) 100%);
 }
 
 .canvas-cover.left {
-    /* top: 10vh; */
     height: 100vh;
     background: linear-gradient(260deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 80%);
 }
@@ -102,7 +115,7 @@ video {
     position: absolute;
     z-index: 1;
     margin-top: 45vh;
-    line-height: 1;
+    line-height: 1.2;
     width: 100%;
 }
 .textarea.col {
@@ -111,11 +124,11 @@ video {
 
 .home-title {
     margin: 0 0 30px 140px;
-    font-size: 38px;
+    font-size: 60px;
 }
 .home-title::after {
     content: 'INC';
-    font-size: 12px;
+    font-size: 18px;
     margin-left: 3px;
 }
 
@@ -124,7 +137,23 @@ video {
     justify-content: end;
     align-items: end;
     height: 100%;
-    font-size: 18px;
+    font-size: 20px;
     width: 600px;
     margin-left: 140px;
+}
+
+.divider {
+    background-color: white;
+    display: flex;
+    position: absolute;
+    height: 270vh;
+    width: 5px;
+    left: 50%;
+    top: 120vh;
+    background: radial-gradient(circle, rgba(255,255,255,1) 87%, rgba(3,14,34,0) 100%);
+    z-index: 100;
+}
+
+.ver {
+    margin: 0 30px;
 }
