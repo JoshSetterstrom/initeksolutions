@@ -29,7 +29,7 @@ function createGradient(id, direction, color1, color2, style={}, degree=null) {
 
 export default function Main() {
 	const [sliderPos, setSliderPos] = useState('400px');
-	const [canvasMargin, setCanvasMargin] = useState({marginTop: 0, marginRight: 0});
+	const [canvasMargin, setCanvasMargin] = useState({marginTop: 0, left: 0});
 	const [canvasBackground, setCanvasBackground] = useState(90);
 	const [page1textarea, setPage1textarea] = useState(1);
 	const [page2textarea, setPage2textarea] = useState({opacity: 0, left: -30});
@@ -38,11 +38,6 @@ export default function Main() {
 
 	const bodyRef = useRef(null);
 	const sliderRef = useRef(null);
-
-	const mousePos = {
-		x: null,
-		y: null
-	}
 
 	const servicePages = [
 		<div style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
@@ -113,10 +108,8 @@ export default function Main() {
 	};
 
 	function handleCanvasMouseMove(e) {
-		setCanvasMargin(canvasMargin => ({marginTop: canvasMargin.marginTop + e.movementY*0.02}))
+		// setCanvasMargin(canvasMargin => ({marginTop: canvasMargin.marginTop + e.movementY*0.02, left: canvasMargin.left + e.movementX*0.02}))
 	}
-
-	console.log(canvasMargin)
 
 	const contents = [
 		{
@@ -157,8 +150,8 @@ export default function Main() {
 					<div style={{width: '100vw', height: '100vh'}}>
 						{createGradient('page3gradientop', 'top', '#000000 5%', '#00000000 30%', {width: '100vw'})}
 						{createGradient('page3gradienbottom', 'bottom', '#000000 5%', '#00000000 30%', {width: '70vw'})}
-						<img src={starFront} id='3-image1' style={{...image1_3, display: 'flex', position: 'absolute', height: '100vh', opacity: 1, width: 2000}}/>
-						<img src={startBack} id='3-image2' style={{display: 'flex', position: 'absolute', height: '100vh', opacity: 0.5, width: 'auto'}}/>
+						<img src={starFront} id='3-image1' alt='3-image1' style={{...image1_3, display: 'flex', position: 'absolute', height: '100vh', opacity: 1, width: 2000}}/>
+						<img src={startBack} id='3-image2' alt='3-image2' style={{display: 'flex', position: 'absolute', height: '100vh', opacity: 0.5, width: 'auto'}}/>
 					</div>
 					{/* <div style={{display: 'flex', position: 'absolute', zIndex: 1, marginTop: '50vh', left: '20vw', fontSize: 40}}>Services</div> */}
 					{createGradient('page3gradienright', 'right', '#000000 15%', '#00000000 100%', {height: '100vh', width: 300, position: 'relative'}, '270deg')}
@@ -194,7 +187,7 @@ export default function Main() {
 		const handleCanvasScroll = e => {
 			const position = window.scrollY/window.innerHeight
 
-			setCanvasMargin({marginTop: window.scrollY * -0.3});
+			setCanvasMargin(canvasMargin => ({...canvasMargin, marginTop: window.scrollY * -0.3}));
 			setCanvasBackground(90 - (position*0.22)*100);
 			setPage1textarea(1-position*1.6);
 
@@ -207,6 +200,7 @@ export default function Main() {
 			if (position > 1.2) {
 				const change = 1-(position-1.2)/(1.6-1.2)
 
+				setCanvasMargin(canvasMargin => ({...canvasMargin, left: 0}))
 				setPage2textarea(page2textarea => ({...page2textarea, opacity: change}))
 			}
 

@@ -84,7 +84,7 @@ video {
     width: 3000px;
     height: 110%;
     display: flex;
-    margin-top: 0px;
+    position: relative;
 }
 
 .canvas-cover {
@@ -117,8 +117,6 @@ video {
     z-index: 1;
     margin-top: 45vh;
     line-height: 1.2;
-    pointer-events: none;
-    /* width: 100%; */
 }
 .textarea.col {
     flex-direction: column;
