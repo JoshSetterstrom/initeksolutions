@@ -1,4 +1,4 @@
-.header {
+header {
     z-index: 2;
     display: flex;
     width: 100vw;
@@ -7,7 +7,13 @@
     position: fixed;
 }
 
-.anchors {
+header > img {
+    height: 60px;
+    width: auto;
+    margin: 70px;
+}
+
+nav {
     display: flex;
     flex-direction: row;
     margin-right: 80px;
@@ -15,34 +21,21 @@
     justify-content: flex-end;
 }
 
-.header > img {
-    height: 60px;
-    width: auto;
-    margin: 70px;
-}
-
-.anchor {
+nav > a {
     color: #d1c9ff;
     width: 130px;
     font-size: 22px;
     cursor: pointer;
     transition: color 0.6s;
     text-align: center;
+    pointer-events: none style;
 }
 
-.anchor:hover {
-    color: white;
-}
-
-.body {
+main {
     color: white;
     height: fit-content;
     font-size: 30px;
     overflow-x: hidden;
-}
-
-video {
-    border-radius: 16px;
 }
 
 .book-button {
@@ -60,67 +53,167 @@ video {
     color: white;
 }
 
-.slider {
-    display: flex;
-    position: absolute;
-    margin-right: 80px;
-    width: 130px;
-    height: 50px;
-    background: radial-gradient(circle, rgba(3,14,34,1) 27%, rgba(3,14,34,0.2455357142857143) 100%);
-    opacity: 0.5;
-    backface-visibility: hidden;
-    cursor: pointer;
-    pointer-events: none;
-}
 
-.bodyitem {
+section {
     display: flex;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    background-color: black;
 }
 
-.canvas-img {
+#page1-img {
     width: 3000px;
     height: 110%;
     display: flex;
     position: relative;
 }
 
-.canvas-cover {
-    z-index: 1;
+.gradient {
+    height: 100vh;
     width: 100vw;
+}
+
+.gradient.top {
+    background: linear-gradient(0deg, rgba(255,255,255,0) 37%, rgba(0,0,0,1) 90%);
+}
+
+.gradient.top-light {
+    background: linear-gradient(180deg, rgba(3,14,34,1) 15%, rgba(3,14,34,0) 40%);
+}
+
+.gradient.bot {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 67%, rgba(0,0,0,1) 90%);
+}
+
+.gradient.left {
+    background: linear-gradient(270deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 100%);
+}
+
+.gradient.right {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+}
+
+.gradient.left-slim {
+    background: linear-gradient(270deg, rgba(255,255,255,0) 80%, rgba(0,0,0,1) 100%);
+}
+
+.gradient.bot2 {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 87%, rgba(0,0,0,1) 90%);
+}
+
+#title-logo::after {
+    content: 'INC';
+    font-size: 18px;
+    margin-left: 3px;
+}
+
+#title-p {
+    width: 37vw;
+}
+
+
+#services > img {
     display: flex;
     position: absolute;
-    height: 600px;
-    pointer-events: none;
 }
 
-.canvas-cover.top {
-    background: linear-gradient(180deg, rgba(3,14,34,1) 27%, rgba(3,14,34,0) 100%);
-}
-
-.canvas-cover.bot {
-    top: calc(100vh - 600px);
-    background: linear-gradient(180deg, rgba(255,255,255,0) 27%, rgba(0,0,0,1) 100%);
-}
-
-.canvas-cover.left {
-    height: 100vh;
-    background: linear-gradient(260deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 80%);
-}
-
-.textarea {
+.page-content {
     font-family: 'Hind Guntur';
     display: flex;
     position: absolute;
-    z-index: 1;
-    margin-top: 45vh;
-    line-height: 1.2;
-}
-.textarea.col {
     flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
 }
+
+.page-content h2 {
+    width: 40vw;
+    font-weight: 500;
+    margin: 0;
+}
+
+.page-content p {
+    width: 40vw;
+    font-size: 18px;
+    line-height: 1.2;
+    min-width: 400px;
+}
+
+.page-content a {
+    font-size: 20px; 
+    margin-top: 10px;
+    color: #a696ff;
+    transition: color 0.4s;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.page-content a:hover {
+    color: white;
+}
+
+.page-content.center {
+    max-width: 33vw;
+    color: green;
+}
+
+.page-content.left {
+    text-align: start;
+    margin-left: 100px;
+}
+
+.page-content.right {
+    /* text-align: end; */
+    align-items: end;
+}
+
+.page-content.center-left {
+    text-align: end;
+    align-items: center;
+    right: 22.5vw;
+    margin-left: 30px;
+}
+
+
+
+#services img {
+    display: flex;
+    position: absolute;
+    height: 100vh;
+    width: 1500px;
+}
+
+.container {
+    background-color: black; 
+    height: 100vh; 
+    width: 600px; 
+    display: flex; 
+    position: absolute;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.container-content {
+    z-index: 1;
+    width: 600px;
+    height: 100vh; 
+    background-color: black;
+    border-radius: 10px;
+    justify-content: center;
+    align-content: center;
+    padding-right: 40px;
+    padding-left: 40px;
+    min-width: 400px;
+    line-height: 1.4;
+}
+
+
+
+
+
 
 .home-title {
     margin: 0 0 30px 140px;
@@ -146,13 +239,11 @@ video {
 .divider {
     background-color: white;
     display: flex;
-    position: absolute;
+    position: relative;
     height: 80vh;
     width: 3px;
-    left: 50%;
-    top: 110vh;
     background: radial-gradient(circle, rgba(255,255,255,1) 87%, rgba(3,14,34,0) 100%);
-    z-index: 100;
+    z-index: 10;
 }
 
 .divider-hor {
@@ -187,6 +278,31 @@ video {
     transition: background-color 0.2s;
 }
 
+.nav-bullet.selected,
 .nav-bullet:hover {
     background-color: white;
+}
+
+
+
+#service-page {
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+#service-page.fade {
+    opacity: 0;
+}
+
+
+.forminput {
+    font-size: 18px;
+    border-radius: 5px;
+    height: 40px;
+    width: 400px;
+}
+
+.forminput.large {
+    height: 120px;
+    resize: none;
 }

@@ -28,19 +28,16 @@ function createGradient(id, direction, color1, color2, style={}, degree=null) {
 
 
 export default function Main() {
-	const [sliderPos, setSliderPos] = useState('400px');
-	const [canvasMargin, setCanvasMargin] = useState({marginTop: 0, left: 0});
-	const [canvasBackground, setCanvasBackground] = useState(90);
-	const [page1textarea, setPage1textarea] = useState(1);
+	const [page1, setPage1] = useState({img: {marginTop: 0}, text: {opacity: 1}});
+	const [page2, setPage2] = useState({text: {marginTop: 0, opacity: 0}});
+	const [page3, setPage3] = useState({img: {marginTop: -30}, text: {opacity: 0}});
+
 	const [page2textarea, setPage2textarea] = useState({opacity: 0, left: -30});
 	const [image1_3, setImage1_3] = useState({marginTop: 0});
-	const [servicesPage, setServicesPage] = useState(2);
-
-	const bodyRef = useRef(null);
-	const sliderRef = useRef(null);
+	const [servicesPage, setServicesPage] = useState(0);
 
 	const servicePages = [
-		<div style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
+		<div id='service-page' style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
 			<div style={{fontSize: 30}}>
 				Business Phone Systems
 			</div>
@@ -61,7 +58,7 @@ export default function Main() {
 				If you require assistance in choosing the best phone system to support your business, contact us at your earliest convenience.
 			</div>
 		</div>,
-		<div style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
+		<div id='service-page' style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
 			<div style={{fontSize: 30}}>
 				Cable/Fiber Installation
 			</div>
@@ -82,7 +79,7 @@ export default function Main() {
 				</li>
 			</ul>
 		</div>,
-		<div style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
+		<div id='service-page' style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
 			<div style={{fontSize: 30, marginBottom: 40}}>
 				Networking & Testing
 			</div>
@@ -100,38 +97,58 @@ export default function Main() {
 	function bullets() {
 		return new Array(servicePages.length).fill('').map((_, index) => (
 			<div 
-				className='nav-bullet'
+				className={index === 0 ? 'nav-bullet selected' : 'nav-bullet'}
 				id={`nav-bullet-${index}`}
-				onClick={() => setServicesPage(index)}
+				onClick={() => {
+					handleServicePageChange(index)
+				}}
 			/>
 		))		
 	};
 
-	function handleCanvasMouseMove(e) {
-		// setCanvasMargin(canvasMargin => ({marginTop: canvasMargin.marginTop + e.movementY*0.02, left: canvasMargin.left + e.movementX*0.02}))
+	function handleServicePageChange(index) {
+		if (servicesPage === index) return;
+		if ([...document.getElementsByClassName('fade')].length) return;
+
+		const bullet = document.getElementById(`nav-bullet-${index}`);
+		const selected = document.getElementsByClassName('nav-bullet selected')?.[0];
+
+		bullet.classList.toggle('selected');
+		selected.classList.toggle('selected');
+
+		const page = document.getElementById('service-page');
+
+		page.classList.toggle('fade');
+
+		setTimeout(() => {
+			setServicesPage(index);
+		
+			page.classList.toggle('fade');
+		}, 200)
 	}
 
 	const contents = [
 		{
-			anchor: "Home",
+			anchor: "home",
 			render: (
-				<>
+				<section id='home'>
 					<div className='canvas-cover top'/>
-					<div className='canvas-cover bot' style={{background: `linear-gradient(180deg, rgba(255,255,255,0) 27%, rgba(0,0,0,1) ${canvasBackground}%)`}}/>
+					<div className='canvas-cover bot'/>
 					<div className='canvas-cover left'/>
-					<img className='canvas-img' src={canvas} style={{...canvasMargin}} alt="canvas" onMouseMove={handleCanvasMouseMove}/>
-					<div className='textarea col' style={{opacity: page1textarea}}>
+					<img src={canvas} style={{...page1.img}} alt="canvas"/>
+					<div className='textarea col' style={{...page1.text}}>
 						<div className='home-title'>INITEK SOLUTIONS</div>
 						<div className='home-content'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</div>
 						<div className='book-button'>Book a consultation</div>
 					</div>
-				</>
+				</section>
 			)
 		},
 		{
-			anchor: "About us",
+			anchor: "aboutus",
 			render: (
-				<div className='textarea col' style={{textAlign: 'end'}}>
+				<section id='aboutus'>
+					{/* <div className='divider'/> */}
 					<div style={{...page2textarea, display: 'flex', flexDirection: 'column', position: 'relative', width: '50vw'}}>
 						<div style={{marginBottom: 30, fontSize: 40}}>About us</div>
 						<div style={{marginLeft: 130, fontSize: 18, whiteSpace: 'pre-line'}}>
@@ -140,13 +157,13 @@ export default function Main() {
 							Contact our service professionals to discuss how Initek can provide better solutions for your organization.						
 						</div>
 					</div>
-				</div>
+				</section>
 			)
 		},
 		{
-			anchor: "Services",
+			anchor: "services",
 			render: (
-				<div style={{width: '100vw', display: 'flex', flexDirection: 'row'}}>
+				<section id='services'>
 					<div style={{width: '100vw', height: '100vh'}}>
 						{createGradient('page3gradientop', 'top', '#000000 5%', '#00000000 30%', {width: '100vw'})}
 						{createGradient('page3gradienbottom', 'bottom', '#000000 5%', '#00000000 30%', {width: '70vw'})}
@@ -156,106 +173,166 @@ export default function Main() {
 					{/* <div style={{display: 'flex', position: 'absolute', zIndex: 1, marginTop: '50vh', left: '20vw', fontSize: 40}}>Services</div> */}
 					{createGradient('page3gradienright', 'right', '#000000 15%', '#00000000 100%', {height: '100vh', width: 300, position: 'relative'}, '270deg')}
 					<div style={{zIndex: 1, width: '60vw', height: '100vh', backgroundColor: 'black', borderRadius: 10, justifyContent: 'center', alignContent: 'center', paddingRight: 40, paddingLeft: 40, minWidth: 400}}>
-						{servicePages[servicesPage]}
-						<div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
-							{bullets()}
+						<div style={{...page3}}>
+							{servicePages[servicesPage]}
+							<div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
+								{bullets()}
+							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 			)
 		},
 		{
-			anchor: "Contact",
+			anchor: "contact",
 			render: (
-				<>
-					{/* Contact */}
-				</>
+				<section id='contact'>
+					<h2>Consultation</h2>
+					<form>
+						<input className='forminput' placeholder='Your Name' type='text' id='name' name='name'/><br/>
+						<input className='forminput' placeholder='Company Name (optional)' type='text' id='company_name' name='company_name'/><br/>
+						<input className='forminput' placeholder="Referral's Name (optional)" type='text' id='referral' name='referral'/><br/>
+						<input className='forminput' placeholder='Email' type='text' id='email' name='email'/><br/>
+						<input className='forminput' placeholder='Service / Product Requesting' type='text' id='service' name='service'/><br/>
+						<textarea className='forminput large' placeholder='Additional Notes' type='text' id='notes' name='notes'/>
+					</form>
+				</section>
 			)
 		}
 	];
 	
 	
 	useLayoutEffect(() => {
-		const anchors = document.getElementsByClassName('anchors')[0];
-		const vh = document.getElementsByClassName('bodyitem')[0];
-		const windowMaxScroll = bodyRef.current.clientHeight - vh.clientHeight;
-		
-		const handleAnchorScroll = () => {
-			setSliderPos(`${(390 - (anchors.clientWidth - 130) * (window.scrollY / windowMaxScroll))}px`);
-		};
-
 		const handleCanvasScroll = e => {
 			const position = window.scrollY/window.innerHeight
 
-			setCanvasMargin(canvasMargin => ({...canvasMargin, marginTop: window.scrollY * -0.3}));
-			setCanvasBackground(90 - (position*0.22)*100);
-			setPage1textarea(1-position*1.6);
-
-			if (position > 0.5 && position < 1) {
-				const change = (position-0.5)*2;
-				
-				setPage2textarea(page2textarea => ({...page2textarea, opacity: change}))
-			}
-
-			if (position > 1.2) {
-				const change = 1-(position-1.2)/(1.6-1.2)
-
-				setCanvasMargin(canvasMargin => ({...canvasMargin, left: 0}))
-				setPage2textarea(page2textarea => ({...page2textarea, opacity: change}))
-			}
-
-			if (position > 1.2) {
-				setImage1_3({marginTop: 500-position*250})
-			}
-
+			if (position < 0.5) handlePage1Animations(position);
+			if (position > 0.5 && position < 1) handlePage2Animations(position);
+			if (position > 1) handlePage3Animations(position)
+			// if (position > 1.2 && position < 1.8) handlePage3Animations(position);
+			// if (position > 2) handlePage4Animations(position)
 		}
 
-		document.addEventListener('scroll', handleAnchorScroll);
 		document.addEventListener('scroll', handleCanvasScroll);
 
 		return () => {
-			document.removeEventListener('scroll', handleAnchorScroll);
 			document.removeEventListener('scroll', handleCanvasScroll);
 		}
 	}, []);
 
-	const createAnchor = (anchor, i) => {
-		return (
-			<div 
-				className='anchor'
-				onClick={() => {
-					const vh = document.getElementsByClassName('bodyitem')[0];
+	const anchors = contents.map((anchor, i) => (
+		<a
+			key={`a-${anchor.anchor}`}
+			target='_blank'
+			onClick={() => {document.getElementById(anchor.anchor)?.scrollIntoView({behavior: 'smooth'})}}
+		>
+			{anchor.anchor}
+		</a>
+	));
 
-					window.scrollTo({top: vh.clientHeight*i, behavior: 'smooth'})
-				}}
-				key={anchor+i}
-				id={anchor}
-			>
-				{anchor}
-			</div>
-		);
+	function handlePage1Animations(position) {
+		const opacity = 1-position*1.6;
+		const marginTop = window.scrollY * -0.3;
+
+		setPage1(page1 => ({...page1, text: {opacity}, img: {...page1.img, marginTop}}));
 	};
 
-	const renderPages = contents.map((content, i) => (
-		<div className='bodyitem' key={content.anchor}>
-			{content.render}
-		</div>
-	));
+	function handlePage2Animations(position) {
+		const opacity = (position-0.5)*2;
+
+		setPage2(page2 => ({...page2, text: {opacity}}));
+	};
+
+	function handlePage3Animations(position) {
+		console.log(window.scrollY - window.innerHeight)
+
+		// const opacity2 = 1-(position-1.2)/(1.6-1.2);
+		// const opacity3 = (position-1.3)*2;
+		// const marginTop = (position-1.2)*150;
+
+		// const section = document.getElementById('aboutus')
+
+		// section.scrollIntoView({behavior: 'instant'})
+
+		setPage2(page2 => ({...page2, text: {marginTop: window.scrollY - window.innerHeight}}));
+		// setPage3(page3 => ({...page3, img: {marginTop}, text: {opacity: opacity3}}));
+	}
+
+	function handlePage4Animations(position) {
+		const opacity = 1-(position-2)/(2.6-2);
+
+		setPage3(page3 => ({...page3, text: {opacity: opacity}}));
+	}
 
 	return (
 		<>
-			<div className="header">
+			<header>
 				<img src={logo} alt="logo"/>
-				<div className='anchors'>
-					{contents.map((content, i) => createAnchor(content.anchor, i))}	
-					<div className='slider' ref={sliderRef} style={{marginRight: sliderPos}}/>
-				</div>
-			</div>
+				<nav>
+					{anchors}	
+				</nav>
+			</header>
 
-			<div className='body' ref={bodyRef}>
-				<div className='divider'/>
-				{renderPages}
-			</div>
+			<main>
+				<section id='home'>
+					<div className='gradient top-light'/>
+					<div className='gradient bot'/>
+					<div className='gradient left'/>
+					<img id='page1-img' src={canvas} style={{...page1.img}} alt="canvas"/>
+					<div className='page-content left' style={{...page1.text}}>
+						<h2 id='title-logo'>INITEK SOLUTIONS</h2>
+						<p id='title-p'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</p>
+						<a
+							target='_blank'
+							onClick={() => {document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}}
+						>
+							Book a consultation
+						</a>
+					</div>
+				</section>
+
+				<section id='aboutus' style={{...page2.text}}>
+					<div className='page-content center-left'>
+						<h2>About us</h2>
+						<p>
+							At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands. Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. Providing efficient and effective voice and data solutions to your organization is crucial in today's society. 
+							<br/><br/>
+							Contact our service professionals to discuss how Initek can provide better solutions for your organization.						
+						</p>
+					</div>
+					<div className='divider' style={{left: '50vw', top: '10vh'}}/>
+				</section>
+
+				<section id='services'>
+					<img src={starFront} id='page3-img1' alt='page3-img1' style={{...page3.img, opacity: 1, height: '70vh'}}/>
+					<img src={starFront} alt='page3-img2' style={{opacity: 0.5, transform: 'rotate(180deg)'}}/>
+					<div className='gradient top' style={{height: 300}}/>
+					<div className='gradient bot2'/>
+					<div className='gradient right' style={{right: 680, width: 300}}/>
+					<div className='page-content right'>
+						<div className='container'/>
+						<div className='container-content' style={{...page3.text}}>
+							{servicePages[servicesPage]}
+							<div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
+								{bullets()}
+							</div>
+						</div>
+						<div className='divider' style={{...page3.text, right: 680, position: 'absolute', top: '10vh'}}/>
+					</div>
+				</section>
+
+				<section id='contact'>
+					<h2>Consultation</h2>
+					<form>
+						<input className='forminput' placeholder='Your Name' type='text' id='name' name='name'/><br/>
+						<input className='forminput' placeholder='Company Name (optional)' type='text' id='company_name' name='company_name'/><br/>
+						<input className='forminput' placeholder="Referral's Name (optional)" type='text' id='referral' name='referral'/><br/>
+						<input className='forminput' placeholder='Email' type='text' id='email' name='email'/><br/>
+						<input className='forminput' placeholder='Service / Product Requesting' type='text' id='service' name='service'/><br/>
+						<textarea className='forminput large' placeholder='Additional Notes' type='text' id='notes' name='notes'/>
+					</form>
+				</section>
+			</main>
 		</>
 	)
 }
