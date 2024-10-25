@@ -29,6 +29,10 @@ function createGradient(id, direction, color1, color2, style={}, degree=null) {
 
 export default function Main() {
 	const [page1, setPage1] = useState({img: {marginTop: 0}, text: {opacity: 1}});
+
+	const [p2t, setp2t] = useState({opacity: 0});
+	const [p2d, setp2d] = useState({opacity: 1, top: '50vh'})
+
 	const [page2, setPage2] = useState({text: {marginTop: 0, opacity: 0}});
 	const [page3, setPage3] = useState({img: {marginTop: -30}, text: {opacity: 0}});
 
@@ -240,28 +244,18 @@ export default function Main() {
 	function handlePage2Animations(position) {
 		const opacity = (position-0.5)*2;
 
-		setPage2(page2 => ({...page2, text: {opacity}}));
+		console.log(10 + opacity)
+
+		setp2d(p2d => ({
+			...p2d,
+			// top: '20vh'
+		}))
+
+		// setPage2(page2 => ({...page2, text: {opacity}}));
 	};
 
 	function handlePage3Animations(position) {
-		console.log(window.scrollY - window.innerHeight)
 
-		// const opacity2 = 1-(position-1.2)/(1.6-1.2);
-		// const opacity3 = (position-1.3)*2;
-		// const marginTop = (position-1.2)*150;
-
-		// const section = document.getElementById('aboutus')
-
-		// section.scrollIntoView({behavior: 'instant'})
-
-		setPage2(page2 => ({...page2, text: {marginTop: window.scrollY - window.innerHeight}}));
-		// setPage3(page3 => ({...page3, img: {marginTop}, text: {opacity: opacity3}}));
-	}
-
-	function handlePage4Animations(position) {
-		const opacity = 1-(position-2)/(2.6-2);
-
-		setPage3(page3 => ({...page3, text: {opacity: opacity}}));
 	}
 
 	return (
@@ -291,20 +285,20 @@ export default function Main() {
 					</div>
 				</section>
 
-				<section id='aboutus' style={{...page2.text}}>
-					<div className='page-content center-left'>
+				<section id='aboutus'>
+					{/* <div className='page-content center-left'>
 						<h2>About us</h2>
 						<p>
 							At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands. Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. Providing efficient and effective voice and data solutions to your organization is crucial in today's society. 
 							<br/><br/>
 							Contact our service professionals to discuss how Initek can provide better solutions for your organization.						
 						</p>
-					</div>
-					<div className='divider' style={{left: '50vw', top: '10vh'}}/>
+					</div> */}
+					<div className='divider' style={{...p2d}}/>
 				</section>
 
 				<section id='services'>
-					<img src={starFront} id='page3-img1' alt='page3-img1' style={{...page3.img, opacity: 1, height: '70vh'}}/>
+					{/* <img src={starFront} id='page3-img1' alt='page3-img1' style={{...page3.img, opacity: 1, height: '70vh'}}/>
 					<img src={starFront} alt='page3-img2' style={{opacity: 0.5, transform: 'rotate(180deg)'}}/>
 					<div className='gradient top' style={{height: 300}}/>
 					<div className='gradient bot2'/>
@@ -318,11 +312,11 @@ export default function Main() {
 							</div>
 						</div>
 						<div className='divider' style={{...page3.text, right: 680, position: 'absolute', top: '10vh'}}/>
-					</div>
+					</div> */}
 				</section>
 
 				<section id='contact'>
-					<h2>Consultation</h2>
+					{/* <h2>Consultation</h2>
 					<form>
 						<input className='forminput' placeholder='Your Name' type='text' id='name' name='name'/><br/>
 						<input className='forminput' placeholder='Company Name (optional)' type='text' id='company_name' name='company_name'/><br/>
@@ -330,7 +324,7 @@ export default function Main() {
 						<input className='forminput' placeholder='Email' type='text' id='email' name='email'/><br/>
 						<input className='forminput' placeholder='Service / Product Requesting' type='text' id='service' name='service'/><br/>
 						<textarea className='forminput large' placeholder='Additional Notes' type='text' id='notes' name='notes'/>
-					</form>
+					</form> */}
 				</section>
 			</main>
 		</>

@@ -9,13 +9,13 @@ body {
 	-ms-overflow-style:none;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
 	display: none;
   }
   
 ::-webkit-scrollbar-button {
 	display: none;
-}
+} */
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

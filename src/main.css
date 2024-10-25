@@ -241,6 +241,7 @@ section {
     display: flex;
     position: relative;
     height: 80vh;
+    left: 50vw;
     width: 3px;
     background: radial-gradient(circle, rgba(255,255,255,1) 87%, rgba(3,14,34,0) 100%);
     z-index: 10;
