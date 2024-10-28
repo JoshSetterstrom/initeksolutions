@@ -1,47 +1,108 @@
 import './main.css';
 import logo from './assets/initek.png';
 import canvas from './assets/home_canvas.jpg';
-import starFront from './assets/start_front.jpg';
-import startBack from './assets/start_back.jpg';
-import { useLayoutEffect, useRef, useState } from 'react';
-
-
-function createGradient(id, direction, color1, color2, style={}, degree=null) {
-	const directions = {
-		top: ['180deg', {height: '100vh', ...style}],
-		right: ['270deg', {width: '100vw', ...style}],
-		bottom: ['0deg', {height: '100vh', ...style}],
-		left: ['90deg', {width: '100vw', ...style}]
-	}
-
-	const ele = <div 
-		className='gradient' 
-		id={id}
-		style={{
-			...directions[direction][1],
-			background: `linear-gradient(${degree || directions[direction][0]}, ${color1}, ${color2})`
-		}}
-	/>
-	
-	return ele
-}
-
+import { useLayoutEffect, useState } from 'react';
 
 export default function Main() {
-	const [page1, setPage1] = useState({img: {marginTop: 0}, text: {opacity: 1}});
+	const [navRedirect, setNavRedirect] = useState(false);
+	const [p1t, setp1t] = useState({opacity: 1, position: 'absolute'});
+	const [p1i, setp1i] = useState({marginTop: 0});
+	const [p2t, setp2t] = useState({opacity: 1, pointerEvents: 'none', left: '-30vw', transition: 'opacity 1s, left 1s'});
+	const [p2d, setp2d] = useState({opacity: 0, top: '20vh', transition: 'opacity 1s, top 1s ease-in-out'});
+	const [p3t, setp3t] = useState({opacity: 0, right: '-27vw', transition: 'opacity 1s, right 1s'});
+	const [p4f, setp4f] = useState({opacity: 0, top: '5vh', transition: 'opacity 1s ease-in-out', position: 'absolute'})
 
-	const [p2t, setp2t] = useState({opacity: 0});
-	const [p2d, setp2d] = useState({opacity: 1, top: '50vh'})
-
-	const [page2, setPage2] = useState({text: {marginTop: 0, opacity: 0}});
-	const [page3, setPage3] = useState({img: {marginTop: -30}, text: {opacity: 0}});
-
-	const [page2textarea, setPage2textarea] = useState({opacity: 0, left: -30});
-	const [image1_3, setImage1_3] = useState({marginTop: 0});
 	const [servicesPage, setServicesPage] = useState(0);
 
+	const sections = ['home', 'about us', 'services', 'contact'];
+
+
+
+	function handleServicePageChange(index) {
+		if (servicesPage === index) return;
+		if ([...document.getElementsByClassName('fade')].length) return;
+
+		const bullet = document.getElementById(`nav-bullet-${index}`);
+		const selected = document.getElementsByClassName('nav-bullet selected')?.[0];
+
+		bullet.classList.toggle('selected');
+		selected.classList.toggle('selected');
+
+		const page = document.getElementById('service-page');
+
+		page.classList.toggle('fade');
+
+		setTimeout(() => {
+			setServicesPage(index);
+		
+			page.classList.toggle('fade');
+		}, 200);
+	};
+	
+	useLayoutEffect(() => {
+		const handleCanvasScroll = e => {
+			const position = window.scrollY/window.innerHeight;
+
+			console.log(position)
+
+			if (position > 0 && position < 1) handlePage1Animations(position);
+			if (position > 1 && position < 2) handlePage2Animations(position);
+			if (position > 2 && position < 3) handlePage3Animations();
+			if (position > 3) handlePage4Animations();
+		}
+
+		document.addEventListener('scroll', handleCanvasScroll);
+
+		return () => {
+			document.removeEventListener('scroll', handleCanvasScroll);
+		}
+	}, []);
+
+	function handlePage1Animations() {
+		const position = window.scrollY/window.innerHeight;
+
+		const opacity = 1-position*2;
+		const marginTop = window.scrollY * -0.3;
+
+		console.log(position)
+
+		setp1i(p1i => ({...p1i, marginTop}));
+		setp1t(p1t => ({...p1t, opacity}));
+		setp2d(p2d => ({...p2d, opacity: 0, top: '20vh', transition: 'opacity 0.2s, top 0.2s'}));
+		setp2t(p2t => ({...p2t, opacity: 0, left: '-30vw', transition: 'opacity 0.2s, left 0.2s'}));
+	};
+
+	function handlePage2Animations() {
+		setp3t(p3t => ({...p3t, opacity: 0, right: '-27vw'}));
+		setp2d(p2d => ({...p2d, opacity: 1, top: '10vh', transition: 'opacity 1s, top 1s'}));
+		setp2t(p2t => ({...p2t, opacity: 1, left: '-24vw', transition: 'opacity 1s, left 1s'}));
+	};
+
+	function handlePage3Animations() {
+		setp2d(p2d => ({...p2d, opacity: 1, top: '10vh', transition: 'opacity 1s, top 1s'}));
+		setp2t(p2t => ({...p2t, opacity: 0, left: '-30vw'}));
+		setp3t(p3t => ({...p3t, opacity: 1, right: '-21vw', transition: 'opacity 1s, right 1s'}));
+		setp4f(p4f => ({...p4f, opacity: 0}));
+	};
+	
+	function handlePage4Animations() {
+		setp2d(p2d => ({...p2d, opacity: 0, top: '20vh', transition: 'opacity 0.2s, top 0.2s'}));
+		setp3t(p3t => ({...p3t, opacity: 0, right: '-27vw', transition: 'opacity 0.2s, right 0.2s'}));
+		setp4f(p4f => ({...p4f, opacity: 1}));
+	};
+
+	const anchors = sections.map((anchor, i) => (
+		<a
+			key={`a-${anchor}`}
+			target='_blank'
+			onClick={() => {document.getElementById(anchor)?.scrollIntoView({behavior: 'smooth'})}}
+		>
+			{anchor}
+		</a>
+	));
+
 	const servicePages = [
-		<div id='service-page' style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
+		<div id='service-page'>
 			<div style={{fontSize: 30}}>
 				Business Phone Systems
 			</div>
@@ -62,7 +123,7 @@ export default function Main() {
 				If you require assistance in choosing the best phone system to support your business, contact us at your earliest convenience.
 			</div>
 		</div>,
-		<div id='service-page' style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
+		<div id='service-page'>
 			<div style={{fontSize: 30}}>
 				Cable/Fiber Installation
 			</div>
@@ -83,7 +144,7 @@ export default function Main() {
 				</li>
 			</ul>
 		</div>,
-		<div id='service-page' style={{marginRight: 30, minHeight: 460, maxHeight: 460}}>
+		<div id='service-page'>
 			<div style={{fontSize: 30, marginBottom: 40}}>
 				Networking & Testing
 			</div>
@@ -96,167 +157,15 @@ export default function Main() {
 				<li>Providing and installing UPS (Uninterrupted Power Supply)</li>
 			</ul>
 		</div>
-	]
-
-	function bullets() {
-		return new Array(servicePages.length).fill('').map((_, index) => (
-			<div 
-				className={index === 0 ? 'nav-bullet selected' : 'nav-bullet'}
-				id={`nav-bullet-${index}`}
-				onClick={() => {
-					handleServicePageChange(index)
-				}}
-			/>
-		))		
-	};
-
-	function handleServicePageChange(index) {
-		if (servicesPage === index) return;
-		if ([...document.getElementsByClassName('fade')].length) return;
-
-		const bullet = document.getElementById(`nav-bullet-${index}`);
-		const selected = document.getElementsByClassName('nav-bullet selected')?.[0];
-
-		bullet.classList.toggle('selected');
-		selected.classList.toggle('selected');
-
-		const page = document.getElementById('service-page');
-
-		page.classList.toggle('fade');
-
-		setTimeout(() => {
-			setServicesPage(index);
-		
-			page.classList.toggle('fade');
-		}, 200)
-	}
-
-	const contents = [
-		{
-			anchor: "home",
-			render: (
-				<section id='home'>
-					<div className='canvas-cover top'/>
-					<div className='canvas-cover bot'/>
-					<div className='canvas-cover left'/>
-					<img src={canvas} style={{...page1.img}} alt="canvas"/>
-					<div className='textarea col' style={{...page1.text}}>
-						<div className='home-title'>INITEK SOLUTIONS</div>
-						<div className='home-content'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</div>
-						<div className='book-button'>Book a consultation</div>
-					</div>
-				</section>
-			)
-		},
-		{
-			anchor: "aboutus",
-			render: (
-				<section id='aboutus'>
-					{/* <div className='divider'/> */}
-					<div style={{...page2textarea, display: 'flex', flexDirection: 'column', position: 'relative', width: '50vw'}}>
-						<div style={{marginBottom: 30, fontSize: 40}}>About us</div>
-						<div style={{marginLeft: 130, fontSize: 18, whiteSpace: 'pre-line'}}>
-							At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands. Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. Providing efficient and effective voice and data solutions to your organization is crucial in today's society. 
-							<br/><br/>
-							Contact our service professionals to discuss how Initek can provide better solutions for your organization.						
-						</div>
-					</div>
-				</section>
-			)
-		},
-		{
-			anchor: "services",
-			render: (
-				<section id='services'>
-					<div style={{width: '100vw', height: '100vh'}}>
-						{createGradient('page3gradientop', 'top', '#000000 5%', '#00000000 30%', {width: '100vw'})}
-						{createGradient('page3gradienbottom', 'bottom', '#000000 5%', '#00000000 30%', {width: '70vw'})}
-						<img src={starFront} id='3-image1' alt='3-image1' style={{...image1_3, display: 'flex', position: 'absolute', height: '100vh', opacity: 1, width: 2000}}/>
-						<img src={startBack} id='3-image2' alt='3-image2' style={{display: 'flex', position: 'absolute', height: '100vh', opacity: 0.5, width: 'auto'}}/>
-					</div>
-					{/* <div style={{display: 'flex', position: 'absolute', zIndex: 1, marginTop: '50vh', left: '20vw', fontSize: 40}}>Services</div> */}
-					{createGradient('page3gradienright', 'right', '#000000 15%', '#00000000 100%', {height: '100vh', width: 300, position: 'relative'}, '270deg')}
-					<div style={{zIndex: 1, width: '60vw', height: '100vh', backgroundColor: 'black', borderRadius: 10, justifyContent: 'center', alignContent: 'center', paddingRight: 40, paddingLeft: 40, minWidth: 400}}>
-						<div style={{...page3}}>
-							{servicePages[servicesPage]}
-							<div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
-								{bullets()}
-							</div>
-						</div>
-					</div>
-				</section>
-			)
-		},
-		{
-			anchor: "contact",
-			render: (
-				<section id='contact'>
-					<h2>Consultation</h2>
-					<form>
-						<input className='forminput' placeholder='Your Name' type='text' id='name' name='name'/><br/>
-						<input className='forminput' placeholder='Company Name (optional)' type='text' id='company_name' name='company_name'/><br/>
-						<input className='forminput' placeholder="Referral's Name (optional)" type='text' id='referral' name='referral'/><br/>
-						<input className='forminput' placeholder='Email' type='text' id='email' name='email'/><br/>
-						<input className='forminput' placeholder='Service / Product Requesting' type='text' id='service' name='service'/><br/>
-						<textarea className='forminput large' placeholder='Additional Notes' type='text' id='notes' name='notes'/>
-					</form>
-				</section>
-			)
-		}
 	];
-	
-	
-	useLayoutEffect(() => {
-		const handleCanvasScroll = e => {
-			const position = window.scrollY/window.innerHeight
 
-			if (position < 0.5) handlePage1Animations(position);
-			if (position > 0.5 && position < 1) handlePage2Animations(position);
-			if (position > 1) handlePage3Animations(position)
-			// if (position > 1.2 && position < 1.8) handlePage3Animations(position);
-			// if (position > 2) handlePage4Animations(position)
-		}
-
-		document.addEventListener('scroll', handleCanvasScroll);
-
-		return () => {
-			document.removeEventListener('scroll', handleCanvasScroll);
-		}
-	}, []);
-
-	const anchors = contents.map((anchor, i) => (
-		<a
-			key={`a-${anchor.anchor}`}
-			target='_blank'
-			onClick={() => {document.getElementById(anchor.anchor)?.scrollIntoView({behavior: 'smooth'})}}
-		>
-			{anchor.anchor}
-		</a>
+	const bullets = new Array(servicePages.length).fill('').map((_, index) => (
+		<div 
+			className={index === 0 ? 'nav-bullet selected' : 'nav-bullet'}
+			id={`nav-bullet-${index}`}
+			onClick={() => handleServicePageChange(index)}
+		/>
 	));
-
-	function handlePage1Animations(position) {
-		const opacity = 1-position*1.6;
-		const marginTop = window.scrollY * -0.3;
-
-		setPage1(page1 => ({...page1, text: {opacity}, img: {...page1.img, marginTop}}));
-	};
-
-	function handlePage2Animations(position) {
-		const opacity = (position-0.5)*2;
-
-		console.log(10 + opacity)
-
-		setp2d(p2d => ({
-			...p2d,
-			// top: '20vh'
-		}))
-
-		// setPage2(page2 => ({...page2, text: {opacity}}));
-	};
-
-	function handlePage3Animations(position) {
-
-	}
 
 	return (
 		<>
@@ -269,64 +178,71 @@ export default function Main() {
 
 			<main>
 				<section id='home'>
-					<div className='gradient top-light'/>
-					<div className='gradient bot'/>
-					<div className='gradient left'/>
-					<img id='page1-img' src={canvas} style={{...page1.img}} alt="canvas"/>
-					<div className='page-content left' style={{...page1.text}}>
+					<div className='img-container' style={{width: '90vw', height: '70vh', backgroundColor: 'blue', borderRadius: 30, margin: '140px 10vw', overflow: 'hidden'}}>
+						<div className='gradient top-light' style={{width: '80vw'}}/>
+						<div className='gradient bot' style={{width: '80vw'}}/>
+						<div className='gradient left'/>
+						<img id='page1-img' src={canvas} style={{...p1i, borderRadius: 30, width: '90vw', height: '90vh'}} alt="canvas"/>
+					</div>
+					<div className='page-content left' style={p1t}>
 						<h2 id='title-logo'>INITEK SOLUTIONS</h2>
 						<p id='title-p'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</p>
 						<a
 							target='_blank'
-							onClick={() => {document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}}
+							onClick={() => document.getElementById('contact')?.scrollIntoView({behavior: 'smooth'})}
 						>
 							Book a consultation
 						</a>
 					</div>
 				</section>
 
-				<section id='aboutus'>
-					{/* <div className='page-content center-left'>
-						<h2>About us</h2>
-						<p>
-							At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands. Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. Providing efficient and effective voice and data solutions to your organization is crucial in today's society. 
+				<section id='about us'>
+					<div style={{width: '90vw', margin: '140px 10vw'}}>
+						<p style={{fontSize: 48, fontWeight: 'bold'}}>
+							At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands. 
+							{/* Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. Providing efficient and effective voice and data solutions to your organization is crucial in today's society.  */}
 							<br/><br/>
-							Contact our service professionals to discuss how Initek can provide better solutions for your organization.						
+							{/* Contact our service professionals to discuss how Initek can provide better solutions for your organization.						 */}
 						</p>
-					</div> */}
-					<div className='divider' style={{...p2d}}/>
-				</section>
+						<div style={{display: 'flex', flexDirection: 'row'}}>
+							<div style={{height: 400, width: 400, border: '1px solid #2f72d0', margin: 20}}>
 
-				<section id='services'>
-					{/* <img src={starFront} id='page3-img1' alt='page3-img1' style={{...page3.img, opacity: 1, height: '70vh'}}/>
-					<img src={starFront} alt='page3-img2' style={{opacity: 0.5, transform: 'rotate(180deg)'}}/>
-					<div className='gradient top' style={{height: 300}}/>
-					<div className='gradient bot2'/>
-					<div className='gradient right' style={{right: 680, width: 300}}/>
-					<div className='page-content right'>
-						<div className='container'/>
-						<div className='container-content' style={{...page3.text}}>
-							{servicePages[servicesPage]}
-							<div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
-								{bullets()}
+							</div>
+							<div style={{height: 400, width: 400, border: '1px solid #2f72d0', margin: 20}}>
+
+							</div>
+							<div style={{height: 400, width: 400, border: '1px solid #2f72d0', margin: 20}}>
+
 							</div>
 						</div>
-						<div className='divider' style={{...page3.text, right: 680, position: 'absolute', top: '10vh'}}/>
-					</div> */}
+					</div>
+				</section>
+
+				{/* <section id='services' style={{height: '150vh'}}>
+					<div className='page-content center-right' style={p3t}>
+						<div className='container-content'>
+							{servicePages[servicesPage]}
+							<div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
+								{bullets}
+							</div>
+						</div>
+					</div>
 				</section>
 
 				<section id='contact'>
-					{/* <h2>Consultation</h2>
-					<form>
-						<input className='forminput' placeholder='Your Name' type='text' id='name' name='name'/><br/>
-						<input className='forminput' placeholder='Company Name (optional)' type='text' id='company_name' name='company_name'/><br/>
-						<input className='forminput' placeholder="Referral's Name (optional)" type='text' id='referral' name='referral'/><br/>
-						<input className='forminput' placeholder='Email' type='text' id='email' name='email'/><br/>
-						<input className='forminput' placeholder='Service / Product Requesting' type='text' id='service' name='service'/><br/>
-						<textarea className='forminput large' placeholder='Additional Notes' type='text' id='notes' name='notes'/>
-					</form> */}
-				</section>
+					<div className='page-content center' style={p4f}>
+						<h2 style={{textAlign: 'center'}}>Contact us</h2>
+						<form>
+							<input className='forminput' placeholder='Your Name' type='text' id='name' name='name'/><br/>
+							<input className='forminput' placeholder='Company Name (optional)' type='text' id='company_name' name='company_name'/><br/>
+							<input className='forminput' placeholder="Referral's Name (optional)" type='text' id='referral' name='referral'/><br/>
+							<input className='forminput' placeholder='Email' type='text' id='email' name='email'/><br/>
+							<input className='forminput' placeholder='Service / Product Requesting' type='text' id='service' name='service'/><br/>
+							<textarea className='forminput large' placeholder='Additional Notes' type='text' id='notes' name='notes'/>
+						</form>
+					</div>
+				</section> */}
 			</main>
 		</>
-	)
-}
+	);
+};

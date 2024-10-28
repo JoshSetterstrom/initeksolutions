@@ -2,7 +2,7 @@ header {
     z-index: 2;
     display: flex;
     width: 100vw;
-    height: 200px;
+    height: 160px;
     justify-content: space-between;
     position: fixed;
 }
@@ -35,7 +35,8 @@ main {
     color: white;
     height: fit-content;
     font-size: 30px;
-    overflow-x: hidden;
+    overflow: hidden;
+    background-color: white;
 }
 
 .book-button {
@@ -56,6 +57,7 @@ main {
 
 section {
     display: flex;
+    position: relative;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -64,14 +66,16 @@ section {
 
 #page1-img {
     width: 3000px;
-    height: 110%;
+    height: 100vh;
     display: flex;
     position: relative;
+    z-index: 0;
 }
 
 .gradient {
-    height: 100vh;
-    width: 100vw;
+    height: inherit;
+    width: inherit;
+    border-radius: 30px;
 }
 
 .gradient.top {
@@ -79,15 +83,15 @@ section {
 }
 
 .gradient.top-light {
-    background: linear-gradient(180deg, rgba(3,14,34,1) 15%, rgba(3,14,34,0) 40%);
+    background: linear-gradient(180deg, rgba(3,14,34,1) 5%, rgba(3,14,34,0) 40%);
 }
 
 .gradient.bot {
-    background: linear-gradient(180deg, rgba(255,255,255,0) 67%, rgba(0,0,0,1) 90%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 67%, rgba(0,0,0,1) 100%);
 }
 
 .gradient.left {
-    background: linear-gradient(270deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 100%);
+    background: linear-gradient(270deg, rgba(255,255,255,0) 50%, rgba(0,0,0,1) 100%);
 }
 
 .gradient.right {
@@ -121,12 +125,13 @@ section {
 .page-content {
     font-family: 'Hind Guntur';
     display: flex;
-    position: absolute;
+    position: fixed;
     flex-direction: column;
     justify-content: center;
     z-index: 1;
     height: 100vh;
-    width: 100vw;
+    width: 20vw;
+    /* overflow: hidden; */
 }
 
 .page-content h2 {
@@ -156,8 +161,8 @@ section {
 }
 
 .page-content.center {
-    max-width: 33vw;
-    color: green;
+    align-items: center;
+    position: fixed;
 }
 
 .page-content.left {
@@ -165,16 +170,18 @@ section {
     margin-left: 100px;
 }
 
-.page-content.right {
-    /* text-align: end; */
-    align-items: end;
+.page-content.center-right {
+    align-items: center;
+    position: fixed;
+    top: 0vh;
+    margin-right: 30px;
 }
 
 .page-content.center-left {
-    text-align: end;
-    align-items: center;
-    right: 22.5vw;
-    margin-left: 30px;
+    /* text-align: end; */
+    /* align-items: center; */
+    /* margin-left: 30px; */
+    top: 10vh;
 }
 
 
@@ -239,12 +246,13 @@ section {
 .divider {
     background-color: white;
     display: flex;
-    position: relative;
+    position: fixed;
     height: 80vh;
     left: 50vw;
     width: 3px;
     background: radial-gradient(circle, rgba(255,255,255,1) 87%, rgba(3,14,34,0) 100%);
     z-index: 10;
+    transition: opacity 0.8s, top 0.4s ease-in-out;
 }
 
 .divider-hor {
@@ -287,6 +295,9 @@ section {
 
 
 #service-page {
+    margin-right: 30px; 
+    min-height: 460px; 
+    max-height: 460px;
     opacity: 1;
     transition: opacity 0.2s;
 }
@@ -297,6 +308,10 @@ section {
 
 
 .forminput {
+    border: 0;
+    appearance: none;
+    text-indent: 6px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 18px;
     border-radius: 5px;
     height: 40px;
@@ -306,4 +321,16 @@ section {
 .forminput.large {
     height: 120px;
     resize: none;
+    margin-top: 6px;
+    padding-top: 10px;
+    text-indent: 0;
+    padding-left: 8px;
+    width: 394px;
+}
+
+
+.img-container {
+    background-color: #fff; /* Adjust to your preferred color */
+    box-shadow: 5px 5px 2px rgba(47, 114, 208, 0.4);
+    border-radius: 5px; /* Optional: adds rounded corners */
 }
