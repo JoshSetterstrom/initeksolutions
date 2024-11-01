@@ -1,0 +1,28 @@
+#about-us-image-container {
+    height: 60vh;
+    width: 40vw; 
+    border-radius: 2vh;
+    overflow: hidden;
+    box-shadow: 0.3vw 0.3vw 0.1vw #2f72d066;
+}
+
+#about-us-image-container img {
+    height: calc(100% + 10vh);
+    width: calc(100% + 10vh);
+    border-radius: 2vh;
+}
+
+
+#about-us-text-container {
+    width: 50%; 
+    text-align: end;
+    margin-left: 30px;
+}
+
+#about-us-text-container h2 {
+    font-size: 5vh;
+}
+
+#about-us-text-container p {
+    font-size: 2.2vh;
+}

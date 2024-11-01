@@ -1,0 +1,66 @@
+#canvas-container {
+    background-color: #fff;
+    box-shadow: 0.3vw 0.3vw 0.1vw #2f72d066;
+    width: 80vw;
+    height: 70vh; 
+    background-color: black; 
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+#canvas-container img {
+    width: 2400px;
+    height: 90vh;
+}
+
+.canvas-gradient {
+    height: inherit;
+    width: inherit;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    border-radius: 1.9vh;
+}
+
+.top {
+    background: linear-gradient(180deg, rgba(3,14,34,1) 5%, rgba(3,14,34,0) 40%);
+}
+
+.bottom {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 67%, rgba(0,0,0,1) 100%);
+}
+
+.left {
+    background: linear-gradient(270deg, rgba(255,255,255,0) 50%, rgba(0,0,0,1) 100%);
+}
+
+
+#home-text-container {
+    font-family: 'Hind Guntur';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    width: 80vh;
+    text-align: start;
+    margin-left: 10vh;
+}
+
+#home-text-container h2 {
+    font-size: 4vh;
+    font-weight: 500;
+    margin: 0;
+}
+
+#home-text-container h2::after {
+    content: 'INC';
+    font-size: 2vh;
+    margin-left: 0.5vh;
+}
+
+#home-text-container p {
+    font-size: 1.8vh;
+    line-height: 1.2;
+    width: 100%;
+}
+
