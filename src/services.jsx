@@ -26,7 +26,7 @@ export default function Services() {
                         If you require assistance in choosing the best phone system to support your business, <a style={{color: '#144283', cursor: 'pointer'}}>contact us</a> at your earliest convenience.
                     </div>
                 </div>
-                <div className='item-box'>
+                {/* <div className='item-box'>
                     <div style={{fontSize: 30}}>
                         Cable/Fiber Installation
                     </div>
@@ -59,7 +59,7 @@ export default function Services() {
                         <li>Testing for latency and multi-pair connectivity</li>
                         <li>Providing and installing UPS (Uninterrupted Power Supply)</li>
                     </ul>
-                </div>
+                </div> */}
             </div>
         </section>
     )

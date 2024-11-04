@@ -31,7 +31,7 @@ export default function Home() {
     return (
         <section id='home'>
             <div className='section-container'>
-                <div id='canvas-container'>
+                {/* <div id='canvas-container'>
                     <div className='canvas-gradient top'/>
                     <div className='canvas-gradient bottom'/>
                     <div className='canvas-gradient left'/>
@@ -39,14 +39,14 @@ export default function Home() {
                 </div>
 
                 <div id='home-text-container' style={p1t}>
-                    <h2 id='title-logo'>INITEK SOLUTIONS</h2>
+                    <h1 id='title-logo'>INITEK SOLUTIONS</h1>
                     <p id='title-p'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</p>
                     <button
                         onClick={() => document.getElementById('contact-us')?.scrollIntoView({behavior: 'smooth'})}
                     >
                         Book a consultation
                     </button>
-                </div>
+                </div> */}
             </div>
         </section>
     )

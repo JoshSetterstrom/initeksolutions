@@ -19,7 +19,6 @@ nav {
     margin-right: 7vh;
     align-items: center;
     justify-content: space-evenly;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 nav > a {
@@ -30,4 +29,93 @@ nav > a {
     transition: color 0.6s;
     text-align: center;
     pointer-events: none style;
+}
+
+
+@media screen and (max-width: 1000px) {
+    nav {
+        margin-right: 40px;
+    }
+
+    .ham-ico-container {
+        height: 2.5em;
+        width: 2.4em;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        margin-right: 0px;
+    }
+
+    .ham-ico, 
+    .ham-ico-container::after, 
+    .ham-ico-container::before {
+        content: '';
+        height: 0.2em;
+        border-radius: 1px;
+        width: 2.4em;
+        background-color: #a0a8b0;
+        transition: background-color 0.2s;
+    }
+    
+    .ham-ico-container:hover .ham-ico,
+    .ham-ico-container:hover::after, 
+    .ham-ico-container:hover::before {
+        background-color: #6a7885;
+    }
+
+    .sidemenu {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        height: 100vh;
+        width: 200px;
+        background-color: blue;
+        transition: right 0.4s;
+        top: 0%;
+    }
+
+    .sidemenu-item {
+        display: flex;
+        align-items: center;
+        height: 9vh;
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .sidemenu-close-container {
+        height: 30px;
+        width: 30px;
+        margin: 10px 5px;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .sidemenu-close-container:hover .sidemenu-close,
+    .sidemenu-close-container:hover .sidemenu-close::before {
+        background-color: #6a7885;
+    }
+
+    .sidemenu-close, 
+    .sidemenu-close::before {
+        display: flex;
+        position: relative;
+        top: 14px;
+        left: 3px;
+        content: '';
+        height: 1.5px;
+        width: 80%;
+        background-color: #a0a8b0;
+        transform: rotate(45deg);
+        border-radius: 1px;
+        transition: background-color 0.2s;
+    }
+
+    .sidemenu-close::before {
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        transform: rotate(90deg);
+    }
 }
