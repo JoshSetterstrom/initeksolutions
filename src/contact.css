@@ -10,13 +10,14 @@
     margin-bottom: 20px;
 }
 
-#contact-container h2 {
+#contact-container h1 {
     width: inherit;
+    font-size: 3em;
 }
 
 #contact-container p {
     width: inherit;
-    margin-bottom: 5vh; 
+    margin-bottom: 50px;
     color: #6C9ADA;
 }
 
@@ -108,10 +109,6 @@ form input:hover, textarea:hover {
     margin: 0 2vh;
 }
 
-#info-container address {
-    margin: 0;
-}
-
 #info-container a {
     color: #6C9ADA;
     text-decoration: none;
@@ -139,7 +136,7 @@ form input:hover, textarea:hover {
 
     #contact-container p {
         font-size: 1em;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
 
     .form-item {

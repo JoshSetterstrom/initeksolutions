@@ -42,7 +42,7 @@ export default function Home() {
                     <h1 id='title-logo'>INITEK SOLUTIONS</h1>
                     <p id='title-p'>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</p>
                     <button
-                        onClick={() => document.getElementById('contact-us')?.scrollIntoView({behavior: 'smooth'})}
+                        onClick={() => document.getElementById('contact-us-anchor')?.scrollIntoView({behavior: 'smooth'})}
                     >
                         Book a consultation
                     </button>

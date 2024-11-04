@@ -52,7 +52,7 @@ export default function Contact() {
         <section id='contact-us'>
             <div className='section-container'>
                 <div id='contact-container'>
-                    <h1>Book an appointment with us today</h1>
+                    <h1 id="contact-us-anchor">Book an appointment with us today</h1>
                     <p>If you have any questions, feel free to email or give us a call.</p>
 
                     <form ref={formRef} id='contact-form'>
