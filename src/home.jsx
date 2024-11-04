@@ -7,7 +7,7 @@ import canvas from './assets/home_canvas.jpg';
 
 
 export default function Home() {
-    const [p1t, setp1t] = useState({opacity: 1, position: 'absolute', left: 0});
+    const [p1t, setp1t] = useState({opacity: 1, left: 0});
 	const [p1i, setp1i] = useState({marginTop: 0});
 
     useLayoutEffect(() => {
@@ -18,7 +18,7 @@ export default function Home() {
             const marginTop = window.scrollY * -0.3;
         
             setp1i(p1i => ({...p1i, marginTop}));
-            setp1t(p1t => ({...p1t, opacity}));
+            // setp1t(p1t => ({...p1t, opacity}));
 		}
 
 		document.addEventListener('scroll', handleCanvasScroll);
@@ -31,7 +31,7 @@ export default function Home() {
     return (
         <section id='home'>
             <div className='section-container'>
-                {/* <div id='canvas-container'>
+                <div id='canvas-container'>
                     <div className='canvas-gradient top'/>
                     <div className='canvas-gradient bottom'/>
                     <div className='canvas-gradient left'/>
@@ -46,7 +46,7 @@ export default function Home() {
                     >
                         Book a consultation
                     </button>
-                </div> */}
+                </div>
             </div>
         </section>
     )

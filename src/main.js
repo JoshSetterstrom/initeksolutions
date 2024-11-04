@@ -1,5 +1,4 @@
 import './main.css';
-import phoneIco from './assets/phone-ico.png';
 import Header from './header';
 import Home from './home';
 import AboutUs from './aboutUs';
@@ -14,8 +13,8 @@ export default function Main() {
 			<main>
 				<Home />
 				{/* <AboutUs />
-				<Services />
-				<Contact /> */}
+				<Services /> */}
+				<Contact />
 			</main>
 		</>
 	);

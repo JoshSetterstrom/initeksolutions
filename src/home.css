@@ -38,18 +38,47 @@
     display: flex;
     flex-direction: column;
     z-index: 1;
-    width: 60vh;
     text-align: start;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 5%;
+    position: absolute;
+    justify-content: center;
+    max-width: 800px;
 }
 
 #home-text-container h1 {
     white-space: nowrap;
+    transition: font-size 0.2s;
+
 }
 
 #home-text-container h1::after {
     content: 'INC';
     font-size: 0.5em;
     margin-left: 0.3em;
+}
+
+
+@media screen and (max-width: 800px) {
+    #home-text-container {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        padding: 5%;
+    }
+
+    #home-text-container h1 {
+        white-space: inherit;
+        font-size: 2em;
+        transition: font-size 0.2s;
+    }
+
+    #home-text-container p {
+        text-align: center;
+        font-size: 1em;
+        transition: font-size 0.2s;
+    }
+
+    #canvas-container img {
+        width: 1000px;
+    }
 }

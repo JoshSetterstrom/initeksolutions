@@ -1,9 +1,13 @@
 #contact-container {
     display: flex; 
-    flex-direction: column; 
-    margin: 2vw;
-    width: 34vw; 
-    align-items: flex-end;
+    flex-direction: column;
+    max-width: 800px;
+    margin-right: 20px;
+}
+
+#contact-container button {
+    margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 #contact-container h2 {
@@ -19,7 +23,7 @@
 #contact-container form {
     display: flex;
     flex-wrap: wrap;
-    gap: 2vw;
+    gap: 1em;
     width: inherit;
 }
 
@@ -35,7 +39,7 @@ form label {
     color: #a0a8b0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin-bottom: 0.5vh;
-    font-size: 1.8vh;
+    font-size: 1em;
 }
 
 form input, textarea {
@@ -46,13 +50,13 @@ form input, textarea {
     border-color: #a0a8b0;
     color: white;
     transition: background-color 0.4s;
-    padding: 1vh;
-    font-size: 1.8vh;
-    height: 3.4vh;
+    padding: 1em;
+    font-size: 1.2em;
+    height: 1em;
 }
 
 form textarea {
-    height: 12vh;
+    height: 5em;
 }
 
 form input:hover, textarea:hover {
@@ -66,13 +70,13 @@ form input:hover, textarea:hover {
 
 #info-container {
     margin: 2vw;
-    height: 60vh;
+    height: 30em;
     background-color: #081220;
     border-radius: 1vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    font-size: 1vw;
+    font-size: 1em;
 }
 
 #info-container ul {
@@ -82,8 +86,8 @@ form input:hover, textarea:hover {
   }
   
 #info-container li {
-    margin: 4vh 3vh;
-    font-size: 2vh;
+    margin: 2em 3vh;
+    font-size: 1.25em;
 }
   
 .contact-header {
@@ -93,12 +97,12 @@ form input:hover, textarea:hover {
 }
   
 #info-container img {
-    height: 3vh;
+    height: 1.5em;
     width: auto;
 }
   
 .contact-divider {
-    height: 2vh;
+    height: 1em;
     width: 0.2vh;
     background-color: white;
     margin: 0 2vh;
@@ -116,4 +120,41 @@ form input:hover, textarea:hover {
 
 #info-container a:hover {
     color: white;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    #contact-container {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    #contact-container h1 {
+        font-size: 2em;
+    }
+
+    #contact-container p {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+
+    .form-item {
+        text-align: start;
+        flex: 1 1 calc(100% - 10px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    #contact-us > .section-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #info-container {
+        font-size: 0.8em;
+    }
 }

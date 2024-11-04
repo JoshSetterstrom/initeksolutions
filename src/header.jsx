@@ -1,5 +1,5 @@
 import './header.css';
-import logo from './assets/initek.png';
+import logo from './assets/initek2.png';
 import { useEffect, useState } from 'react';
 
 
@@ -19,36 +19,34 @@ export default function Header() {
         </a>
     ));
 
-    useEffect(() => {console.log(expanded)}, [expanded]);
-
     const hamIcon = (
-        <>
-            <div className='ham-ico-container' onClick={() => setExpanded(expanded => !expanded)}>
-                <div className='ham-ico'/>
-            </div>
-
-            <div className='sidemenu' style={{right: expanded ? '0' : '-200px'}}>
-                <div className='sidemenu-item' style={{height: '18vh'}}>
-                    <div className='sidemenu-close-container' onClick={() => setExpanded(expanded => !expanded)}>
-                        <div className='sidemenu-close'/>
-                    </div>
-                </div>
-
-                <div className='sidemenu-item'>Home</div>
-                <div className='sidemenu-item'>About Us</div>
-                <div className='sidemenu-item'>Our Services</div>
-                <div className='sidemenu-item'>Contact Us</div>
-            </div>
-        </>
+        <div className='ham-ico-container' onClick={() => setExpanded(expanded => !expanded)}>
+            <div className='ham-ico'/>
+            <div className='ham-ico'/>
+            <div className='ham-ico'/>
+        </div>
     );
 
-    const renderDOM = () => {
-        console.log(window.screen.width, window.screen.width < 2000)
+    const sidebar = (
+        <aside className='sidemenu' style={{left: expanded ? "calc(100% - 200px)" : '100%', width: expanded ? '200px' : '0'}}>
+            <div className='sidemenu-item' style={{height: '8rem'}}>
+                <div className='sidemenu-close-container' onClick={() => setExpanded(expanded => !expanded)}>
+                    <div className='sidemenu-close'/>
+                </div>
+            </div>
+            <div className='sidemenu-item'>Home</div>
+            <div className='sidemenu-item'>About Us</div>
+            <div className='sidemenu-item'>Our Services</div>
+            <div className='sidemenu-item'>Contact Us</div>
+        </aside>
+    )
 
+    const renderDOM = () => {
         return setRender(
             <header>
                 <img src={logo} alt="logo"/>
-                <nav>{window.screen.width < 1000 || window.innerWidth < 1000 ? hamIcon : anchors}</nav>
+                <nav>{window.screen.width < 800 || window.innerWidth < 800 ? hamIcon : anchors}</nav>
+                {(window.screen.width < 800 || window.innerWidth < 800) && sidebar}
             </header>
         );
     };
