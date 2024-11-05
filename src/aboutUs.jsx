@@ -20,7 +20,7 @@ export default function AboutUs() {
                 </div>
 
                 <div id='about-us-text-container'>
-                    <h2>We provide innovative ideas to increase proficiency by catering to your business' operational demands</h2>
+                    <h2>At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands</h2>
                     <p>
                         Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. 
                         Providing efficient and effective voice and data solutions to your organization is crucial in today's society.

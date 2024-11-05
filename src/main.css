@@ -2,17 +2,18 @@ section {
     display: flex;
     height: fit-content;
     width: 100vw;
+    height: 100vh;
     background-color: black;
     justify-content: center; 
     align-items: center;
     min-height: 800px;
+    max-width: 100%;
 }
 
 .section-container {
     display: flex;
     width: 80vw;
     height: 70vh;
-    margin-top: 150px;
     justify-content: center; 
     align-items: center;
 }
@@ -50,20 +51,8 @@ button:hover {
     background-color: #2a5da3;
 }
 
-@media screen and (min-width: 800px) {
-    section {
-        max-width: 100%;
-    }
-}
-
 @media screen and (max-width: 800px) {
     section {
-        max-width: 100%;
-        align-items: flex-start;
-        height: 60em;
-    }
-
-    .section-container {
-        margin-top: 0px;
+        /* align-items: flex-start; */
     }
 }

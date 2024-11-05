@@ -77,8 +77,4 @@
         font-size: 1em;
         transition: font-size 0.2s;
     }
-
-    #canvas-container img {
-        width: 1000px;
-    }
 }

@@ -30,7 +30,7 @@ export default function Home() {
 
     return (
         <section id='home'>
-            <div className='section-container'>
+            <div className='section-container' >
                 <div id='canvas-container'>
                     <div className='canvas-gradient top'/>
                     <div className='canvas-gradient bottom'/>

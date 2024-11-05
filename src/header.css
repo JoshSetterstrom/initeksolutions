@@ -6,14 +6,18 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    transition: background-color 0.5s;
+}
+
+header:hover {
+    background-color: black;
 }
 
 header > img {
     height: 4rem;
     width: auto;
-    margin: 40px;
-    margin-right: 0px;
-    transition: height 0.2s;
+    margin: 2rem 0 2rem 5rem;
+    transition: margin 0.4s;
 }
 
 nav {
@@ -22,16 +26,14 @@ nav {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-    margin: 40px;
-    margin-left: 0px;
-    margin-right: 80px;
-    transition: margin 0.2s;
+    margin: 2rem 5rem 2rem 0;
+    transition: margin 0.4s;
 }
 
 nav > a {
     color: #d1c9ff;
-    padding: 0 15px;
-    font-size: 1.2rem; /* Changed from 2.2vh to 1rem */
+    padding: 0 1rem;
+    font-size: 1.5rem; /* Changed from 2.2vh to 1rem */
     cursor: pointer;
     transition: color 0.4s;
     text-align: center;
@@ -44,13 +46,16 @@ nav > a:hover {
 
 @media screen and (max-width: 800px) {
     header {
-        position: inherit;
-        background-color: black;
-        margin-bottom: 4em;
+        position: absolute;
     }
 
     nav {
         margin-right: 40px;
+    }
+
+    header > img {
+        margin-left: 40px;
+        margin-right: 10px;
     }
 
     .ham-ico-container {
