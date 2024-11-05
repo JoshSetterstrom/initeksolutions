@@ -16,14 +16,16 @@ export default function AboutUs() {
         <section id='about-us'>
             <div className="section-container">
                 <div id="about-us-image-container">
+                    <div className='about-us-image-cell' style={{left: '20vw'}}/>
+                    <div className='about-us-image-cell' style={{left: '30vw'}}/>
+                    <div className='about-us-image-cell' style={{left: '40vw'}}/>
                     <img src={img2} style={{marginTop: `${imgPos.marginTop}vh`, marginLeft: `${imgPos.marginLeft}vh`}} onMouseMove={handleImgMouseMove}/>
                 </div>
 
                 <div id='about-us-text-container'>
-                    <h2>At Initek Solutions we provide innovative ideas to increase proficiency by catering to your business' operational demands</h2>
+                    <h1>Providing innovative ideas to increase proficiency</h1>
                     <p>
-                        Our technicians are knowledgeable and experienced with installation and troubleshooting the industry's leading technology and products. 
-                        Providing efficient and effective voice and data solutions to your organization is crucial in today's society.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
                 </div>
             </div>

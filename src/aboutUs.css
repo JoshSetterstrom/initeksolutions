@@ -1,20 +1,39 @@
 #about-us-image-container {
-    height: 25em;
-    width: 35em; 
-    border-radius: var(--border-radius);
+    height: 60vh;
+    width: 50%; 
     overflow: hidden;
-    box-shadow: 0.3vw 0.3vw 0.1vw #2f72d066;
+    display: flex;
+    flex-direction: row;
+    z-index: 0;
+    background-color: black;
 }
 
 #about-us-image-container img {
-    height: calc(100% + 10vh);
-    width: calc(100% + 10vh);
+    display: flex;
+    z-index: 1;
+    position: relative;
+    height: 60vh;
+    width: 1800px;
     border-radius: var(--border-radius);
 }
 
+.about-us-image-cell {
+    width: 0.5vw;
+    background-color: black;
+    height: 60vh;
+    display: flex;
+    position: absolute;
+    z-index: 3;
+}
 
 #about-us-text-container {
-    width: 30em;
+    width: 50%;
     text-align: end;
-    margin-left: 1em;
+    margin-left: 5em;
+}
+
+@media screen and (max-width: 1000px) {
+    #about-us > .section-container {
+        flex-direction: column;
+    }
 }

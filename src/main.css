@@ -1,7 +1,7 @@
 section {
     display: flex;
     height: fit-content;
-    width: 100vw;
+    width: 90vw;
     height: 100vh;
     background-color: black;
     justify-content: center; 
@@ -12,26 +12,21 @@ section {
 
 .section-container {
     display: flex;
-    width: 80vw;
+    width: 100vw;
     height: 70vh;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
 }
 
 h1 {
-    font-size: 4em;
-    font-weight: 500;
-    margin: 0;
-}
-
-h2 {
-	font-size: 3em;
+    font-size: 5em;
     font-weight: 500;
     margin: 0;
 }
 
 p {
-    font-size: 1.3em;
+    margin-bottom: 10%;
+    font-size: 1.5em;
 }
 
 button {
@@ -39,12 +34,12 @@ button {
     background-color: #144283;
     color: white;
     cursor: pointer;
-    padding: 0.5rem ;
-    border-radius: var(--border-radius);
+    padding: 1rem 5rem;
+    border-radius: 440px;
     transition: background-color 0.4s;
     width: fit-content;
     min-width: 250px;
-    font-size: 1.2em;
+    font-size: 1.5em;
 }
 
 button:hover {
