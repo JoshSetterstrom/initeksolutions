@@ -1,0 +1,49 @@
+.services-card {
+    width: 50%;
+	max-width: 100px;
+    min-height: 90%;
+	height: 90%;
+    margin-right: 8px;
+	transform: skew(-5deg);
+	background: #555;
+    transition: max-width 0.4s;
+    overflow: hidden;
+}
+
+.services-card:first-child {
+    max-width: 50%;
+}
+
+.services-card-content {
+    margin: 30px;
+    width: 90%;
+    transform: skew(5deg);
+}
+
+
+@media screen and (max-width: 800px) {
+    #our-services > .section-container {
+        flex-direction: row;
+        margin: 0px;
+        padding: 0;
+    }
+    
+    .services-card {
+        height: 80vh;
+        max-width: 70vw;
+        transform: skew(-2deg);
+        /* max-width: 90px; */
+    }
+
+    .services-card:last-child,
+    .services-card:first-child {
+        max-width: 50px;
+        height: 80vh;
+    }
+
+    .services-card-content {
+        transform: skew(2deg);
+    }
+
+
+}

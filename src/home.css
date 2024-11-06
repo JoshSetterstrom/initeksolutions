@@ -1,24 +1,24 @@
 #canvas-container {
-    width: 50vw;
-    height: 100%; 
+    display: flex;
+    overflow: hidden;
+    width: 55vw;
+    height: 100%;
     background-color: black; 
     border-radius: var(--border-radius);
     overflow: hidden;
-    transition: margin 0.4s;
+    transition: margin 0.4s, opacity 0.4s;
 }
 
 #canvas-container img {
-    height: 130%;
+    height: 1000px;
 }
 
 .canvas-gradient {
-    width: 50vw;
-    height: 70vh;
+    width: 55vw;
+    height: 71vh;
     display: flex;
     position: absolute;
     z-index: 1;
-    border-radius: var(--border-radius);
-
 }
 
 .top {
@@ -43,12 +43,11 @@
 
 #home-text-container {
     display: flex;
+    position: absolute;
     flex-direction: column;
     z-index: 1;
-    text-align: start;
-    margin: 15vw;
-    position: absolute;
-    justify-content: center;
+    left: 0;
+    margin: 0 15vw;
     max-width: 1000px;
 }
 
@@ -62,39 +61,48 @@
     justify-content: end;
 }
 
+#home {
+    padding-top: 128px;
+}
+
 @media screen and (max-width: 800px) {
     #home > .section-container {
         justify-content: center;
+        margin: 128px 0;
     }
 
     #canvas-container {
+        left: 0;
+        position: absolute;
         width: 100vw;
+        opacity: 0.5;
     }
 
     .canvas-gradient {
+        left: 0;
         width: 100vw;
+        height: 90vh;
+    }
+
+    #canvas-container img {
+        height: 90vh;
     }
 
     button {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     #home-text-container {
-        width: fit-content;
-        display: flex;
         align-items: center;
-        margin: 10%;
+        margin: 20px;
     }
 
     #home-text-container h1 {
-        white-space: inherit;
         font-size: 2em;
-        transition: font-size 0.2s;
     }
 
     #home-text-container p {
         text-align: center;
-        font-size: 1em;
-        transition: font-size 0.2s;
+        font-size: 0.9em;
     }
 }

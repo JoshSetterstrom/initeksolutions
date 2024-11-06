@@ -87,26 +87,23 @@ nav > a:hover {
         z-index: 3;
         display: flex;
         position: fixed;
-        left: 100%;
+        overflow: hidden;
         flex-direction: column;
         height: 120vh;
-        width: 0;
         top: 0%;
         background-color: #144283;
         transition: left 0.4s, width 0.4s;
-        overflow: hidden;
         white-space: nowrap;
     }
 
     .sidemenu-item {
         display: flex;
         height: 3em;
-        width: 180px;
         justify-content: flex-end;
         align-items: center;
-        padding-right: 20px;
         cursor: pointer;
         transition: color 0.2s;
+        padding-right: 20px;
     }
 
     .sidemenu-item:hover {
@@ -117,7 +114,6 @@ nav > a:hover {
         display: flex;
         height: 30px;
         width: 30px;
-        margin: 10px 5px;
         justify-content: center;
         cursor: pointer;
         align-items: center;
@@ -136,5 +132,6 @@ nav > a:hover {
         color: #a0a8b0;
         transition: color 0.2s;
         transform: rotate(45deg);
+        margin-right: -20px;
     }
 }

@@ -1,32 +1,42 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 section {
     display: flex;
-    height: fit-content;
-    width: 90vw;
-    height: 100vh;
-    background-color: black;
+    width: 100vw;
+    max-width: 100%;
+    height: auto;
+    min-height: 100vh;
     justify-content: center; 
     align-items: center;
-    min-height: 800px;
-    max-width: 100%;
 }
 
 .section-container {
     display: flex;
     width: 100vw;
+    max-width: 100%;
     height: 70vh;
     justify-content: center;
     align-items: center;
 }
 
 h1 {
-    font-size: 5em;
+    font-size: 4em;
     font-weight: 500;
     margin: 0;
 }
 
+h2 {
+    font-size: 2em;
+    font-weight: 500;
+}
+
 p {
     margin-bottom: 10%;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 button {
@@ -46,8 +56,10 @@ button:hover {
     background-color: #2a5da3;
 }
 
+
 @media screen and (max-width: 800px) {
-    section {
-        /* align-items: flex-start; */
+    .section-container {
+        height: inherit;
+        flex-direction: column;
     }
 }

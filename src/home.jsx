@@ -37,10 +37,10 @@ export default function Home() {
                     <div className='canvas-gradient left'/>
                     <div className='canvas-gradient right'/>
                     <div className='canvas-gradient five'/>
-                    <img src={canvas} style={p1i} alt="canvas image"/>
+                    <img src={canvas} style={p1i} alt="canvas"/>
                 </div>
 
-                <div id='home-text-container' style={p1t}>
+                <div id='home-text-container'>
                     <h1>Your Network, <br/>Our Expertise</h1>
                     <p>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</p>
                     <button
