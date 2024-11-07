@@ -7,17 +7,33 @@
 	transform: skew(-5deg);
 	background: #555;
     transition: max-width 0.4s;
+    cursor: pointer;
+    border-radius: 8px;
     overflow: hidden;
+    white-space: nowrap;
 }
 
-.services-card:first-child {
+.services-card.expanded {
     max-width: 50%;
 }
 
+.services-card ul,
+.services-card p {
+    white-space: normal;
+    margin-bottom: 0;
+}
+
 .services-card-content {
-    margin: 30px;
-    width: 90%;
+    padding: 0 40px;
+    width: 48vw;
+    min-width: 48vw;
     transform: skew(5deg);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.services-card.expanded .services-card-content {
+    opacity: 1;
 }
 
 

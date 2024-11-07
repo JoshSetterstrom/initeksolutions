@@ -6,9 +6,17 @@ export default function Services() {
     const focusRef = useRef([]);
 
     const handleFocusChange = i => {
-        focusRef.current.forEach(ref => ref.style.maxWidth = '100px');
+        focusRef.current.forEach(ref => {
+            ref.classList.remove('expanded');
 
-        focusRef.current[i].style.maxWidth = '50%';
+            // ref.children[0].style.opacity = 0;
+        });
+        
+        focusRef.current[i].classList.add('expanded');
+
+        setTimeout(() => {
+            // focusRef.current[i].children[0].style.opacity = 1;
+        }, 400)
     }
 
     const cardsMobile = (
@@ -17,17 +25,17 @@ export default function Services() {
                 <div className='services-card-content'></div>
             </div>
             <div className='services-card' ref={ref => focusRef.current[1] = ref}>
-                    <div className='services-card-content'>
-                        <h2>Cable/Fiber Installation</h2>
-                        <p>Initek Solutions provides installation, repair and testing of all the following:</p>
-                        <ul>
-                            <li>Voice/ Data runs: cat5e, cat6, cat6a or any voice/data cabling (FT6 or FT4 rated, plenum, indoor, or outdoor) as per regulations.</li>
-                            <li>Fiber, small to large scale installation (multimode 50/125, 62.5/125, single mode, SC, LC, ST connectors, indoor or outdoor).</li>
-                            <li>Coaxial cabling (rg6, rg59).</li>
-                        </ul>
+                <div className='services-card-content'>
+                    <h2>Cable/Fiber Installation</h2>
+                    <p>Initek Solutions provides installation, repair and testing of all the following:</p>
+                    <ul>
+                        <li>Voice/ Data runs: cat5e, cat6, cat6a or any voice/data cabling (FT6 or FT4 rated, plenum, indoor, or outdoor) as per regulations.</li>
+                        <li>Fiber, small to large scale installation (multimode 50/125, 62.5/125, single mode, SC, LC, ST connectors, indoor or outdoor).</li>
+                        <li>Coaxial cabling (rg6, rg59).</li>
+                    </ul>
 
-                    </div>
                 </div>
+            </div>
             <div className='services-card' ref={ref => focusRef.current[2] = ref}>
                 <div className='services-card-content'></div>
             </div>
@@ -36,7 +44,7 @@ export default function Services() {
 
     const cardsDekstop = (
         <>
-            <div className='services-card' ref={ref => focusRef.current[0] = ref} onClick={() => handleFocusChange(0)}>
+            <div className='services-card expanded' ref={ref => focusRef.current[0] = ref} onClick={() => handleFocusChange(0)}>
                 <div className='services-card-content'>
                     <h2>Business Phone Systems</h2>
                     <p>Initek Solutions is diversified in troubleshooting, programming and installing any of the following systems, to include voicemail and mail systems.</p>
@@ -61,7 +69,6 @@ export default function Services() {
                             <li>Fiber, small to large scale installation (multimode 50/125, 62.5/125, single mode, SC, LC, ST connectors, indoor or outdoor).</li>
                             <li>Coaxial cabling (rg6, rg59).</li>
                         </ul>
-
                     </div>
                 </div>
             <div className='services-card' ref={ref => focusRef.current[2] = ref} onClick={() => handleFocusChange(2)}>
@@ -79,8 +86,6 @@ export default function Services() {
             </div>
         </>
     );
-
-    console.log(window.screen.width < 800 || window.innerWidth < 800 ? 1 : 2)
 
     return (
         <section id='our-services'>
