@@ -37,3 +37,16 @@
         flex-direction: column;
     }
 }
+
+
+.background {
+    display: flex;
+    position: absolute;
+	border-bottom: 3000px solid #061223;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	height: 300px;
+	width: 120vh;
+    transform: rotate(90deg);
+    z-index: -1;
+}

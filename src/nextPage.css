@@ -1,0 +1,27 @@
+.next-page {
+    display: flex;
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    background-color: #0C2446;
+    left: calc(50vw - 30px);
+    border-radius: 30px;
+    top: calc(100vh - 100px);
+    z-index: 10;
+    cursor: pointer;
+    transition: background-color 0.4s, opacity 0.2s, transform 0.4s;
+}
+
+.next-page::before {
+    width: 60px;
+    content: '↓';
+    font-size: 3em;
+    display: flex;
+    text-indent: -2px;
+    line-height: 1.1;
+    justify-content: center;
+}
+
+.next-page:hover {
+    background-color: #123669;
+}

@@ -14,8 +14,9 @@ export default function AboutUs() {
 
     return (
         <section id='about-us'>
+            <div className='background'/>
             <div className="section-container">
-                <div id="about-us-image-container">
+                {/* <div id="about-us-image-container">
                     <div className='about-us-image-cell' style={{left: '20vw'}}/>
                     <div className='about-us-image-cell' style={{left: '30vw'}}/>
                     <div className='about-us-image-cell' style={{left: '40vw'}}/>
@@ -27,7 +28,7 @@ export default function AboutUs() {
                     <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
-                </div>
+                </div> */}
             </div>
         </section>
     );

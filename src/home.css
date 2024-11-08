@@ -62,13 +62,13 @@
 }
 
 #home {
-    padding-top: 128px;
+    /* padding-top: 128px; */
 }
 
 @media screen and (max-width: 800px) {
     #home > .section-container {
         justify-content: center;
-        margin: 128px 0;
+        margin: 300px 0;
     }
 
     #canvas-container {
