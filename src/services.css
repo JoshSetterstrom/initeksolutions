@@ -11,6 +11,7 @@
     border-radius: 8px;
     overflow: hidden;
     white-space: nowrap;
+    border: 1px solid black;
 }
 
 .services-card.expanded {
@@ -24,20 +25,53 @@
 }
 
 .services-card-content {
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
     padding: 0 40px;
     width: 48vw;
     min-width: 48vw;
     transform: skew(5deg);
     opacity: 0;
-    transition: opacity 0.2s;
 }
 
 .services-card.expanded .services-card-content {
     opacity: 1;
 }
 
+.services-card > img,
+.services-card.expanded > img {
+    display: flex;
+    position: absolute;
+    width: 2000px;
+    height: 1000px;
+    top: 0;
+    z-index: 1;
+}
 
-@media screen and (max-width: 800px) {
+.services-card .radial-gradient {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.services-card.expanded .radial-gradient {
+    opacity: 1;
+}
+
+.radial-gradient {
+    z-index: 2;
+    display: flex;
+    position: absolute;
+    height: 300%;
+    width: 300%;
+    top: -150%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(0,0,0,1) 39%, rgba(255,255,255,0) 100%);
+}
+
+
+@media screen and (max-width: 1000px) {
     #our-services > .section-container {
         flex-direction: row;
         margin: 0px;
@@ -60,6 +94,4 @@
     .services-card-content {
         transform: skew(2deg);
     }
-
-
 }

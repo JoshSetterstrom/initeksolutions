@@ -54,6 +54,10 @@
 #home-text-container h1 {
     font-weight: 600;
     transition: font-size 0.2s;
+}
+
+#home-text-container p {
+    margin-bottom: 70px;
 
 }
 
@@ -61,11 +65,7 @@
     justify-content: end;
 }
 
-#home {
-    /* padding-top: 128px; */
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     #home > .section-container {
         justify-content: center;
         margin: 300px 0;

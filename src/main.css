@@ -30,7 +30,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 3em;
     font-weight: 500;
 }
 
@@ -57,7 +57,7 @@ button:hover {
 }
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .section-container {
         height: inherit;
         flex-direction: column;

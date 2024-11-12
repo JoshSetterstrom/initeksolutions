@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import './services.css';
+import img1 from './assets/stockphoto3.jpg';
 
 
 export default function Services() {
@@ -45,6 +46,8 @@ export default function Services() {
     const cardsDekstop = (
         <>
             <div className='services-card expanded' ref={ref => focusRef.current[0] = ref} onClick={() => handleFocusChange(0)}>
+                <div className='radial-gradient'/>
+                <img src={img1}/>
                 <div className='services-card-content'>
                     <h2>Business Phone Systems</h2>
                     <p>Initek Solutions is diversified in troubleshooting, programming and installing any of the following systems, to include voicemail and mail systems.</p>
@@ -90,7 +93,7 @@ export default function Services() {
     return (
         <section id='our-services'>
             <div className='section-container'>
-                {window.screen.width < 800 || window.innerWidth < 800 ? cardsMobile : cardsDekstop}
+                {window.screen.width < 1000 || window.innerWidth < 1000 ? cardsMobile : cardsDekstop}
             </div>
         </section>
     )

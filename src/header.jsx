@@ -44,9 +44,11 @@ export default function Header() {
     const renderDOM = () => {
         return setRender(
             <header>
-                <img src={logo} alt="logo"/>
-                <nav>{window.screen.width < 800 || window.innerWidth < 800 ? hamIcon : anchors}</nav>
-                {(window.screen.width < 800 || window.innerWidth < 800) && sidebar}
+                <div className='img-container'>
+                    <img src={logo} alt="logo"/>
+                </div>
+                <nav>{window.screen.width < 1000 || window.innerWidth < 1000 ? hamIcon : anchors}</nav>
+                {(window.screen.width < 1000 || window.innerWidth < 1000) && sidebar}
             </header>
         );
     };

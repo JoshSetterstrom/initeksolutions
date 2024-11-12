@@ -17,7 +17,7 @@ export default function Main() {
 			<main>
 				<Home />
 				<AboutUs />
-				<Services />
+				{/* <Services /> */}
 				<Contact />
 			</main>
 		</>
