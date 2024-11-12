@@ -15,13 +15,12 @@ header:hover {
 
 header .img-container {
     height: 4rem;
-    /* width: 40vw; */
     margin: 2rem 6rem 2rem 15vw;
+    transition: margin 0.4s;
 }
 
 .img-container > img {
     height: 4rem;
-    transition: margin 0.4s;
 }
 
 nav {
@@ -56,10 +55,10 @@ nav > a:hover {
     }
 
     nav {
-        margin-right: 40px;
+        margin-right: 64px;
     }
 
-    header > img {
+    header .img-container {
         margin-left: 40px;
         margin-right: 10px;
     }

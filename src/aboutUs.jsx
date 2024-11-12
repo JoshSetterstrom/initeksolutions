@@ -16,7 +16,7 @@ export default function AboutUs() {
         <section id='about-us'>
             <div className='background'/>
             <div className="section-container">
-                <img src={img2} onMouseMove={handleImgMouseMove}/>
+                <img src={img2} className='about-us-img' onMouseMove={handleImgMouseMove}/>
 
                 <div id='about-us-text-container'>
                     <h2>Providing Innovative Ideas</h2>

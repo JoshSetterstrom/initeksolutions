@@ -1,5 +1,5 @@
-.section-container img {
-    height: 60rem;
+.about-us-img {
+    height: 105vh;
     border-radius: 10px;
     margin-left: 48px;
 }
@@ -29,6 +29,8 @@
     font-weight: 600;
     flex: 1 1 calc(40% - 10px);
     margin-bottom: 16px;
+    margin-right: 16px;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 1000px) {
@@ -42,7 +44,7 @@
         margin: 2em;
     }
 
-    .section-container img {
+    .about-us-img {
         height: 60rem;
         border-radius: 10px;
         margin: 2em;
