@@ -1,13 +1,20 @@
 import './header.css';
 import logo from './assets/initek2.png';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 
 export default function Header() {
     const [render, setRender] = useState(null);
     const [expanded, setExpanded] = useState(false);
+    const headerRef = useRef(null);
 
     const sections = ['home', 'about-us', 'our-services', 'contact-us'];
+
+    useEffect(() => {
+        setTimeout(() => {
+            headerRef.current.style.marginTop = 0;
+        }, 200);
+    }, []);
 
     const anchors = sections.map((anchor, i) => (
         <a
@@ -43,7 +50,7 @@ export default function Header() {
 
     const renderDOM = () => {
         return setRender(
-            <header>
+            <header ref={headerRef}>
                 <div className='img-container'>
                     <img src={logo} alt="logo"/>
                 </div>

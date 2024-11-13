@@ -1,25 +1,30 @@
+:root {
+    --size: 48px;
+}
+
 .next-page {
     display: flex;
     position: fixed;
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 96px;
     background-color: #0C2446;
-    left: calc(50vw - 30px);
+    left: calc(50vw - 48px);
     border-radius: 30px;
     top: calc(100vh - 100px);
     z-index: 10;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
     transition: background-color 0.4s, opacity 0.2s, transform 0.4s;
+    opacity: 0;
 }
 
 .next-page::before {
-    width: 60px;
-    content: '↓';
-    font-size: 3em;
-    display: flex;
-    text-indent: -2px;
-    line-height: 1.1;
-    justify-content: center;
+    height: 20px;
+    width: 96px;
+    font-size: 1rem;
+    content: 'Home';
+    text-align: center;
 }
 
 .next-page:hover {

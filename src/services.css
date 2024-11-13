@@ -1,53 +1,79 @@
+#our-services {
+    margin-top: 10vh;
+}
+
 .services-card {
-    width: 50%;
-	max-width: 100px;
-    min-height: 90%;
-	height: 90%;
-    margin-right: 8px;
-	transform: skew(-5deg);
-	background: #555;
+    width: 480px;
+	max-width: 480px;
+	height: 60vh;
+    margin-right: 24px;
+	background: #061223;
     transition: max-width 0.4s;
     cursor: pointer;
     border-radius: 8px;
     overflow: hidden;
     white-space: nowrap;
-    border: 1px solid black;
+}
+
+.services-card:first-child {
+    margin-left: 48px;
+}
+
+.services-card:last-child {
+    margin-right: 48px;
+}
+
+.services-card button {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    max-height: 35px;
+    min-width: 150px;
+    font-size: 1em;
+}
+
+.right-arrow {
+    display: flex;
+    position: relative;
+    left: 8px;
+    height: 20px;
+    width: 20px;
 }
 
 .services-card.expanded {
-    max-width: 50%;
+    max-width: 50vw;
 }
 
-.services-card ul,
 .services-card p {
+    color: #bccbe0;
     white-space: normal;
-    margin-bottom: 0;
+    height: auto;
+    margin: 0;
+    min-height: 72px;
+    max-height: 72px;
+    font-size: 0.9em;
+}
+
+.services-card h3 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 500;
 }
 
 .services-card-content {
-    z-index: 2;
     display: flex;
-    position: absolute;
     flex-direction: column;
-    padding: 0 40px;
-    width: 48vw;
-    min-width: 48vw;
-    transform: skew(5deg);
-    opacity: 0;
+    height: 40%;
+    margin: 0 20px;
+    justify-content: space-evenly;
 }
 
 .services-card.expanded .services-card-content {
     opacity: 1;
 }
 
-.services-card > img,
-.services-card.expanded > img {
-    display: flex;
-    position: absolute;
-    width: 2000px;
-    height: 1000px;
-    top: 0;
-    z-index: 1;
+.services-card > img {
+    width: 100%;
 }
 
 .services-card .radial-gradient {
@@ -73,25 +99,19 @@
 
 @media screen and (max-width: 1000px) {
     #our-services > .section-container {
-        flex-direction: row;
-        margin: 0px;
-        padding: 0;
+        flex-direction: column;
+    }
+
+    .services-card:first-child {
+        margin-left: 16px;
+    }
+
+    .services-card:last-child {
+        margin-right: 16px;
     }
     
     .services-card {
-        height: 80vh;
-        max-width: 70vw;
-        transform: skew(-2deg);
-        /* max-width: 90px; */
-    }
-
-    .services-card:last-child,
-    .services-card:first-child {
-        max-width: 50px;
-        height: 80vh;
-    }
-
-    .services-card-content {
-        transform: skew(2deg);
+        width: 90vw;
+        margin: 16px 16px 0 16px;
     }
 }
