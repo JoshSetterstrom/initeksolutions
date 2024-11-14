@@ -1,15 +1,14 @@
 #about-us-img-container {
     height: 0vh;
     margin-left: 48px;
-    background-color: blue;
     overflow: hidden;
     border-radius: 10px;
     opacity: 0;
-    transition: height 1s ease-in, opacity 3s;
+    transition: height 1s ease-in-out, opacity 3s;
 }
 
 #about-us-img-container > img {
-    height: 105vh;
+    height: 100vh;
 }
 
 #about-us-text-container {

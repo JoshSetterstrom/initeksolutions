@@ -99,7 +99,7 @@ export default function Services() {
         <section id='our-services'>
             <div className='section-container'>
                 {/* <div>/ Our Services /</div> */}
-                {window.screen.width < 1000 || window.innerWidth < 1000 ? cardsMobile : cardsDekstop}
+                {/* {window.screen.width < 1000 || window.innerWidth < 1000 ? cardsMobile : cardsDekstop} */}
             </div>
         </section>
     )
