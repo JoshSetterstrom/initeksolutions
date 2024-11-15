@@ -48,30 +48,28 @@ export default function Contact({imgs}) {
 
     return (
         <section id='contact-us'>
-            <div className='section-container'>
-                <div id='contact-container'>
-                    <div>/ Contact Us /</div>
-                    <h1>Book an appointment with us today</h1>
-                    <p>If you have any questions, feel free to email or give us a call.</p>
+            <div id='contact-container'>
+                <div>/ Contact Us /</div>
+                <h1>Book an appointment with us today</h1>
+                <p>If you have any questions, feel free to email or give us a call.</p>
 
-                    <form ref={formRef} id='contact-form'>
-                        {createFormItem("Full Name", "name")}
-                        {createFormItem("Phone", "phone_number")}
-                        {createFormItem("Company Name", "company_name")}
-                        {createFormItem("Email Address", "email")}
-                        {createFormItem("Additional Notes", "notes", true)}
-                    </form>
+                <form ref={formRef} id='contact-form'>
+                    {createFormItem("Full Name", "name")}
+                    {createFormItem("Phone", "phone_number")}
+                    {createFormItem("Company Name", "company_name")}
+                    {createFormItem("Email Address", "email")}
+                    {createFormItem("Additional Notes", "notes", true)}
+                </form>
 
-                    <button onClick={() => submitForm(formRef)}>Submit</button>
-                </div>
+                <button onClick={() => submitForm(formRef)}>Submit</button>
+            </div>
 
-                <div id="info-container">
-                    <ul>
-                        {createInfoItem('Email us', <a href={`mailto:${info.email}`}>{info.email}</a>, emailIco)}
-                        {createInfoItem('Call us', <a href={`tel:${info.number}`}>{info.number}</a>, phoneIco)}
-                        {createInfoItem('Find us', <address>{info.location}</address>, mapsIco)}
-                    </ul>
-                </div>
+            <div id="info-container">
+                <ul>
+                    {createInfoItem('Email us', <a href={`mailto:${info.email}`}>{info.email}</a>, emailIco)}
+                    {createInfoItem('Call us', <a href={`tel:${info.number}`}>{info.number}</a>, phoneIco)}
+                    {createInfoItem('Find us', <address>{info.location}</address>, mapsIco)}
+                </ul>
             </div>
         </section>
     );

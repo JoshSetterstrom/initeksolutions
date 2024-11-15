@@ -34,7 +34,7 @@ export default function Home({img}) {
 
     return (
         <section id='home'>
-            <div className='section-container'>
+            {/* <div className='section-container'> */}
                 <div id='canvas-container'>
                     <div className='canvas-gradient top'/>
                     <div className='canvas-gradient bottom'/>
@@ -53,7 +53,7 @@ export default function Home({img}) {
                         Book a consultation
                     </button>
                 </div>
-            </div>
+            {/* </div> */}
         </section>
     )
 }

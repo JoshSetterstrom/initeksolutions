@@ -7,8 +7,6 @@ export default function Header({img}) {
     const [expanded, setExpanded] = useState(false);
     const headerRef = useRef(null);
 
-    console.log(img)
-
     const sections = ['home', 'about-us', 'our-services', 'contact-us'];
 
     useEffect(() => {

@@ -5,6 +5,8 @@
     border-radius: 10px;
     opacity: 0;
     transition: height 1s ease-in-out, opacity 3s;
+    max-height: 1080px;
+    max-width: 640px;
 }
 
 #about-us-img-container > img {
@@ -65,17 +67,22 @@
         overflow: hidden;
     }
 
-    #about-us-text-container {
-        width: fit-content;
-        max-width: 800px;
-        margin: 2em;
+    #about-us-img-container {
+        height: 100vh;
+        transition: opacity 1s;
+        margin: 10px;
     }
 
-    .about-us-img {
-        height: 60rem;
-        border-radius: 10px;
-        margin: 2em;
-        border-radius: 0;
+    #about-us-text-container {
+        width: 100vw;
+        /* width: fit-content; */
+        max-width: 800px;
+        padding: 20px;
+        margin: 20px;
+    }
+
+    #about-us-text-container li {
+        font-size: 1em;
     }
 }
 
@@ -88,6 +95,7 @@
 	border-right: 50px solid transparent;
 	height: 300px;
 	width: 120vh;
+    max-width: 1400px;
     transform: rotate(90deg);
     z-index: -1;
 }

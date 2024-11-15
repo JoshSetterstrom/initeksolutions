@@ -1,5 +1,6 @@
 #contact-us {
-    margin-top: -16vh;
+    background-color: #010910;
+    /* margin-top: -6vh; */
 }
 
 #contact-container {
@@ -39,16 +40,15 @@
 }
 
 form label {
-    font-size: 1vw;
     font-weight: bolder;
     color: #a0a8b0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin-bottom: 0.5vh;
+    margin-bottom: 10px;
     font-size: 1em;
 }
 
 form input, textarea {
-    background-color: black;
+    background-color: #010910;
     border-width: 0 0 0.3vh 0;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1vw;
@@ -74,8 +74,8 @@ form input:hover, textarea:hover {
 
 
 #info-container {
-    margin: 2vw;
-    height: 30em;
+    margin: 16px;
+    height: 480px;
     background-color: #081220;
     border-radius: 1vh;
     display: flex;
@@ -91,14 +91,14 @@ form input:hover, textarea:hover {
   }
   
 #info-container li {
-    margin: 2em 3vh;
+    margin: 36px 28px;
     font-size: 1.25em;
 }
   
 .contact-header {
     display: flex;
     align-items: center;
-    margin-bottom: 1vh;
+    margin-bottom: 8px;
 }
   
 #info-container img {
@@ -107,10 +107,10 @@ form input:hover, textarea:hover {
 }
   
 .contact-divider {
-    height: 1em;
-    width: 0.2vh;
+    height: 20px;
+    width: 2px;
     background-color: white;
-    margin: 0 2vh;
+    margin: 0 16px;
 }
 
 #info-container a {

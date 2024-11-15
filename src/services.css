@@ -1,26 +1,30 @@
 #our-services {
-    margin-top: 10vh;
+    margin-top: 160px;
+    overflow: hidden;
+    /* max-height: 100vh; */
+}
+
+#our-services > .section-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
 }
 
 .services-card {
-    width: 480px;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 600px;
 	max-width: 480px;
-	height: 60vh;
-    margin-right: 24px;
+	min-height: 600px;
+    margin: 24px;
 	background: #061223;
-    transition: max-width 0.4s;
     cursor: pointer;
     border-radius: 8px;
     overflow: hidden;
-    white-space: nowrap;
 }
 
 .services-card:first-child {
-    margin-left: 48px;
-}
-
-.services-card:last-child {
-    margin-right: 48px;
+    margin-left: 24px
 }
 
 .services-card button {
@@ -38,10 +42,6 @@
     left: 8px;
     height: 20px;
     width: 20px;
-}
-
-.services-card.expanded {
-    max-width: 50vw;
 }
 
 .services-card p {
@@ -68,35 +68,38 @@
     justify-content: space-evenly;
 }
 
-.services-card.expanded .services-card-content {
-    opacity: 1;
-}
-
 .services-card-img-container {
     height: 60%;
+    overflow: hidden;
 }
 
 .services-card-img-container > img {
-    /* min-height: 60%; */
-    width: 100%
-    /* width: 100%; */
+    width: 480px;
+    height: 100%;
+    aspect-ratio: 1;
 }
 
 @media screen and (max-width: 1000px) {
-    #our-services > .section-container {
-        flex-direction: column;
+    .services-card {
+        max-width: 480px;
+        min-width: auto;
+        margin: 0;
+        margin-bottom: 24px;
     }
 
     .services-card:first-child {
-        margin-left: 16px;
+        margin-left: 0;
     }
+}
 
-    .services-card:last-child {
-        margin-right: 16px;
-    }
-    
-    .services-card {
-        width: 90vw;
-        margin: 16px 16px 0 16px;
-    }
+.background2 {
+    display: flex;
+    position: absolute;
+    background-color: #010910;
+    margin-top: 1000px;
+    /* top: 300vh; */
+	height: 50vh;
+	width: 110vw;
+    transform: rotate(350deg);
+    z-index: -1;
 }
