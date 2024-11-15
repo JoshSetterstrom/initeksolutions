@@ -56,7 +56,7 @@
 
 .services-card h3 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: 500;
 }
 
@@ -72,30 +72,15 @@
     opacity: 1;
 }
 
-.services-card > img {
-    width: 100%;
+.services-card-img-container {
+    height: 60%;
 }
 
-.services-card .radial-gradient {
-    opacity: 0;
-    transition: opacity 0.5s;
+.services-card-img-container > img {
+    /* min-height: 60%; */
+    width: 100%
+    /* width: 100%; */
 }
-
-.services-card.expanded .radial-gradient {
-    opacity: 1;
-}
-
-.radial-gradient {
-    z-index: 2;
-    display: flex;
-    position: absolute;
-    height: 300%;
-    width: 300%;
-    top: -150%;
-    left: -50%;
-    background: radial-gradient(circle, rgba(0,0,0,1) 39%, rgba(255,255,255,0) 100%);
-}
-
 
 @media screen and (max-width: 1000px) {
     #our-services > .section-container {

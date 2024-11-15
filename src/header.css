@@ -5,22 +5,22 @@ header {
     height: 8rem;
     align-items: center;
     position: absolute;
-    margin-top: -100px;
-    transition: margin 1s;
 }
 
 header:hover {
     background-color: black;
 }
 
-header .img-container {
+.header-img-container {
     height: 4rem;
+    width: 156px;
+    min-width: 156px;
     margin: 2rem 6rem 2rem 15vw;
-    transition: margin 0.4s;
 }
 
-.img-container > img {
-    height: 4rem;
+.header-img-container > img {
+    height: 100%;
+    width: 100%;
 }
 
 nav {
@@ -37,7 +37,7 @@ nav {
 nav > a {
     color: #d1c9ff;
     padding: 0 1rem;
-    font-size: 1.2rem; /* Changed from 2.2vh to 1rem */
+    font-size: 1.2rem;
     cursor: pointer;
     transition: color 0.4s;
     text-align: center;
@@ -58,7 +58,7 @@ nav > a:hover {
         margin-right: 64px;
     }
 
-    header .img-container {
+    .header-img-container {
         margin-left: 40px;
         margin-right: 10px;
     }

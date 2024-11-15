@@ -11,6 +11,8 @@
 
 #canvas-container img {
     height: 1000px;
+    opacity: 0;
+    transition: opacity 2s;
 }
 
 .canvas-gradient {

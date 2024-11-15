@@ -1,12 +1,13 @@
 import './header.css';
-import logo from './assets/initek2.png';
 import { useEffect, useRef, useState } from 'react';
 
 
-export default function Header() {
+export default function Header({img}) {
     const [render, setRender] = useState(null);
     const [expanded, setExpanded] = useState(false);
     const headerRef = useRef(null);
+
+    console.log(img)
 
     const sections = ['home', 'about-us', 'our-services', 'contact-us'];
 
@@ -51,8 +52,8 @@ export default function Header() {
     const renderDOM = () => {
         return setRender(
             <header ref={headerRef}>
-                <div className='img-container'>
-                    <img src={logo} alt="logo"/>
+                <div className='header-img-container'>
+                    <img src={img} alt="logo"/>
                 </div>
                 <nav>{window.screen.width < 1000 || window.innerWidth < 1000 ? hamIcon : anchors}</nav>
                 {(window.screen.width < 1000 || window.innerWidth < 1000) && sidebar}

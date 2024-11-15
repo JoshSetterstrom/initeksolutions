@@ -1,8 +1,4 @@
 import './contact.css';
-
-import emailIco from './assets/email-ico.png';
-import phoneIco from './assets/phone-ico.png';
-import mapsIco from './assets/maps-ico.png';
 import { useRef } from 'react';
 
 
@@ -45,7 +41,9 @@ const submitForm = ref => {
     console.log(data);
 };
 
-export default function Contact() {
+export default function Contact({imgs}) {
+    const [emailIco, phoneIco, mapsIco] = [...imgs];
+
     const formRef = useRef(null);
 
     return (

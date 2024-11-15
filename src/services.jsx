@@ -1,12 +1,10 @@
 import { useRef } from 'react';
 import './services.css';
-import img1 from './assets/stockphoto5.jpg';
-import img2 from './assets/stockphoto2.jpg';
-import img3 from './assets/stockphoto6.jpg';
 
-
-export default function Services() {
+export default function Services({imgs}) {
     const focusRef = useRef([]);
+
+    const [img1, img2, img3] = [...imgs];
 
     const rightArrow = (
         <svg className='right-arrow' viewBox="0 0 64 64" strokeWidth="5" fill="none" stroke="#CACBD2">
@@ -40,7 +38,9 @@ export default function Services() {
     const cardsDekstop = (
         <>
             <div className='services-card' ref={ref => focusRef.current[0] = ref}>
-                <img src={img1}/>
+                <div className='services-card-img-container'>
+                    <img src={img1}/>
+                </div>
                 <div className='services-card-content'>
 
                     <h3>Business Phone Systems</h3>
@@ -61,7 +61,7 @@ export default function Services() {
                 </div>
             </div>
             <div className='services-card' ref={ref => focusRef.current[1] = ref}>
-                <img src={img2}/>
+                {/* <img src={img2}/> */}
                 <div className='services-card-content'>
 
                     <h3>Cable/Fiber Installation</h3>
@@ -76,7 +76,7 @@ export default function Services() {
                 </div>
             </div>
             <div className='services-card' ref={ref => focusRef.current[2] = ref}>
-                <img src={img3}/>
+                {/* <img src={img3}/> */}
                 <div className='services-card-content'>
                     <h3>Networking & Testing</h3>
                     <p>Our expert team offers end-to-end solutions, from network design and configuration to rigorous testing protocols that ensure reliability..</p>

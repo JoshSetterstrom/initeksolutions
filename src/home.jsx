@@ -1,26 +1,20 @@
 import './home.css';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import canvas from './assets/home_canvas.jpg';
 
 
-
-
-
-export default function Home() {
+export default function Home({img}) {
     const [p1t, setp1t] = useState({opacity: 1, left: 0});
 	const [p1i, setp1i] = useState({marginTop: 0});
 
     const textRef = useRef(null);
+    const imgRef = useRef(null);
+
 
     useLayoutEffect(() => {
-		const handleCanvasScroll = e => {
-            const position = window.scrollY/window.innerHeight;
-    
-            const opacity = 1-position*2;
+		const handleCanvasScroll = () => {    
             const marginTop = window.scrollY * -0.3;
         
             setp1i(p1i => ({...p1i, marginTop}));
-            // setp1t(p1t => ({...p1t, opacity}));
 		}
 
 		document.addEventListener('scroll', handleCanvasScroll);
@@ -34,6 +28,7 @@ export default function Home() {
         setTimeout(() => {
             textRef.current.style.left = 0;
             textRef.current.style.opacity = 1;
+            imgRef.current.style.opacity = 1;
         }, 200)
     }, [])
 
@@ -46,7 +41,7 @@ export default function Home() {
                     <div className='canvas-gradient left'/>
                     <div className='canvas-gradient right'/>
                     <div className='canvas-gradient five'/>
-                    <img src={canvas} style={p1i} alt="canvas"/>
+                    <img src={img} ref={imgRef} style={p1i} alt="canvas"/>
                 </div>
 
                 <div id='home-text-container' ref={textRef}>

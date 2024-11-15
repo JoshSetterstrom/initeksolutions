@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './aboutUs.css';
-import img2 from './assets/stockphoto4.jpg';
 
-export default function AboutUs() {
+export default function AboutUs({img}) {
     const imgRef = useRef(null);
     const textRef = useRef(null);
 
@@ -16,11 +15,13 @@ export default function AboutUs() {
                 document.removeEventListener('scroll', handleAnimations);
             }
 
-            if (window.innerHeight - anchor.getBoundingClientRect().y > window.innerHeight / 2) {
+            if (window.innerHeight - anchor.getBoundingClientRect().y > window.innerHeight / 2.5) {
                 triggered = true;
 
-                imgRef.current.style.height = '100vh';
-                imgRef.current.style.opacity = 1;
+                setTimeout(() => {
+                    imgRef.current.style.height = '100vh';
+                    imgRef.current.style.opacity = 1;
+                }, 200)
 
                 for (let i = 0; i < textRef.current.children.length; i++) {
                     const ele = textRef.current.children[i];
@@ -53,7 +54,7 @@ export default function AboutUs() {
             <div className='background'/>
             <div className="section-container">
                 <div id='about-us-img-container' ref={imgRef}>
-                    <img src={img2} />
+                    <img src={img} />
                 </div>
 
                 <div id='about-us-text-container' ref={textRef}>
