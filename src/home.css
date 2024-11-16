@@ -1,22 +1,22 @@
 #home {
-    justify-content: end;
+    height: 60vh;
+    margin-bottom: 20vh;
 }
 
 #canvas-container {
     display: flex;
-    position: relative;
-    overflow: hidden;
+    position: absolute;
+    left: 40vw;
     width: 55vw;
-    height: 70%;
+    height: 50%;
     background-color: black;
-    max-height: 800px;
     border-radius: var(--border-radius);
     overflow: hidden;
     transition: margin 0.4s, opacity 0.4s;
 }
 
 #canvas-container img {
-    height: 1000px;
+    height: 80vh;
     opacity: 0;
     transition: opacity 2s;
 }
@@ -51,13 +51,14 @@
 
 #home-text-container {
     display: flex;
-    position: absolute;
+    position: relative;
     flex-direction: column;
-    z-index: 1;
     left: -200px;
-    margin: 0 15vw;
-    max-width: 1000px;
+    z-index: 1;
+    margin: 0 48px;
     opacity: 0;
+    width: calc(50vw + 660px);
+    max-width: 1460px;
     transition: opacity 1s ease-out, left 1s ease-out;
 }
 
@@ -68,6 +69,7 @@
 
 #home-text-container p {
     margin-bottom: 70px;
+    max-width: 1000px;
 
 }
 
@@ -76,9 +78,9 @@
 }
 
 @media screen and (max-width: 1000px) {
-    #home > .section-container {
+    #home {
         justify-content: center;
-        margin: 300px 0;
+        margin-top: 50px;
     }
 
     #canvas-container {
@@ -91,11 +93,6 @@
     .canvas-gradient {
         left: 0;
         width: 100vw;
-        height: 90vh;
-    }
-
-    #canvas-container img {
-        height: 90vh;
     }
 
     button {

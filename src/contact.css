@@ -1,6 +1,9 @@
 #contact-us {
     background-color: #010910;
-    /* margin-top: -6vh; */
+    /* margin-top: 16vh; */
+    /* margin-bottom: 0; */
+    /* padding: 10vh 0; */
+    /* padding: 16vh 0 ; */
 }
 
 #contact-container {
@@ -154,7 +157,7 @@ form input:hover, textarea:hover {
         flex-direction: column;
     }
 
-    #contact-us > .section-container {
+    #contact-us {
         display: flex;
         flex-direction: column;
     }

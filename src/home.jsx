@@ -34,26 +34,24 @@ export default function Home({img}) {
 
     return (
         <section id='home'>
-            {/* <div className='section-container'> */}
-                <div id='canvas-container'>
-                    <div className='canvas-gradient top'/>
-                    <div className='canvas-gradient bottom'/>
-                    <div className='canvas-gradient left'/>
-                    <div className='canvas-gradient right'/>
-                    <div className='canvas-gradient five'/>
-                    <img src={img} ref={imgRef} style={p1i} alt="canvas"/>
-                </div>
+            <div id='canvas-container'>
+                <div className='canvas-gradient top'/>
+                <div className='canvas-gradient bottom'/>
+                <div className='canvas-gradient left'/>
+                <div className='canvas-gradient right'/>
+                <div className='canvas-gradient five'/>
+                <img src={img} ref={imgRef} style={p1i} alt="canvas"/>
+            </div>
 
-                <div id='home-text-container' ref={textRef}>
-                    <h1>Your Network, <br/>Our Expertise</h1>
-                    <p>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</p>
-                    <button
-                        onClick={() => document.getElementById('contact-us-anchor')?.scrollIntoView({behavior: 'smooth'})}
-                    >
-                        Book a consultation
-                    </button>
-                </div>
-            {/* </div> */}
+            <div id='home-text-container' ref={textRef}>
+                <h1>Your Network, <br/>Our Expertise</h1>
+                <p>Providing a wide range of voice, data, and networking solutions for businesses of all sizes, aiming to deliver cost-effective and efficient options to meet your communication and networking needs.</p>
+                <button
+                    onClick={() => document.getElementById('contact-us-anchor')?.scrollIntoView({behavior: 'smooth'})}
+                >
+                    Book a consultation
+                </button>
+            </div>
         </section>
     )
 }

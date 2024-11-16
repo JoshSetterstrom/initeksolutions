@@ -1,20 +1,19 @@
 #our-services {
-    margin-top: 160px;
-    overflow: hidden;
-    /* max-height: 100vh; */
-}
-
-#our-services > .section-container {
+    margin-top: 400px;
+    margin-bottom: 300px;
+    /* overflow: hidden; */
     display: flex;
     flex-wrap: wrap;
     height: auto;
+    justify-content: center;
+    background-color: #010910;
 }
 
 .services-card {
     flex: 1 1 auto;
     width: 100%;
     height: 600px;
-	max-width: 480px;
+	max-width: 400px;
 	min-height: 600px;
     margin: 24px;
 	background: #061223;
@@ -90,16 +89,4 @@
     .services-card:first-child {
         margin-left: 0;
     }
-}
-
-.background2 {
-    display: flex;
-    position: absolute;
-    background-color: #010910;
-    margin-top: 1000px;
-    /* top: 300vh; */
-	height: 50vh;
-	width: 110vw;
-    transform: rotate(350deg);
-    z-index: -1;
 }

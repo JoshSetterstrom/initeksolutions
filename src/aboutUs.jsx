@@ -21,7 +21,10 @@ export default function AboutUs({img}) {
                 setTimeout(() => {
                     imgRef.current.style.height = '100vh';
                     imgRef.current.style.opacity = 1;
-                }, 200)
+
+                    setTimeout(() => imgRef.current.style.transition = 'none', 3000)
+                    
+                }, 300)
 
                 for (let i = 0; i < textRef.current.children.length; i++) {
                     const ele = textRef.current.children[i];

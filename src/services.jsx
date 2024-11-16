@@ -89,7 +89,6 @@ export default function Services({imgs}) {
 
     return (
         <section id='our-services'>
-            <div className='background2'/>
             {renderCards}
         </section>
     )

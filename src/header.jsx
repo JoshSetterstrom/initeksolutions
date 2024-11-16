@@ -9,12 +9,6 @@ export default function Header({img}) {
 
     const sections = ['home', 'about-us', 'our-services', 'contact-us'];
 
-    useEffect(() => {
-        setTimeout(() => {
-            headerRef.current.style.marginTop = 0;
-        }, 200);
-    }, []);
-
     const anchors = sections.map((anchor, i) => (
         <a
             key={`a-${anchor}`}
