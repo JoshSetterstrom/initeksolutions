@@ -13,7 +13,7 @@ export default function Header({img}) {
         <a
             key={`a-${anchor}`}
             target='_blank'
-            onClick={() => {document.getElementById(anchor)?.scrollIntoView({behavior: 'smooth'})}}
+            onClick={() => {document.getElementById(anchor)?.scrollIntoView({behavior: 'smooth', block: 'center'})}}
         >
             {anchor.replace('-', ' ').toUpperCase()}
         </a>

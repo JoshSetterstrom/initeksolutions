@@ -22,9 +22,8 @@ export default function AboutUs({img}) {
                     imgRef.current.style.height = '100vh';
                     imgRef.current.style.opacity = 1;
 
-                    setTimeout(() => imgRef.current.style.transition = 'none', 3000)
-                    
-                }, 300)
+                    setTimeout(() => imgRef.current.style.transition = 'none', 3000);
+                }, 300);
 
                 for (let i = 0; i < textRef.current.children.length; i++) {
                     const ele = textRef.current.children[i];
@@ -45,12 +44,10 @@ export default function AboutUs({img}) {
             };
         };
 
-        handleAnimations();
-
         document.addEventListener('scroll', handleAnimations);
 
         return () => document.removeEventListener('scroll', handleAnimations);
-    }, [])
+    }, []);
 
     return (
         <section id='about-us'>

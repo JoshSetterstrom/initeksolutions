@@ -1,7 +1,7 @@
 #about-us-img-container {
     height: 0vh;
     margin-left: 48px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     overflow: hidden;
     opacity: 0;
     transition: height 1s ease-in-out, opacity 3s;
@@ -11,11 +11,10 @@
 }
 
 #about-us-img-container img {
-    height: 100vh;
-    max-height: 1080px;
-    min-width: 600px;
-    width: 600px;
-    /* object-fit: cover; */
+    display: flex;
+    position: relative;
+    right: 50%;
+    width: 1200px;
 }
 
 #about-us-text-container {
@@ -79,13 +78,12 @@
 
     #about-us-img-container {
         height: 100vh;
-        transition: opacity 1s;
+        opacity: 1;
         margin: 10px;
     }
 
     #about-us-text-container {
         width: 100vw;
-        /* width: fit-content; */
         max-width: 800px;
         padding: 20px;
         margin: 20px;

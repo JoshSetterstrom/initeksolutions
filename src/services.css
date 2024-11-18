@@ -1,92 +1,142 @@
 #our-services {
-    margin-top: 400px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 280px;
     margin-bottom: 300px;
-    /* overflow: hidden; */
+    height: auto;
+}
+
+.cards-container {
     display: flex;
     flex-wrap: wrap;
-    height: auto;
+    /* height: auto; */
     justify-content: center;
-    background-color: #010910;
 }
 
 .services-card {
-    flex: 1 1 auto;
-    width: 100%;
-    height: 600px;
-	max-width: 400px;
-	min-height: 600px;
-    margin: 24px;
-	background: #061223;
-    cursor: pointer;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.services-card:first-child {
-    margin-left: 24px
-}
-
-.services-card button {
+    flex: 1 1 calc(100% - 50px);
     display: flex;
-    justify-content: center;
-    padding: 0.5rem;
-    max-height: 35px;
-    min-width: 150px;
-    font-size: 1em;
+    flex-direction: column;
+    position: relative;
+    width: 100vw;
+    height: 600px;
+    min-width: 300px;
+	max-width: 440px;
+    margin: 24px;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 1s, top 1s;
+}
+    .services-card:hover .right-arrow,
+    .services-card:hover .services-cta {
+        stroke: #6C9ADA;
+        color: #6C9ADA;
+    }
+    .services-card:hover img {
+        transform: scale(1.025);
+    }
+    .services-card:first-child {
+        margin-left: 24px
+    }
+    .services-card p {
+        color: #bccbe0;
+        white-space: normal;
+        min-height: 64px;
+        max-height: 64px;
+        font-size: 0.9em;
+        margin: 8px 16px 24px 16px;
+    }
+    
+    .services-card h4 {
+        font-size: 1.2em;
+        font-weight: 500;
+        margin: 24px 16px 16px 16px;
+    }
+
+.services-cta {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    width: 100%;
+    transition: color 0.5s;
+}
+
+.services-cta::before {
+    content: '';
+    height: 1px;
+    width: 100%;
+    margin-bottom: 8px;
+    background-color: rgb(26, 26, 70);
+}
+
+.services-card-img-container {
+    opacity: 1;
+    width: 600px;
+    height: 380px;
+    overflow: hidden;
+    transition: height 0.5s, opacity 0.5s;
+}
+    .services-card-img-overlay {
+        background-color: black;
+        display: flex;
+        top: -63px;
+        position: relative;
+        width: 0;
+        height: 0;
+        background-clip: padding-box;
+        border-bottom: 40px solid #000000;
+        border-left: 453px solid #00000000;
+    }
+    .services-card-img-container img {
+        width: inherit;
+        transition: transform 0.4s;
+    }
+
+.services-card-content {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.services-card-content-container {
+    height: 90%;
 }
 
 .right-arrow {
     display: flex;
     position: relative;
     left: 8px;
-    height: 20px;
-    width: 20px;
+    top: 2px;
+    height: 16px;
+    width: 16px;
+    transition: stroke 0.5s;
 }
 
-.services-card p {
-    color: #bccbe0;
-    white-space: normal;
-    height: auto;
-    margin: 0;
-    min-height: 72px;
-    max-height: 72px;
-    font-size: 0.9em;
+.services-card.expand .services-card-img-container {
+    opacity: 0;
+    height: 0px;
 }
 
-.services-card h3 {
-    margin: 0;
-    font-size: 2em;
-    font-weight: 500;
+.services-card.expand .services-card-content {
+    height: 90%;
 }
 
-.services-card-content {
-    display: flex;
-    flex-direction: column;
-    height: 40%;
-    margin: 0 20px;
-    justify-content: space-evenly;
-}
 
-.services-card-img-container {
-    height: 60%;
-    overflow: hidden;
-}
 
-.services-card-img-container > img {
-    width: 480px;
-    height: 100%;
-    aspect-ratio: 1;
-}
 
 @media screen and (max-width: 1000px) {
+    #our-services {
+        margin-top: 600px;
+    }
+
     .services-card {
-        max-width: 480px;
-        min-width: auto;
-        margin: 0;
-        margin-bottom: 24px;
+        margin: 8px;
+        margin-top: 64px;
     }
 
     .services-card:first-child {
-        margin-left: 0;
+        margin-left: 8px;
     }
 }

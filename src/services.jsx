@@ -1,10 +1,37 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import './services.css';
 
 export default function Services({imgs}) {
     const focusRef = useRef([]);
 
     const [img1, img2, img3] = [...imgs];
+
+    useEffect(() => {
+        let triggered = false;
+
+        const handleAnimations = () => {
+            console.log('here')
+
+            const anchor = document.getElementById('our-services');
+
+            if (triggered) return document.removeEventListener('scroll', handleAnimations);
+
+            if (window.innerHeight - anchor.getBoundingClientRect().y > window.innerHeight / 2) {
+                triggered = true;
+
+                focusRef.current.forEach(ref => {
+                    ref.style.top = 0;
+                    ref.style.opacity = 1;
+                })
+
+                document.removeEventListener('scroll', handleAnimations);
+            };
+        };
+
+        document.addEventListener('scroll', handleAnimations);
+
+        return () => document.removeEventListener('scroll', handleAnimations);
+    }, []);
 
     const rightArrow = (
         <svg className='right-arrow' viewBox="0 0 64 64" strokeWidth="5" fill="none" stroke="#CACBD2">
@@ -15,7 +42,7 @@ export default function Services({imgs}) {
     const cards = [
         {
             img: img1,
-            title: "Business Phone Systems",
+            title: <h4>Business Phone Systems</h4>,
             content: [
                 (<p>Initek Solutions specializes in troubleshooting, programming, and installing state-of-the-art phone systems, tailored to meet the unique needs of your business.</p>),
                 (
@@ -37,7 +64,7 @@ export default function Services({imgs}) {
         },
         {
             img: img2,
-            title: "Cable/Fiber Installation",
+            title: <h4>Cable/Fiber Installation</h4>,
             content: [
                 (<p>Initek Solutions provides meticulous installation, repair, and testing of copper and fiber-optic cabling for businesses of all sizes.</p>),
                 (
@@ -51,7 +78,7 @@ export default function Services({imgs}) {
         },
         {
             img: img3,
-            title: "Networking & Testing",
+            title: <h4>Network & testing</h4>,
             content: [
                 (<p>Our expert team offers end-to-end solutions, from network design and configuration to rigorous testing protocols that ensure reliability.</p>),
                 (
@@ -65,31 +92,50 @@ export default function Services({imgs}) {
                     </ul>
                 )
             ]
-        }
+        },
+        null
     ];
 
-    const renderCards = cards.map((card, i) => (
-        <div className='services-card' ref={ref => focusRef.current[i] = ref}>
-            <div className='services-card-img-container'>
-                <img src={card.img}/>
+    const renderCards = cards.map((card, i) => {
+        if (!card) return <div className='services-card' style={{height: 0}}/>;
+
+        return (
+            <div 
+                className='services-card' 
+                style={{top: i%2 ? 24 : -24}} 
+                ref={ref => focusRef.current[i] = ref}
+                onClick={() => expandCard(i)}
+            >
+                <div className='services-card-content-container'>
+                    <div className='services-card-img-container'>
+                        <img src={card.img}/>
+                        <div className='services-card-img-overlay'/>
+                    </div>
+
+                    <div className='services-card-content'>
+                        {card.title}
+                        {card.content[0]}
+                    </div>
+                </div>
+                <div className='services-cta'>
+                    <div style={{display: 'flex'}}>See More {rightArrow}</div>
+                </div>
             </div>
-            <div className='services-card-content'>
-                {card.title}
-                {card.content[0]}
-                <button onClick={() => expandCard(i)}>See More {rightArrow}</button>
-            </div>
-        </div>
-    ));
+        );
+    });
 
     const expandCard = i => {
         const ref = focusRef.current[i];
 
-        // ref.classList.toggle('expand');
+        ref.classList.toggle('expand');
     }
 
     return (
         <section id='our-services'>
-            {renderCards}
+            <div style={{marginBottom: 20}}>/ Our Services /</div>
+            <div className='cards-container'>
+                {renderCards}
+            </div>
         </section>
     )
 }
