@@ -16,9 +16,10 @@ export default function Services({imgs}) {
 
             if (triggered) return document.removeEventListener('scroll', handleAnimations);
 
-            if (window.innerHeight - anchor.getBoundingClientRect().y > window.innerHeight / 2) {
+            if (window.innerHeight - anchor.getBoundingClientRect().y > window.innerHeight / 10) {
                 triggered = true;
 
+                
                 focusRef.current.forEach(ref => {
                     ref.style.top = 0;
                     ref.style.opacity = 1;
@@ -93,7 +94,7 @@ export default function Services({imgs}) {
                 )
             ]
         },
-        null
+        // null
     ];
 
     const renderCards = cards.map((card, i) => {

@@ -1,9 +1,9 @@
 #contact-us {
+    margin-top: -200px;
+    margin-bottom: 0;
     background-color: #010910;
-    /* margin-top: 16vh; */
-    /* margin-bottom: 0; */
-    /* padding: 10vh 0; */
-    /* padding: 16vh 0 ; */
+    padding: 100px 0;
+    height: auto;
 }
 
 #contact-container {
@@ -11,6 +11,8 @@
     flex-direction: column;
     max-width: 800px;
     padding: 24px;
+    height: auto;
+    margin-left: 48px;
 }
 
 #contact-container button {
@@ -72,10 +74,6 @@ form input:hover, textarea:hover {
 }
 
 
-
-
-
-
 #info-container {
     margin: 16px;
     height: 480px;
@@ -85,6 +83,7 @@ form input:hover, textarea:hover {
     flex-direction: column;
     justify-content: center;
     font-size: 1em;
+    margin-right: 48px;
 }
 
 #info-container ul {
@@ -130,7 +129,7 @@ form input:hover, textarea:hover {
 
 @media screen and (max-width: 1000px) {
     #contact-us {
-        margin-top: 10vh;
+        margin-top: 720px;
     }
 
     #contact-container {
@@ -138,7 +137,7 @@ form input:hover, textarea:hover {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        margin-right: 0;
+        margin: 0 8px;
     }
 
     #contact-container h1 {
@@ -164,6 +163,6 @@ form input:hover, textarea:hover {
 
     #info-container {
         font-size: 0.8em;
-        margin-bottom: 124px;
+        margin: 0 8px 124px 0;
     }
 }

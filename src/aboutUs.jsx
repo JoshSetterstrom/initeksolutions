@@ -15,7 +15,7 @@ export default function AboutUs({img}) {
                 document.removeEventListener('scroll', handleAnimations);
             }
 
-            if (window.innerHeight - anchor.getBoundingClientRect().y > window.innerHeight / 2.5) {
+            if (window.innerHeight - anchor.getBoundingClientRect().y > window.innerHeight / 3) {
                 triggered = true;
 
                 setTimeout(() => {
@@ -43,6 +43,8 @@ export default function AboutUs({img}) {
                 document.removeEventListener('scroll', handleAnimations);
             };
         };
+
+        handleAnimations();
 
         document.addEventListener('scroll', handleAnimations);
 

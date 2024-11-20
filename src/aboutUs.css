@@ -1,7 +1,6 @@
 #about-us-img-container {
     height: 0vh;
     margin-left: 48px;
-    /* border-radius: 10px; */
     overflow: hidden;
     opacity: 0;
     transition: height 1s ease-in-out, opacity 3s;

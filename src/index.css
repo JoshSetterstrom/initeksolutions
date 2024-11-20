@@ -14,4 +14,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	-ms-overflow-style:none;
 	overflow-x: hidden;
+	position: relative;
+}
+
+html {
+	overflow-x: hidden;
 }

@@ -1,65 +1,63 @@
 #home {
     height: 60vh;
-    margin-bottom: 20vh;
+    margin-bottom: 160px;
+    position: relative;
 }
-
+  
 #canvas-container {
-    display: flex;
     position: absolute;
     left: 40vw;
     width: 55vw;
-    height: 50%;
+    height: 50vh;
     background-color: black;
     border-radius: var(--border-radius);
     overflow: hidden;
-    transition: margin 0.4s, opacity 0.4s;
 }
 
 #canvas-container img {
-    height: 80vh;
+    height: 1000px;
     opacity: 0;
     transition: opacity 2s;
 }
 
 .canvas-gradient {
-    width: 55vw;
-    height: 100%;
-    display: flex;
     position: absolute;
+    width: 100%;
+    height: 100%;
     z-index: 1;
 }
 
-.top {
-    background: linear-gradient(180deg, #000000 0%, #00000000 40%);
+.canvas-gradient.top {
+    background: linear-gradient(180deg, #000 0%, transparent 40%);
 }
 
-.bottom {
-    background: linear-gradient(180deg, #ffffff00 47%, #000000 100%);
+.canvas-gradient.bottom {
+    background: linear-gradient(180deg, transparent 47%, #000 100%);
 }
 
-.left {
-    background: linear-gradient(270deg, #ffffff00 50%, #000000 100%);
+.canvas-gradient.left {
+    background: linear-gradient(270deg, transparent 50%, #000 100%);
 }
 
-.right {
-    background: linear-gradient(30deg, #ffffff00 70%, #000000 80%);
+.canvas-gradient.right {
+    background: linear-gradient(30deg, transparent 70%, #000 80%);
 }
 
-.five {
-    background: linear-gradient(110deg, #ffffff00 60%, #000000 80%);
+.canvas-gradient.five {
+    background: linear-gradient(110deg, transparent 60%, #000 80%);
 }
 
 #home-text-container {
-    display: flex;
     position: relative;
+    display: flex;
     flex-direction: column;
-    left: -200px;
-    z-index: 1;
     margin: 0 48px;
     opacity: 0;
     width: calc(50vw + 660px);
     max-width: 1460px;
-    transition: opacity 1s ease-out, left 1s ease-out;
+    transition: opacity 1.5s ease-in-out, left 1s ease-in-out;
+    left: -200px;
+    z-index: 1;
 }
 
 #home-text-container h1 {
@@ -70,39 +68,24 @@
 #home-text-container p {
     margin-bottom: 70px;
     max-width: 1000px;
-
-}
-
-#home > .section-container {
-    justify-content: end;
 }
 
 @media screen and (max-width: 1000px) {
     #home {
-        justify-content: center;
         margin-top: 50px;
     }
 
     #canvas-container {
         left: 0;
-        position: absolute;
         width: 100vw;
         opacity: 0.5;
-    }
-
-    .canvas-gradient {
-        left: 0;
-        width: 100vw;
-    }
-
-    button {
-        font-size: 0.9em;
     }
 
     #home-text-container {
         align-items: center;
         margin: 20px;
-        transition: opacity 1s ease-out;
+        left: 0;
+        opacity: 1;
     }
 
     #home-text-container h1 {
@@ -111,6 +94,10 @@
 
     #home-text-container p {
         text-align: center;
+        font-size: 0.9em;
+    }
+
+    button {
         font-size: 0.9em;
     }
 }
