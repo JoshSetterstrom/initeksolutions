@@ -1,15 +1,11 @@
-:root {
-    --size: 48px;
-}
-
-.next-page {
+.back-home {
     display: flex;
     position: fixed;
-    height: 40px;
-    width: 96px;
-    background-color: #0C2446;
-    left: calc(50vw - 48px);
-    border-radius: 30px;
+    height: 64px;
+    width: 64px;
+    background-color: #144283;
+    left: calc(50vw - 32px);
+    border-radius: 56px;
     top: calc(100vh - 100px);
     z-index: 10;
     cursor: pointer;
@@ -17,16 +13,10 @@
     align-items: center;
     transition: background-color 0.4s, opacity 0.2s, transform 0.4s;
     opacity: 0;
+    pointer-events: none;
+    box-shadow: 2px 2px 2px #0C2446;
 }
 
-.next-page::before {
-    height: 20px;
-    width: 96px;
-    font-size: 1rem;
-    content: 'Home';
-    text-align: center;
-}
-
-.next-page:hover {
-    background-color: #123669;
+.back-home:hover {
+    background-color: #2a5da3;
 }

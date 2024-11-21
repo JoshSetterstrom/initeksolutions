@@ -37,7 +37,7 @@ export default function Main() {
 	return (
 		<>
 			<Header img={logo}/>
-			{/* <HomePage sections={sections}/> */}
+			<HomePage sections={sections}/>
 
 			<main>
 				<Home img={homeImg}/>
