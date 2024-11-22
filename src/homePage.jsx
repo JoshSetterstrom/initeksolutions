@@ -16,7 +16,7 @@ export default function HomePage() {
             ref.current.style.opacity = 0;
             ref.current.style.pointerEvents = 'all';
 
-            timeout = setTimeout(() => ref.current.style.opacity = 1, 200);
+            timeout = setTimeout(() => ref.current.style.opacity = 1, 400);
         }
 
         handleOpacity();
