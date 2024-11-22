@@ -42,7 +42,6 @@
     position: relative;
     transition: inherit;
     opacity: 0;
-    color: #bccbe0;
     margin-bottom: 48px;
     transition: inherit;
 }
@@ -98,7 +97,7 @@
 .background {
     display: flex;
     position: absolute;
-	border-bottom: 100vw solid #061223;
+	border-bottom: 100vw solid var(--color24);
 	border-left: 50px solid transparent;
 	border-right: 50px solid transparent;
 	height: 300px;

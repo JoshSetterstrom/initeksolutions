@@ -9,7 +9,6 @@
 .cards-container {
     display: flex;
     justify-content: center;
-    /* margin: 0 48px; */
     width: 100%;
     max-width: 1558px;
 }
@@ -21,7 +20,6 @@
     width: calc(100vw / 3);
     height: 600px;
     min-width: 280px;
-	/* max-width: calc(1460px / 3); */
     margin: 12px;
     cursor: pointer;
     overflow: hidden;
@@ -41,16 +39,8 @@
     .services-card p {
         color: #bccbe0;
         white-space: normal;
-        min-height: 64px;
-        max-height: 64px;
         font-size: 0.9em;
-        margin: 8px 16px 24px 16px;
-    }
-    
-    .services-card h4 {
-        font-size: 1.2em;
-        font-weight: 500;
-        margin: 24px 16px 16px 16px;
+        margin: 8px 16px 0px 16px;
     }
 
     .services-card:first-child {
@@ -66,12 +56,22 @@
         margin-right: 48px;
     }
 
+.services-card-details {
+    opacity: 0;
+    transition: opacity 0.2s;
+    margin-right: 8px;
+}
+
+
+
 .services-cta {
     display: flex;
     flex-direction: column;
     padding: 16px;
     width: 100%;
     transition: color 0.5s;
+    background-color: black;
+    z-index: 1;
 }
 
 .services-cta::before {
@@ -79,7 +79,7 @@
     height: 1px;
     width: 100%;
     margin-bottom: 8px;
-    background-color: rgb(26, 26, 70);
+    background-color: var(--color22);
 }
 
 .services-card-img-container {
@@ -109,6 +109,19 @@
     height: fit-content;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+}
+
+.services-card-content ul {
+    list-style: none;
+    padding-left: 32px;
+}
+
+.services-card-content li {
+    display: flex;
+    line-height: 1.4;
+    margin: 8px;
+    margin-left: 0;
 }
 
 .services-card-content-container {
@@ -125,21 +138,22 @@
     transition: stroke 0.5s;
 }
 
+.services-card.expand .services-card-details {
+    opacity: 1;
+}
+
 .services-card.expand .services-card-img-container {
     opacity: 0;
     height: 0px;
 }
 
-.services-card.expand .services-card-content {
-    height: 90%;
-}
-
-
-
-
 @media screen and (max-width: 1000px) {
     #our-services {
-        margin-top: 600px;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 20px;
+        /* margin-top: 600px; */
+        max-height: none;
     }
 
     .cards-container {
@@ -148,7 +162,6 @@
         flex-direction: column;
         width: 100vw;
         max-width: 400px;
-
     }
 
     .services-card {
@@ -166,4 +179,15 @@
     .services-card:nth-child(3) {
         margin-right: 8px;
     }
+}
+
+.services-anchor {
+    color: #144283; 
+    cursor: pointer; 
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.services-anchor:hover {
+    color: #4273b8; 
 }

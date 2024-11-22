@@ -1,22 +1,53 @@
 :root {
-	--border-radius: 0.5vh;
-}
+	--color0: #000;
+	--color1: #fff;
+	--color2: #eef4fc;
+	--color3: #dce9f9;
+	--color4: #cbdef6;
+	--color5: #bad3f3;
+	--color6: #a8c7f0;
+	--color7: #96bced;
+	--color8: #85b1ea;
+	--color9: #73a6e7;
+	--color10: #629be4;
+	--color11: #518fe1;
+	--color12: #3f84de;
+	--color13: #2e79dc;
+	--color14: #236fd1;
+	--color15: #2166c0;
+	--color16: #1e5cae;
+	--color17: #1b539d;
+	--color18: #184a8c;
+	--color19: #15417a;
+	--color20: #123769;
+	--color21: #0f2e57;
+	--color22: #0c2546;
+	--color23: #091c34;
+	--color24: #061323;
+	--color25: #030911;
 
-* {
-	font-family: Montserrat;
-
-}
-body {
-	background-color: black;
-	color: white;
-	margin: 0;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-ms-overflow-style:none;
-	overflow-x: hidden;
-	position: relative;
-}
-
-html {
-	overflow-x: hidden;
+	--compcolor2: #FCF6EE;
+	--compcolor3: #F9ECDC;
+	--compcolor4: #F6E3CB;
+	--compcolor5: #F3DABA;
+	--compcolor6: #F0D1A8;
+	--compcolor7: #EDC796;
+	--compcolor8: #EABE85;
+	--compcolor9: #E7B473;
+	--compcolor10: #E4AB62;
+	--compcolor11: #E1A351;
+	--compcolor12: #DE993F;
+	--compcolor13: #DC912E;
+	--compcolor14: #D18523;
+	--compcolor15: #C07B21;
+	--compcolor16: #AE701E;
+	--compcolor17: #9D651B;
+	--compcolor18: #8C5A18;
+	--compcolor19: #7A4E15;
+	--compcolor20: #694412;
+	--compcolor21: #57380F;
+	--compcolor22: #462D0C;
+	--compcolor23: #342109;
+	--compcolor24: #231606;
+	--compcolor25: #110B03;
 }

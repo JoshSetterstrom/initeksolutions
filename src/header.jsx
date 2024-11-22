@@ -1,79 +1,3 @@
-// import './header.css';
-// import { useEffect, useRef, useState } from 'react';
-
-
-// export default function Header({img}) {
-//     const [render, setRender] = useState(null);
-//     const [expanded, setExpanded] = useState(false);
-//     const headerRef = useRef(null);
-
-//     const sections = ['home', 'about-us', 'our-services', 'contact-us'];
-
-//     const anchors = sections.map(section => (
-//         <a
-//             key={`a-${section}`}
-//             target='_blank'
-//             onClick={() => {document.getElementById(section)?.scrollIntoView({behavior: 'smooth', block: 'center'})}}
-//         >
-//             {section.replace('-', ' ').toUpperCase()}
-//         </a>
-//     ));
-
-//     const hamIcon = (
-//         <div className='ham-ico-container' onClick={() => setExpanded(expanded => !expanded)}>
-//             <div className='ham-ico'/>
-//             <div className='ham-ico'/>
-//             <div className='ham-ico'/>
-//         </div>
-//     );
-
-//     const sidebar = (
-//         <aside className='sidemenu' style={{left: expanded ? "calc(100% - 200px)" : '100%', width: expanded ? '200px' : '0'}}>
-//             <div className='sidemenu-item' style={{height: '8rem'}}>
-//                 <div className='sidemenu-close-container' onClick={() => setExpanded(expanded => !expanded)}>
-//                     <div className='sidemenu-close'/>
-//                 </div>
-//             </div>
-//             {sections.map(section => (
-//                 <div 
-//                     key={`sa-${section}`} 
-//                     className='sidemenu-item'
-//                     onClick={() => {
-//                         document.getElementById(section)?.scrollIntoView({behavior: 'smooth', block: 'center'});
-//                         setExpanded(false)
-//                     }}
-//                 >
-//                     {section.replace('-', ' ')}
-//                 </div>
-//             ))}
-//         </aside>
-//     )
-
-//     const renderDOM = () => {
-//         return setRender(
-//             <header ref={headerRef}>
-//                 <div className='header-img-container'>
-//                     <img src={img} alt="logo"/>
-//                 </div>
-//                 <nav>{window.screen.width < 1000 || window.innerWidth < 1000 ? hamIcon : anchors}</nav>
-//                 {(window.screen.width < 1000 || window.innerWidth < 1000) && sidebar}
-//             </header>
-//         );
-//     };
-
-//     useEffect(() => {
-//         renderDOM();
-
-//         window.addEventListener('resize', renderDOM);
-
-//         return () => window.removeEventListener('resize', renderDOM);
-//     }, [expanded]);
-
-//     return render;
-// };
-
-
-
 import './header.css';
 import { useEffect, useState } from 'react';
 
@@ -82,6 +6,7 @@ export default function Header({ img }) {
     const [expanded, setExpanded] = useState(false);
 
     const sections = ['home', 'about-us', 'our-services', 'contact-us'];
+    const anchors = ['home', 'about-us-text-container', 'our-services', 'contact-us']
 
     // Update isMobile state based on window width
     useEffect(() => {
@@ -97,15 +22,20 @@ export default function Header({ img }) {
     }, []);
 
     const handleScroll = section => {
-        document.getElementById(section).scrollIntoView({ behavior: 'smooth', block: isMobile ? 'start' : 'center' });
+        if (section === 'home') {
+            window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
+        } else {
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth', block: isMobile ? 'start' : 'center' });
+        }
+
         setExpanded(false);
     }
 
     // Navigation links for desktop view
-    const anchors = sections.map(section => (
+    const sectionElements = sections.map((section, i) => (
         <a
             key={`a-${section}`}
-            onClick={() => handleScroll(section)}
+            onClick={() => handleScroll(anchors[i])}
         >
             {section.replace('-', ' ').toUpperCase()}
         </a>
@@ -140,11 +70,11 @@ export default function Header({ img }) {
                     <div className="sidemenu-close" />
                 </div>
             </div>
-            {sections.map(section => (
+            {sections.map((section, i) => (
                 <div
                     key={`sa-${section}`}
                     className="sidemenu-item"
-                    onClick={() => handleScroll(section)}
+                    onClick={() => handleScroll(anchors[i])}
                 >
                     {section.replace('-', ' ')}
                 </div>
@@ -158,7 +88,7 @@ export default function Header({ img }) {
                 <img src={img} alt="logo" />
             </div>
 
-            <nav>{isMobile ? hamIcon : anchors}</nav>
+            <nav>{isMobile ? hamIcon : sectionElements}</nav>
 
             {isMobile && sidebar}
         </header>

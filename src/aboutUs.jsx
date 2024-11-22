@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './aboutUs.css';
 
 export default function AboutUs({img}) {
     const imgRef = useRef(null);
     const textRef = useRef(null);
 
+    // Handle various animation affects on image and text
     useEffect(() => {
         let triggered = false;
 
@@ -60,7 +61,7 @@ export default function AboutUs({img}) {
             </div>
 
             <div id='about-us-text-container' ref={textRef}>
-                <div>/ About Us /</div>
+                <h5>/ About Us /</h5>
                 <h2>Providing Innovative Ideas</h2>
                 <p>
                     At Initek Solutions, we pride ourselves on delivering innovative IT solutions tailored to meet the unique needs of our clients. 
@@ -71,11 +72,11 @@ export default function AboutUs({img}) {
                     No matter what your business needs, we have the expertise to support a wide range of systems and services tailored just for you.
                 </p>
                 <ul>
-                    <li>✓ Providing Excellence</li>
-                    <li>✓ Professional Communication</li>
-                    <li>✓ Personalized Approach</li>
-                    <li>✓ Reliable Service</li>
-                    <li>✓ Quality Work</li>
+                    <li>Providing Excellence</li>
+                    <li>Professional Communication</li>
+                    <li>Personalized Approach</li>
+                    <li>Reliable Service</li>
+                    <li>Quality Work</li>
                 </ul>
             </div>
         </section>

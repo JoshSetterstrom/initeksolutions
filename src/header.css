@@ -38,7 +38,7 @@ nav {
 }
 
 nav > a {
-    color: #d1c9ff;
+    color: var(--color6);
     padding: 0 1rem;
     font-size: 1.2rem;
     cursor: pointer;
@@ -47,18 +47,18 @@ nav > a {
 }
 
 nav > a:hover {
-    color: white;
+    color: var(--color1);
 }
 
 
 @media screen and (max-width: 1000px) {
     header {
-        /* position: absolute; */
         justify-content: space-between;
     }
 
     nav {
         margin-right: 40px;
+        margin-left: 0;
     }
 
     .header-img-container {
@@ -91,7 +91,7 @@ nav > a:hover {
     }
 
     .sidemenu {
-        z-index: 3;
+        z-index: 20;
         display: flex;
         position: fixed;
         overflow: hidden;

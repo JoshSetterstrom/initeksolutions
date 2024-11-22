@@ -13,6 +13,8 @@ export default function HomePage() {
 
             if (window.scrollY <= 0) return ref.current.style.opacity = 0;
 
+            console.log(window.scrollY, document.body.scrollHeight)
+
             ref.current.style.opacity = 0;
             ref.current.style.pointerEvents = 'all';
 
