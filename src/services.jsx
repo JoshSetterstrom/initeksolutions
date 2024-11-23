@@ -230,7 +230,6 @@ export default function Services({ imgs }) {
                         to support your business,{' '}
                         <a
                             className='services-anchor'
-                            // style={{ color: '#144283', cursor: 'pointer', whiteSpace: 'nowrap'}}
                             onClick={() => document.getElementById('contact-us').scrollIntoView({ behavior: 'smooth' })}
                         >
                             contact us
@@ -281,6 +280,7 @@ export default function Services({ imgs }) {
         },
     ];
 
+    // Handle card click animations
     const handleCardClick = index => {
         const card = cardRefs.current[index].children[1].children[0];
         
@@ -316,7 +316,7 @@ export default function Services({ imgs }) {
                     <div className="services-card-img-overlay" />
                 </div>
                 <div className="services-card-content">
-                    <h3>{card.title}</h3>
+                    <h4>{card.title}</h4>
                     <p>{card.summary}</p>
                     <div className="services-card-details">{card.details}</div>
                 </div>
@@ -331,7 +331,7 @@ export default function Services({ imgs }) {
 
     return (
         <section id="our-services">
-            <div style={{ marginBottom: 20 }}>/ Our Services /</div>
+            <h5>/ Our Services /</h5>
             <div className="cards-container">{renderCards}</div>
         </section>
     );

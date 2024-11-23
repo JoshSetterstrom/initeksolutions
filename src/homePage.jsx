@@ -11,14 +11,11 @@ export default function HomePage() {
         const handleOpacity = () => {
             clearTimeout(timeout);
 
-            if (window.scrollY <= 0) return ref.current.style.opacity = 0;
+            if (window.scrollY <= 0) return ref.current.classList.add('hide');
 
-            console.log(window.scrollY, document.body.scrollHeight)
+            ref.current.classList.add('hide');
 
-            ref.current.style.opacity = 0;
-            ref.current.style.pointerEvents = 'all';
-
-            timeout = setTimeout(() => ref.current.style.opacity = 1, 400);
+            timeout = setTimeout(() => ref.current.classList.remove('hide'), 400);
         }
 
         handleOpacity();
@@ -34,7 +31,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <div ref={ref} className='back-home' onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}>
+        <button ref={ref} className='return-home' onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}>
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 64 64" 
@@ -45,8 +42,6 @@ export default function HomePage() {
             >
                 <path d="M51.61 25.21L33.2 11.4a2 2 0 00-2.4 0L12.39 25.21a2 2 0 00-.8 1.6v26.64a2 2 0 002 2H25a2 2 0 002-2V45a2 2 0 012-2h7a2 2 0 012 2v8.45a2 2 0 002 2h10.41a2 2 0 002-2V26.81a2 2 0 00-.8-1.6z"/>
             </svg>
-        </div>
+        </button>
     )
-
-    // return <div ref={ref} className='next-page' onClick={handlePageChange}/>;
 };

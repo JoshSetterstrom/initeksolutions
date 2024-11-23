@@ -31,7 +31,7 @@ export default function AboutUs({img}) {
 
                     if (ele.tagName === 'UL') {
                         Array.from(ele.children).forEach((child, l) => {
-                            setTimeout(() => child.style.opacity = 1, 500*(i+1) + 200*l);   
+                            setTimeout(() => child.style.opacity = 1, 500*(i+1) + 200*l);
                         });
                     } else {
                         setTimeout(() => {
