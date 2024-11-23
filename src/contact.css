@@ -130,7 +130,7 @@ textarea:hover {
         margin-top: 100px;
         max-height: none;
         padding-bottom: 130px;
-        padding-top: 0;
+        padding-top: 24px;
     }
 
     #contact-container {
