@@ -57,7 +57,7 @@ export default function AboutUs({img}) {
             <div className='background'/>
 
             <div id='about-us-img-container' ref={imgRef}>
-                <img src={img} />
+                <img src={img} alt="about-us" />
             </div>
 
             <div id='about-us-text-container' ref={textRef}>

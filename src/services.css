@@ -18,6 +18,7 @@
     cursor: pointer;
     transition: color 0.3s;
     white-space: nowrap;
+    width: 0;
 }
 
 .services-anchor:hover {

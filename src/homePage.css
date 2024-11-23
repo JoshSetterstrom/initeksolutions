@@ -1,7 +1,6 @@
 .return-home {
     align-items: center;
-    background-color: var(--color20);
-    border: 3px solid var(--color25);
+    background-color: var(--compcolor20);
     border-radius: 56px;
     box-shadow: none;
     cursor: pointer;
@@ -19,7 +18,7 @@
 }
 
 .return-home:hover {
-    background-color: var(--color17);
+    background-color: var(--compcolor17);
 }
 
 .hide {

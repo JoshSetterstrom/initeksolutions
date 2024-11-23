@@ -61,7 +61,7 @@ export default function Home({ img }) {
                     aiming to deliver cost-effective and efficient options to meet your communication and networking needs.
                 </p>
 
-                <button onClick={handleScroll}>
+                <button onClick={handleScroll} aria-label='Book a Consultation'>
                     Book a consultation
                 </button>
             </div>

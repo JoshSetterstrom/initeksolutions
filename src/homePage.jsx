@@ -31,7 +31,7 @@ export default function HomePage() {
     }, []);
 
     return (
-        <button ref={ref} className='return-home' onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}>
+        <button ref={ref} className='return-home hide' onClick={() => window.scrollTo({top: 0, left: 0, behavior: 'smooth'})}>
             <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 64 64" 

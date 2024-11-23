@@ -33,12 +33,13 @@ export default function Header({ img }) {
 
     // Navigation links for desktop view
     const sectionElements = sections.map((section, i) => (
-        <a
+        <div
+            className='nav-item'
             key={`a-${section}`}
             onClick={() => handleScroll(anchors[i])}
         >
             {section.replace('-', ' ').toUpperCase()}
-        </a>
+        </div>
     ));
 
     // Hamburger icon for mobile view
@@ -75,6 +76,7 @@ export default function Header({ img }) {
                     key={`sa-${section}`}
                     className="sidemenu-item"
                     onClick={() => handleScroll(anchors[i])}
+                    aria-label={section}
                 >
                     {section.replace('-', ' ')}
                 </div>
