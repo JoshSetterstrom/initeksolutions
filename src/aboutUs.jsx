@@ -74,9 +74,9 @@ export default function AboutUs({img}) {
                 <ul>
                     <li>Providing Excellence</li>
                     <li>Professional Communication</li>
+                    <li>Quality Work</li>
                     <li>Personalized Approach</li>
                     <li>Reliable Service</li>
-                    <li>Quality Work</li>
                 </ul>
             </div>
         </section>
