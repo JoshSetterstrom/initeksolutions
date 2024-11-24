@@ -1,5 +1,5 @@
 import './header.css';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 export default function Header({ img }) {
     const [isMobile, setIsMobile] = useState(false);
@@ -9,7 +9,7 @@ export default function Header({ img }) {
     const anchors = ['home', 'about-us-text-container', 'our-services', 'contact-us']
 
     // Update isMobile state based on window width
-    useEffect(() => {
+    useLayoutEffect(() => {
         const handleResize = () => {
             window && setIsMobile(window.innerWidth < 1000);
         };

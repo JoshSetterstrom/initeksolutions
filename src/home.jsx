@@ -6,26 +6,30 @@ export default function Home({ img }) {
     const imgRef = useRef(null);
 
     useEffect(() => {
-        // Update image marginTop for parallax effect on scroll
+        let ticking = false;
+
         const handleScroll = () => {
-            if (imgRef.current) {
-                imgRef.current.style.marginTop = `${window.scrollY * -0.3}px`;
-            }
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              if (imgRef.current && window.scrollY <= 1000) {
+                imgRef.current.style.transform = `translateY(${window.scrollY * -0.3}px)`;
+              }
+              ticking = false;
+            });
+            ticking = true;
+          }
         };
 
         // Animate text and image on component mount
         const animateElements = () => {
             if (textRef.current && imgRef.current) {
-                setTimeout(() => {
-                    imgRef.current.style.opacity = '1';
-                }, 500);
-                
-                textRef.current.style.left = '0';
-                textRef.current.style.opacity = '1';
+                imgRef.current.classList.remove('loading');
+
+                textRef.current.classList.remove('loading');
             };
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll);    
 
         const timer = setTimeout(animateElements, 200);
 
@@ -47,10 +51,10 @@ export default function Home({ img }) {
                 <div className='canvas-gradient left' />
                 <div className='canvas-gradient right' />
                 <div className='canvas-gradient five' />
-                <img src={img} ref={imgRef} alt="canvas" />
+                <img src={img} className='loading' ref={imgRef} alt="canvas" />
             </div>
 
-            <div id='home-text-container' ref={textRef}>
+            <div id='home-text-container' className='loading' ref={textRef}>
                 <h1>
                     Your Network, <br />
                     Our Expertise
