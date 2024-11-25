@@ -110,7 +110,7 @@ export default function Contact() {
                 let response = {}
 
                 try {
-                    response = await axios.post('/new/contact.php', new FormData(formRef.current));
+                    response = await axios.post('/contact.php', new FormData(formRef.current));
                 } catch (err) {
                     response = {data: "Unable to process your request. Please try again later."}
                 }
