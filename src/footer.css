@@ -1,0 +1,32 @@
+footer {
+    height: 80px;
+    width: 100%;
+    background-color: var(--color24);
+    margin-top: -80px;
+    font-size: 0.8em;
+    padding: 32px;
+    color: var(--compcolor10);
+}
+
+footer a {
+    color: var(--compcolor15);
+    cursor: pointer;
+    transition: color 0.4s;
+    margin: 0 1px;
+}
+
+footer a:hover {
+    color: var(--compcolor2);
+}
+
+@media screen and (max-width: 1000px) {
+    footer {
+        display: flex;
+        justify-content: center;
+        padding: 32px 0;
+    }
+
+    footer a {
+        margin: 0 4px;
+    }
+}

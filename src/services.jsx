@@ -154,7 +154,7 @@ export default function Services({ imgs }) {
 
         setTimeout(() => {
             card.style.transition = 'width 0.3s';
-            card.style.width = '100px';
+            card.style.width = '120px';
         }, 300);
     };
 
@@ -179,9 +179,7 @@ export default function Services({ imgs }) {
                 </div>
             </div>
             <div className="services-cta">
-                <span style={{ display: 'flex', width: 100, overflow: 'hidden', transition: 'width 0.3s ease-in-out', whiteSpace: 'nowrap'}}>
-                    {!!cardStates[index] ? <>Collapse {LeftArrow}</> : <>See More {RightArrow}</>}
-                </span>
+                {!!cardStates[index] ? <span>Collapse {LeftArrow}</span> : <span>Read More {RightArrow}</span>}
             </div>
         </div>
     ));

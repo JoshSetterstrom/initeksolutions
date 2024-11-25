@@ -42,11 +42,21 @@
 }
 
 form label {
-    color: #a0a8b0;
+    display: flex;
+    justify-content: space-between;
+    color: var(--color4);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1em;
     font-weight: bolder;
     margin-bottom: 10px;
+}
+
+form span {
+    color: red;
+    font-size: 0.9em;
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.1s;
 }
 
 form input,
@@ -102,6 +112,22 @@ textarea:hover {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.form-item .error {
+    background-color: var(--errorcolor1);
+}
+
+.form-item .error:hover {
+    background-color: var(--errorcolor2);
+}
+
+.info-icon {
+    width: 32px;
+    height: 32px;
+    stroke: var(--compcolor13); 
+    stroke-width: 3;
+    fill: none;
 }
 
 .contact-divider {

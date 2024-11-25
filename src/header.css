@@ -61,27 +61,20 @@ nav {
     }
 
     .ham-ico-container {
-        align-items: center;
         cursor: pointer;
-        display: flex;
-        flex-direction: column;
-        height: 3em;
-        justify-content: space-evenly;
-        width: 2.4em;
     }
 
     .ham-ico {
-        background-color: var(--color1);
-        border-radius: 1px;
-        box-sizing: border-box;
-        content: '';
-        min-height: 3px;
-        transition: background-color 0.2s;
-        width: 2.4em;
+        width: 64px; 
+        height: 64px; 
+        stroke: var(--compcolor13); 
+        stroke-width: 3;
+        fill: none;
+        transition: stroke 0.4s;
     }
 
     .ham-ico-container:hover .ham-ico {
-        background-color: var(--color7);
+        stroke: var(--compcolor5);
     }
 
     .sidemenu {

@@ -91,6 +91,11 @@
         width: 100vw;
     }
 
+    #home-text-container.loading {
+        left: 0px;
+        opacity: 0;
+    }
+
     #home-text-container {
         align-items: center;
         left: 0;

@@ -50,6 +50,9 @@
 	--compcolor23: #342109;
 	--compcolor24: #231606;
 	--compcolor25: #110B03;
+
+    --errorcolor1: #200303;
+    --errorcolor2: #350707;
 }
 
 *,

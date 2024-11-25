@@ -1,0 +1,45 @@
+#popup {
+    display: flex;
+    position: fixed;
+    height: auto;
+    width: 96%;
+    background-color: var(--color17);
+    top: -80px;
+    min-width: 304px;
+    max-width: 560px;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: top 0.3s ease-in-out;
+    max-height: 100px;
+    z-index: 100;
+}
+
+.popup-content {
+    margin: 16px;
+    width: 90%;
+}
+
+.close {
+    height: 70px;
+    width: 10%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    min-width: 24px;
+}
+
+.close-ico {
+    height: 70px;
+    stroke-width: 5;
+    stroke: var(--color1);
+    width: 24px;
+    margin: 8px 16px;
+    transition: stroke 0.3s;
+    cursor: pointer;
+    color: var(--color1);
+    min-width: 24px;
+}
+
+.close:hover .close-ico {
+    stroke: var(--color22)
+}

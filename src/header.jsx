@@ -42,17 +42,17 @@ export default function Header({ img }) {
         </div>
     ));
 
-    // Hamburger icon for mobile view
     const hamIcon = (
-        <div
-            className="ham-ico-container"
-            onClick={() => setExpanded(!expanded)}
-        >
-            <div className="ham-ico" />
-            <div className="ham-ico" />
-            <div className="ham-ico" />
+        <div className='ham-ico-container' onClick={() => setExpanded(!expanded)}>
+            <svg 
+                className='ham-ico'
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 64 64" 
+            >
+                <path d="M7.68 32h48.64M7.68 15.97h48.64M7.68 48.03h48.64"/>
+            </svg>
         </div>
-    );
+    )
 
     // Sidebar menu for mobile view
     const sidebar = (
