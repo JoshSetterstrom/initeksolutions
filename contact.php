@@ -1,6 +1,6 @@
 <?php
 
-$to = 'joshsetterstrom@gmail.com';
+$to = 'info.initeksolutions.com';
 
 $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
@@ -21,17 +21,17 @@ $message = htmlspecialchars(strip_tags($message));
 
 $subject = 'New Contact Form Submission';
 $body = "Name: $name\n";
-$body .= "Email: $email\n\n";
+$body .= "Phone Number: $phone_number\n";
+$body .= "Email: $email\n";
+$body .= "Company Name: $company_name\n";
 $body .= "Notes:\n$notes\n";
-$body .= "Notes:\n$company_name\n";
-$body .= "Notes:\n$phone_number\n";
 
 $headers = "From: $name <$email>\r\n";
 $headers .= "Reply-To: $email\r\n";
 
 if (mail($to, $subject, $body, $headers)) {
-    echo 'Thank you for your message. We will get back to you shortly.';
+    echo "Thanks for reaching out! We'll respond to you as soon as possible.";
 } else {
-    echo 'There was an error sending your message. Please try again later.';
+    echo 'We were unable to process your request. Please try again later.';
 }
 ?>

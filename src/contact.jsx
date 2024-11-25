@@ -32,7 +32,9 @@ export default function Contact() {
     const [popup, setPopup] = useState(null);
     const [errors, setErrors] = useState([null, null, null]);
     const [submitTimeout, setSubmitTimeout] = useState(null);
+    const [buttonContent, setButtonContent] = useState("Submit");
     const formRef = useRef(null);
+    const submitRef = useRef(null);
 
     const info = {
         email: 'info@initeksolutions.com',
@@ -57,6 +59,23 @@ export default function Contact() {
             <circle cx="31.05" cy="22.24" r="6.93"/>
         </svg>
     ]
+
+    const loading = (
+        <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 100 100" 
+            preserveAspectRatio="xMidYMid" 
+            style={{height: 48, width: 48, shapeRendering: "auto", display: "block", background: "transparent"}}
+            xlink="http://www.w3.org/1999/xlink"
+        >
+            <g>
+                <circle stroke-dasharray="164.93361431346415 56.97787143782138" r="35" stroke-width="10" stroke="#eef4fc" fill="none" cy="50" cx="50">
+                    <animateTransform keyTimes="0;1" values="0 50 50;360 50 50" dur="1s" repeatCount="indefinite" type="rotate" attributeName="transform"/>
+                </circle>
+                <g></g>
+            </g>
+        </svg>
+    )
 
     // Handle form submission
     const submitForm = async () => {
@@ -84,15 +103,24 @@ export default function Contact() {
 
                 setPopup(<Popup close={() => setPopup(null)} message={`You have recently submitted a form. Please wait ${remainder === 0 ? 1 : remainder} more seconds before trying again.`}/>);
             } else {
-                setPopup(<Popup close={() => setPopup(null)} message="Thanks for reaching out! We'll respond to you as soon as possible."/>);
+                submitRef.current.classList.add('loading');
+                
+                setButtonContent(loading);
+                
+                let response = {}
+
+                try {
+                    response = await axios.post('/new/contact.php', new FormData(formRef.current));
+                } catch (err) {
+                    response = {data: "Unable to process your request. Please try again later."}
+                }
+
+                setPopup(<Popup close={() => setPopup(null)} message={response.data}/>);
 
                 setSubmitTimeout(setTimeout(() => setSubmitTimeout(false), 5000));
-
+                setButtonContent("Submit")
+                submitRef.current.classList.remove('loading');
                 timer = Date.now();
-
-                const response = await axios.post({url: 'https://www.initeksolutions.com/new/contact.php', data: new FormData(formRef.current)});
-
-                console.log(response)
             }
         }
     };
@@ -120,7 +148,6 @@ export default function Contact() {
     return (
         <section id="contact-us">
             {popup}
-            {/* {popup ? <Popup close={() => setPopup(false)} message="Thanks for reaching out! We'll respond to you as soon as possible."/> : null} */}
             <div id="contact-container">
                 <h5>/ Contact Us /</h5>
                 <h3>Book an appointment with us today</h3>
@@ -134,7 +161,7 @@ export default function Contact() {
                     <FormItem errors={errors} label="Additional Notes" id="notes" isTextarea />
                 </form>
 
-                <button onClick={submitForm}>Submit</button>
+                <button ref={submitRef} onClick={submitForm}>{buttonContent}</button>
             </div>
 
             <div id="info-container">
