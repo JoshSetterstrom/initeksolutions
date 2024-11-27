@@ -1,18 +1,12 @@
 <?php
 
-$to = 'info.initeksolutions.com';
+$to = 'info@initeksolutions.com';
 
 $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
 $notes = $_POST['notes'] ?? '';
 $company_name = $_POST['company_name'] ?? '';
 $phone_number = $_POST['phone_number'] ?? '';
-
-// Validate email address
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo 'Invalid email address.';
-    exit;
-}
 
 // Sanitize inputs
 $name = htmlspecialchars(strip_tags($name));
