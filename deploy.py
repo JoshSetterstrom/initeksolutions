@@ -16,8 +16,9 @@ ftp_host = 'ftp.initeksolutions.com'
 ftp_user = input('USER: ')
 ftp_pass = getpass.getpass('PASSWORD: ')
 local_dir = input('LOCAL_DIRECTORY: ')
-remote_dir = input('REMOTE_DIR: ')
+remote_dir = input('REMOTE_DIR: ') or "."
 overwrite = input('OVERWRITE? Y/N: ')
+
 
 overwrite_bool_vals = ['Yes', 'No', 'y', 'n']
 
@@ -25,6 +26,7 @@ overwrite_bool_vals = ['Yes', 'No', 'y', 'n']
 ftps = ftplib.FTP_TLS(ftp_host)
 ftps.login(user=ftp_user, passwd=ftp_pass)
 ftps.prot_p()
+
 
 def upload(local_dir, remote_dir, tab=0):
     _tab = ''.join(['    ' for x in range(tab)])
@@ -44,10 +46,16 @@ def upload(local_dir, remote_dir, tab=0):
                 print(f"{_tab}Uploading file: {item}")
                 ftps.storbinary(f'STOR {remote_dir}/{item}', file)
 
+
 def clear():
     local_items = os.listdir(local_dir)
     ftp_items = ftps.nlst(remote_dir)
+    
     items_to_remove = [f"{remote_dir}/{x}" for x in local_items if f"{remote_dir}/{x}" in ftp_items]
+
+    print(local_items)
+    print(ftp_items)
+    print(items_to_remove)
 
     def clear_item(item, tab):
         _tab = ''.join(['    ' for _ in range(tab)])
@@ -81,5 +89,6 @@ def clear():
 
 overwrite.lower() in overwrite_bool_vals and clear()
 upload(local_dir, remote_dir)
+
 
 ftps.quit()
