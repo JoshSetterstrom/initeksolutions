@@ -64,12 +64,15 @@ export default function AboutUs({img}) {
                 <h5>/ About Us /</h5>
                 <h2>Providing Innovative Ideas</h2>
                 <p>
-                    At Initek Solutions, we pride ourselves on delivering innovative IT solutions tailored to meet the unique needs of our clients. 
-                    We’re here to make sure your technology infrastructure is efficient, secure, and ready for the future. 
-                    With our team’s commitment to excellent service, you can trust us to support your business at every step. 
-                    <br/><br/>
-                    Our technicians understand that providing quality and effective service and support are essential in keeping our valued customers. 
-                    No matter what your business needs, we have the expertise to support a wide range of systems and services tailored just for you.
+                    <span>
+                        At Initek Solutions, we pride ourselves on delivering innovative IT solutions tailored to meet the unique needs of our clients. 
+                        We’re here to make sure your technology infrastructure is efficient, secure, and ready for the future. 
+                        With our team’s commitment to excellent service, you can trust us to support your business at every step. 
+                    </span>
+                    <span>
+                        Our technicians understand that providing quality and effective service and support are essential in keeping our valued customers. 
+                        No matter what your business needs, we have the expertise to support a wide range of systems and services tailored just for you.
+                    </span>
                 </p>
                 <ul>
                     <li>Providing Excellence</li>

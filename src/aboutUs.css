@@ -39,10 +39,15 @@
 #about-us-text-container p {
     display: flex;
     left: 100px;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
     opacity: 0;
     position: relative;
     transition: inherit;
+    flex-direction: column;
+}
+
+#about-us-text-container span {
+    margin-bottom: 20px;
 }
 
 #about-us-text-container ul {
