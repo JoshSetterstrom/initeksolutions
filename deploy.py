@@ -6,7 +6,7 @@ print('''
     _______________________________________________________________
     |  DEPLOY.PY                                                  |
     |                                                             |
-    |  Deploy new build to production.                            |
+    |  Deploy new build to specfied FTP folder.                   |
     |  If you are deleting or creating new files in the build,    |
     |  overwrite the old files.                                   |
     ---------------------------------------------------------------    
