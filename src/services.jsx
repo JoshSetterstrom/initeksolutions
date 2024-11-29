@@ -17,6 +17,7 @@ export default function Services({ imgs }) {
 
             // Check if the section is in view
             const rect = anchor.getBoundingClientRect();
+
             if (rect.top <= window.innerHeight * 0.9) {
                 triggered = true;
                 // Animate cards into view
@@ -164,7 +165,6 @@ export default function Services({ imgs }) {
             key={index}
             className={`services-card${!!cardStates[index] ? " expand" : ""}`}
             style={{transform: `translate3d(0, ${index%2 === 0 ? '-24' : '24'}px, 0)`}}
-            // style={{ transform: index % 2 === 0 ? 'translate3d(0, -24px, 0)' : '24px' }}
             ref={el => cardRefs.current[index] = el}
             onClick={() => handleCardClick(index)}
         >
