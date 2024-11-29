@@ -1,5 +1,4 @@
 <?php
-
 $to = 'info@initeksolutions.com';
 
 $name = $_POST['name'] ?? '';

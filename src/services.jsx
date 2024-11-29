@@ -22,7 +22,7 @@ export default function Services({ imgs }) {
                 // Animate cards into view
                 cardRefs.current.forEach((ref) => {
                     if (ref) {
-                        ref.style.top = '0px';
+                        ref.style.transform = 'translate3d(0, 0, 0)';
                         ref.style.opacity = '1';
                     }
                 });
@@ -163,7 +163,8 @@ export default function Services({ imgs }) {
         <div
             key={index}
             className={`services-card${!!cardStates[index] ? " expand" : ""}`}
-            style={{ top: index % 2 === 0 ? '-24px' : '24px' }}
+            style={{transform: `translate3d(0, ${index%2 === 0 ? '-24' : '24'}px, 0)`}}
+            // style={{ transform: index % 2 === 0 ? 'translate3d(0, -24px, 0)' : '24px' }}
             ref={el => cardRefs.current[index] = el}
             onClick={() => handleCardClick(index)}
         >
