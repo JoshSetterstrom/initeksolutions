@@ -17,7 +17,7 @@ $phone_number = htmlspecialchars(strip_tags(trim($phone_number)));
 
 // Check if required fields are empty
 if (empty($name) && empty($phone_number) && empty($email)) {
-    echo "Error: At least one of the required fields (name, phone number, or email) must be filled out.";
+    echo "All required fields (name, phone number, and email) must be filled out.";
     exit;
 }
 
