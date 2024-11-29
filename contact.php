@@ -1,5 +1,6 @@
 <?php
-$to = 'info@initeksolutions.com';
+
+$to = 'joshsetterstrom@gmail.com';
 
 $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
@@ -7,10 +8,18 @@ $notes = $_POST['notes'] ?? '';
 $company_name = $_POST['company_name'] ?? '';
 $phone_number = $_POST['phone_number'] ?? '';
 
-// Sanitize inputs
-$name = htmlspecialchars(strip_tags($name));
-$email = htmlspecialchars(strip_tags($email));
-$message = htmlspecialchars(strip_tags($message));
+// Trim and sanitize inputs
+$name = htmlspecialchars(strip_tags(trim($name)));
+$email = htmlspecialchars(strip_tags(trim($email)));
+$notes = htmlspecialchars(strip_tags(trim($notes)));
+$company_name = htmlspecialchars(strip_tags(trim($company_name)));
+$phone_number = htmlspecialchars(strip_tags(trim($phone_number)));
+
+// Check if required fields are empty
+if (empty($name) && empty($phone_number) && empty($email)) {
+    echo "Error: At least one of the required fields (name, phone number, or email) must be filled out.";
+    exit;
+}
 
 $subject = 'New Contact Form Submission';
 $body = "Name: $name\n";
@@ -27,4 +36,5 @@ if (mail($to, $subject, $body, $headers)) {
 } else {
     echo 'We were unable to process your request. Please try again later.';
 }
+
 ?>
