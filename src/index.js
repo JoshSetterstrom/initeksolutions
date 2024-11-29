@@ -21,16 +21,20 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
-        <Header img={logo}/>
-        <HomePage />
+        <div className='asd' style={{ justifyContent: 'center', alignItems: 'center', marginLeft: 10, marginTop: 10, display: 'flex', height: 60, width: 60, backgroundColor: 'white', color: 'var(--color20)', fontSize: 48, fontWeight: 600}}>
+            <div style={{marginTop: -6}}>i</div>
+            <div style={{marginTop: 10}}>S</div>
+        </div>
+        {/* <Header img={logo}/> */}
+        {/* <HomePage /> */}
 
-        <main>
+        {/* <main>
             <Home img={homeImg}/>
             <AboutUs img={aboutusImg}/>
             <Services imgs={[servicesImg1, servicesImg2, servicesImg3]}/>
             <Contact />
-        </main>
+        </main> */}
 
-        <Footer />
+        {/* <Footer /> */}
     </React.StrictMode>
 );

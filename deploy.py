@@ -13,11 +13,17 @@ print('''
 ''')
 
 ftp_host = 'ftp.initeksolutions.com'
-ftp_user = input('USER: ')
-ftp_pass = getpass.getpass('PASSWORD: ')
-local_dir = input('LOCAL_DIRECTORY: ')
-remote_dir = input('REMOTE_DIR: ') or "."
-overwrite = input('OVERWRITE? Y/N: ')
+# ftp_user = input('USER: ')
+# ftp_pass = getpass.getpass('PASSWORD: ')
+# local_dir = input('LOCAL_DIRECTORY: ')
+# remote_dir = input('REMOTE_DIR: ') or "."
+# overwrite = input('OVERWRITE? Y/N: ')
+
+ftp_user = "webmaster@initeksolutions.com"
+ftp_pass = "sdFJdk3@-df"
+local_dir = "build"
+remote_dir = "."
+overwrite = "y"
 
 
 overwrite_bool_vals = ['Yes', 'No', 'y', 'n']
@@ -52,10 +58,6 @@ def clear():
     ftp_items = ftps.nlst(remote_dir)
     
     items_to_remove = [f"{remote_dir}/{x}" for x in local_items if f"{remote_dir}/{x}" in ftp_items]
-
-    print(local_items)
-    print(ftp_items)
-    print(items_to_remove)
 
     def clear_item(item, tab):
         _tab = ''.join(['    ' for _ in range(tab)])
