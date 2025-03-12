@@ -66,7 +66,7 @@ body {
     background-color: var(--color0);
     color: var(--color1);
     margin: 0;
-    overflow-x: hidden;
+    overflow: hidden;
     position: relative;
     -moz-osx-font-smoothing: grayscale;
     -ms-overflow-style: none;
@@ -142,7 +142,7 @@ section {
     display: flex;
     justify-content: center;
     margin: 80px 0;
-    max-height: 1080px;
+    /* max-height: 1080px; */
     width: 100%;
 }
 
@@ -151,8 +151,4 @@ section {
         flex-direction: column;
         height: inherit;
     }
-}
-
-.asd {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }

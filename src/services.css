@@ -1,16 +1,19 @@
 #our-services {
     display: flex;
     flex-direction: column;
-    height: auto;
     margin-bottom: 300px;
     margin-top: 280px;
 }
 
 .cards-container {
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    column-gap: 32px;
     justify-content: center;
     max-width: 1558px;
     width: 100%;
+    margin: 48px 0;
 }
 
 .services-anchor {
@@ -30,17 +33,13 @@
     display: flex;
     flex-direction: column;
     height: 600px;
-    margin: 12px;
-    margin-top: 48px;
-    margin-bottom: 12px;
+    max-width: 480px;
     min-height: 600px;
     min-width: 280px;
     opacity: 0;
     overflow: hidden;
     position: relative;
-    transform: scale(1);
     transition: opacity 2s, transform 1s, height 0.3s;
-    width: calc(100vw / 3);
 }
 
 .services-card:hover .right-arrow,
@@ -53,17 +52,24 @@
     transform: scale(1.025);
 }
 
-.services-card:first-child {
-    margin-left: 48px;
-}
-
 .services-card:nth-child(2) {
     transition-delay: 200ms;
 }
 
 .services-card:nth-child(3) {
-    margin-right: 48px;
     transition-delay: 400ms;
+}
+
+.services-card:nth-child(4) {
+    transition-delay: 600ms;
+}
+
+.services-card:nth-child(5) {
+    transition-delay: 800ms;
+}
+
+.services-card:nth-child(6) {
+    transition-delay: 1000ms;
 }
 
 .services-card.expand .services-card-details {
@@ -80,6 +86,13 @@
     flex-direction: column;
     height: fit-content;
     overflow: hidden;
+    width: auto;
+    justify-content: start;
+    padding: 0 16px;
+}
+
+.services-card-content > h4 {
+    margin: 16px 0;
 }
 
 .services-card-content-container {
@@ -91,7 +104,7 @@
     display: flex;
     line-height: 1.4;
     margin: 8px;
-    margin-left: 0;
+    margin-left: -16px;
 }
 
 .services-card-content ul {
@@ -132,7 +145,6 @@
 
 .services-card p {
     font-size: 0.925em;
-    margin: 8px 16px 0px 16px;
     white-space: normal;
 }
 
@@ -189,7 +201,6 @@
         margin-bottom: 0;
         margin-top: 0;
         max-height: none;
-        padding-top: 20px;
     }
 
     .services-cta {
@@ -198,26 +209,13 @@
 
     .cards-container {
         align-items: center;
-        flex-direction: column;
         justify-content: center;
         max-width: 400px;
         width: 100vw;
     }
 
     .services-card {
-        margin: 8px;
-        margin-top: 64px;
         max-width: 400px;
         width: 100vw;
-        height: 600px;
-    }
-
-    .services-card:first-child {
-        margin-left: 8px;
-        margin-top: 24px;
-    }
-
-    .services-card:nth-child(3) {
-        margin-right: 8px;
     }
 }

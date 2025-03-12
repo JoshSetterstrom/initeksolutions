@@ -25,7 +25,7 @@ export default function Header({ img }) {
         if (section === 'home') {
             window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
         } else {
-            document.getElementById(section).scrollIntoView({ behavior: 'smooth', block: isMobile ? 'start' : 'center' });
+            document.getElementById(section).scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         setExpanded(false);

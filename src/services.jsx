@@ -5,7 +5,7 @@ export default function Services({ imgs }) {
     const cardRefs = useRef([]);
     const [cardStates, setCardStates] = useState([false, false, false]);
 
-    const [img1, img2, img3] = imgs;
+    const [img1, img2, img3, img4, img5, img6] = imgs;
 
     useEffect(() => {
         // Flag to prevent multiple triggers
@@ -68,8 +68,7 @@ export default function Services({ imgs }) {
         {
             img: img1,
             title: 'Business Phone Systems',
-            summary:
-                'Initek Solutions specializes in troubleshooting, programming, and installing state-of-the-art phone systems, tailored to meet the unique needs of your business.',
+            summary: 'We specialize in troubleshooting, programming, and installing state-of-the-art phone systems, tailored to meet the unique needs of your business.',
             details: (
                 <>
                     <ul>
@@ -79,11 +78,9 @@ export default function Services({ imgs }) {
                         <li>Nortel Call Pilot</li>
                         <li>Avaya IP Office</li>
                         <li>VoIP phone sets</li>
-                        <li>
-                            Desk phones, cordless, conference phones and headsets
-                        </li>
+                        <li>Desk phones, cordless, conference phones and headsets</li>
                     </ul>
-                    <p>
+                    <p style={{marginTop: 24}}>
                         If you require assistance in choosing the best phone system
                         to support your business,{' '}
                         <span
@@ -100,39 +97,102 @@ export default function Services({ imgs }) {
         {
             img: img2,
             title: 'Cable/Fiber Installation',
-            summary:
-                'Initek Solutions provides meticulous installation, repair, and testing of copper and fiber-optic cabling for businesses of all sizes.',
+            summary: 'We provide meticulous installation, repair, and testing of copper and fiber-optic cabling for businesses of all sizes.',
             details: (
                 <ul>
                     <li>
                         Voice/Data runs: cat5e, cat6, cat6a or any voice/data
                         cabling (FT6 or FT4 rated, plenum, indoor, or outdoor) as
-                        per regulations.
+                        per regulations
                     </li>
                     <li>
                         Fiber, small to large scale installation (multimode 50/125,
                         62.5/125, single mode, SC, LC, ST connectors, indoor or
-                        outdoor).
+                        outdoor)
                     </li>
-                    <li>Coaxial cabling (rg6, rg59).</li>
+                    <li>Coaxial cabling (rg6, rg59)</li>
                 </ul>
             ),
         },
         {
             img: img3,
             title: 'Network & Testing',
-            summary:
-                'Our expert team offers end-to-end solutions, from network design and configuration to rigorous testing protocols that ensure reliability.',
+            summary: "Our expert team offers end-to-end solutions, from network design and configuration to rigorous testing protocols that ensure reliability.",
+            details: (
+                <>
+                    <ul>
+                        <li>Wireless solutions (routers, access points, modems)</li>
+                        <li>Patch panels and switches</li>
+                        <li>Extend and terminate network services</li>
+                        <li>Network racks</li>
+                        <li>Testing for latency and multi-pair connectivity</li>
+                        <li>Providing and installing UPS (Uninterrupted Power Supply)</li>
+                    </ul>
+                    <p style={{marginTop: 24}}>
+                        Ready to optimize your network?{' '}
+                        <span
+                            className='services-anchor'
+                            onClick={() => document.getElementById('contact-us').scrollIntoView({ behavior: 'smooth' })}
+                        >
+                            Contact
+                        </span>{' '}
+                        our team today to discuss your needs and schedule a consultation. We’re here to ensure your network operates at its best!
+                    </p>
+                </>
+            ),
+        },
+        {
+            img: img4,
+            title: 'NVR IP Camera Security Systems',
+            summary: 'We install advanced NVR IP Camera Systems to enhance your security setup. Our approach is tailored to your unique needs, ensuring a smooth and personalized experience.',
             details: (
                 <ul>
-                    <li>Wireless solutions (routers, access points, modems)</li>
-                    <li>Patch panels and switches</li>
-                    <li>Extend and terminate network services</li>
+                    <li>High-Resolution Video</li>
+                    <li>Real-Time Remote Access</li>
+                    <li>Smart Motion Detection</li>
                     <li>Network racks</li>
-                    <li>Testing for latency and multi-pair connectivity</li>
-                    <li>
-                        Providing and installing UPS (Uninterrupted Power Supply)
-                    </li>
+                    <li>Seamless Network Integration</li>
+                    <li>Expert Installation & Support</li>
+                </ul>
+            ),
+        },
+        {
+            img: img5,
+            title: 'Retail Motorola CLS 2-Way Radio Repair & Replacement',
+            summary: "We offer specialized repair and replacement services for your Motorola CLS 2-Way Radios, ensuring your team stays connected no matter what.",
+            details: (
+                <>
+                    <ul>
+                        <li>Expert Repairs</li>
+                        <li>Quality Replacement Parts</li>
+                        <li>Fast Turnaround</li>
+                        <li>Cost-Effective Solutions</li>
+                        <li>Testing for latency and multi-pair connectivity</li>
+                        <li>Comprehensive Support</li>
+                    </ul>
+                    <p style={{marginTop: 24}}>
+                        Trust us to keep your communication systems running smoothly.{' '}
+                        <span
+                            className='services-anchor'
+                            onClick={() => document.getElementById('contact-us').scrollIntoView({ behavior: 'smooth' })}
+                        >
+                            Contact us
+                        </span>{' '}
+                        today to learn more or schedule a service!
+                    </p>
+                </>
+            ),
+        },
+        {
+            img: img6,
+            title: 'Business Paging & Music Systems',
+            summary: "We provide reliable Business Paging and Music Systems from brands like Algo and Bogen. Our service is designed to provide seamless, high-quality audio experiences that keep your business connected and engaged.",
+            details: (
+                <ul>
+                    <li>Customized paging and background music systems</li>
+                    <li>Reliable paging for announcements and emergencies</li>
+                    <li>Easily incorporated into your current setup for hassle-free operation</li>
+                    <li>Expert Installation & Support</li>
                 </ul>
             ),
         },
@@ -170,7 +230,7 @@ export default function Services({ imgs }) {
         >
             <div className="services-card-content-container">
                 <div className="services-card-img-container">
-                    <img src={card.img} alt={card.title} />
+                    <img src={card.img} alt={card.title} height={399}/>
                     <div className="services-card-img-overlay" />
                 </div>
                 <div className="services-card-content">
