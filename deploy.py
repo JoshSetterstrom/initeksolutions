@@ -13,21 +13,13 @@ print('''
 ''')
 
 ftp_host = 'ftp.initeksolutions.com'
-# ftp_user = input('USER: ')
-# ftp_pass = getpass.getpass('PASSWORD: ')
-# local_dir = input('LOCAL_DIRECTORY: ')
-# remote_dir = input('REMOTE_DIR: ') or "."
-# overwrite = input('OVERWRITE? Y/N: ')
-
 ftp_user = "webmaster@initeksolutions.com"
-ftp_pass = "sdFJdk3@-df"
+ftp_pass = getpass.getpass('PASSWORD: ')
 local_dir = "build"
 remote_dir = "."
+overwrite = input('OVERWRITE? Y/N: ')
+
 overwrite = "y"
-
-
-overwrite_bool_vals = ['Yes', 'No', 'y', 'n']
-
 
 ftps = ftplib.FTP_TLS(ftp_host)
 ftps.login(user=ftp_user, passwd=ftp_pass)
@@ -89,7 +81,7 @@ def clear():
     print('\n')
 
 
-overwrite.lower() in overwrite_bool_vals and clear()
+overwrite.lower() in ['Yes', 'No', 'y', 'n'] and clear()
 upload(local_dir, remote_dir)
 
 
