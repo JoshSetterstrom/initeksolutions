@@ -17,8 +17,6 @@ ftp_user = "webmaster@initeksolutions.com"
 ftp_pass = getpass.getpass('PASSWORD: ')
 local_dir = "build"
 remote_dir = "."
-overwrite = input('OVERWRITE? Y/N: ')
-
 overwrite = "y"
 
 ftps = ftplib.FTP_TLS(ftp_host)
